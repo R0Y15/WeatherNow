@@ -6,7 +6,8 @@ function getWeather() {
     // Check if the input is not empty
     if (input) {
         // Create a URL for the weather API with the input as a query parameter
-        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=metric&appid=236bb39302420003220a7db6c237c584";
+        const token = "236bb39302420003220a7db6c237c584";
+        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=metric&appid=" + token;
 
         // Fetch the data from the URL using the fetch API
         fetch(url)
