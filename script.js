@@ -1,4 +1,5 @@
 // JavaScript code for fetching and displaying the weather data
+
 function getWeather() {
     // Get the user input from the text box
     var input = document.getElementById("input").value;
