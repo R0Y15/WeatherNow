@@ -134,3 +134,10 @@ function getTemperatureIcon(description) {
 
     
 }
+
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    getWeather();
+  }
+})
