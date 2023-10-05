@@ -3,6 +3,7 @@
 
 <head>
     <title>WeatherNow</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
@@ -34,9 +35,10 @@
         <div class="result-container" style="display: none">
             <div id="result" class="result-box" style="display: none"></div>
         </div>
+        <canvas id="hourlyChart" width="400" height="200" ></canvas>
     </div>
 
-    <canvas id="weatherChart" width="400" height="200"></canvas>
+    
 
     <!-- footer -->
     <footer>
@@ -53,7 +55,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </body>
 
 </html>
