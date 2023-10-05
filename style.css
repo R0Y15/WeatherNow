@@ -137,3 +137,43 @@ header {
   background-color: #ddd;
   color: black;
 }
+
+/* Style the temperature icon with color */
+.fa-thermometer-half.fa-lg {
+  color: #ff5733; /* Customize the color as needed */
+}
+
+/* Style the humidity icon with color */
+.fa-tint.fa-lg {
+  color: #3498db; /* Customize the color as needed */
+}
+
+/* Style the wind icon with color */
+.fa-wind.fa-lg {
+  color: #f39c12; /* Customize the color as needed */
+}
+
+/* Style the sun icon with color */
+.fa-sun {
+  color: #ffd700; /* Customize the color as needed */
+}
+
+/* Style the cloud icons with color */
+.fa-cloud {
+  color: #ecf0f1; /* Customize the color as needed */
+}
+
+/* Style the fog icon with color */
+.fa-smog {
+  color: #7f8c8d; /* Customize the color as needed */
+}
+
+/* Style the rainfall icon with color */
+.fa-cloud-showers-heavy {
+  color: #3498db; /* Customize the color as needed */
+}
+
+/* Style the light rain icon with color */
+.fa-cloud-rain {
+  color: #3498db; /* Customize the color as needed */
+}
