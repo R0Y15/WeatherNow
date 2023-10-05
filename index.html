@@ -7,20 +7,26 @@
 </head>
 
 <body>
-    <h1>Weather Forecasting Website</h1>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+            
+            <li class="nav-item"><a href="#">Contact</a></li>
+            
+        </ul>
+    </nav>
+    <header>
+        <h1>Weather Forecasting</h1>
+    </header>
     <div class="container">
-        <div class="loc-details">
-            <div id="form">
-                <input class="input" id="input" type="text" placeholder="Enter a city name" />
-                <button class="button" id="button" onclick="getWeather()">GO</button>
-            </div>
+        <div class="form">
+            <input id="input" type="text" placeholder="Enter a city name" />
+            <button id="button" onclick="getWeather()">GO</button>
         </div>
-        <div class="result">
-            <div id="result"></div>
-            Temp: <span id="city"></span>
-        </div>
+        <div id="result" class="result-box"></div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 
