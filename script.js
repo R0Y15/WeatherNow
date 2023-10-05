@@ -1,4 +1,5 @@
 // JavaScript code for fetching and displaying the weather data
+
 function getWeather() {
     // Get the user input from the text box
     var input = document.getElementById("input").value;
@@ -44,8 +45,8 @@ function getWeather() {
                 result.innerHTML = html;
 
                 // Roy
-                var cit = document.getElementById("city");
-                cit.innerHTML = " " + temp + " °C";
+                // var cit = document.getElementById("city");
+                // cit.innerHTML = " " + temp + " °C";
             })
             .catch(function (error) {
                 // Handle any errors that may occur
