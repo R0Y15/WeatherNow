@@ -6,7 +6,7 @@ function getWeather() {
 
     // Get the result div element
     var result = document.getElementById("result");
-
+    var result_container = document.querySelector(".result-container");
     // Hide the result initially
     result.style.display = "none";
 
@@ -45,15 +45,16 @@ function getWeather() {
                 // Create a HTML string to display the data in a formatted way
 
                 html =
-                    "<p><span class='label'>Temperature:</span> <span class='value'>" +
+                    "<p><span class='value temp'>" +
                     temp +
                     " °C " +
                     getTemperatureIcon(description) +
                     "</span></p>";
                 html +=
-                    "<p><span class='label'>Feels Like:</span> <span class='value'>" +
-                    feels_like +
-                    " °C</span></p>";
+                    "<p><span class='value description' style='text-transform:capitalize'>" +
+                    description +
+                    getWeatherIcon(description) +
+                    "</span></p>";
                 html +=
                     "<p><span class='label'>Humidity:</span> <span class='value'>" +
                     humidity +
@@ -62,16 +63,12 @@ function getWeather() {
                     "<p><span class='label'>Wind:</span> <span class='value'>" +
                     wind +
                     " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='label'>Description:</span> <span class='value'>" +
-                    description +
-                    getWeatherIcon(description) +
-                    "</span></p>";
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
 
                 // Show the result div
+                result_container.style.display = "block";
                 result.style.display = "block";
             })
             .catch(function (error) {
@@ -92,7 +89,7 @@ function getWeatherIcon(description) {
         "scattered clouds": "<i class='fas fa-cloud'></i>",
         "broken clouds": "<i class='fas fa-cloud'></i>",
         "overcast clouds": "<i class='fas fa-cloud'></i>",
-        "fog": "<i class='fas fa-smog'></i>",
+        fog: "<i class='fas fa-smog'></i>",
         "light rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "moderate rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "heavy rain": "<i class='fas fa-cloud-showers-heavy'></i>",
@@ -116,7 +113,7 @@ function getTemperatureIcon(description) {
         "scattered clouds": "<i class='fas fa-cloud-sun'></i>",
         "broken clouds": "<i class='fas fa-cloud-sun'></i>",
         "overcast clouds": "<i class='fas fa-cloud'></i>",
-        "fog": "<i class='fas fa-smog'></i>",
+        fog: "<i class='fas fa-smog'></i>",
         "light rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "moderate rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "heavy rain": "<i class='fas fa-cloud-showers-heavy'></i>",
@@ -130,14 +127,10 @@ function getTemperatureIcon(description) {
 
     // If no matching description is found, return an empty string
     return "";
-
-
-    
 }
 
-
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    getWeather();
-  }
-})
+    if (event.key === "Enter") {
+        getWeather();
+    }
+});
