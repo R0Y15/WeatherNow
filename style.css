@@ -6,6 +6,8 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
+    min-height: 100vh;
+    min-width: 100vh;
 }
 
 /* Style the header */
@@ -36,7 +38,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top:10px;
 }
 
 /* Style the input field */
