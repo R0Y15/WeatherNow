@@ -31,6 +31,7 @@ function getWeather() {
                 var humidity = data.main.humidity; // The humidity percentage
                 var wind = data.wind.speed; // The wind speed in meters per second
                 var description = data.weather[0].description; // The weather description
+                var icon = data.weather[0].icon; // The weather icon code
 
                 // Create a HTML string to display the data in a formatted way
                 var html = "<p><span class='label'>City:</span> <span class='value'>" + city + ", " + country + "</span></p>";
@@ -40,13 +41,16 @@ function getWeather() {
                 html += "<p><span class='label'>Wind:</span> <span class='value'>" + wind + " m/s</span></p>";
                 html += "<p><span class='label'>Description:</span> <span class='value'>" + description + "</span></p>";
 
+                // Create a URL for the weather icon using the icon code and the icons8 website
+                var icon_url = "https://icons8.com/icon/" + icon + "/weather";
+
+                // Add an image element to display the weather icon using the icon URL
+                html += "<img src='" + icon_url + "' alt='" + description + "' width='100' height='100'>";
+
                 // Get the result div element and set its inner HTML to the HTML string
                 var result = document.getElementById("result");
                 result.innerHTML = html;
 
-                // Roy
-                // var cit = document.getElementById("city");
-                // cit.innerHTML = " " + temp + " °C";
             })
             .catch(function (error) {
                 // Handle any errors that may occur
@@ -56,4 +60,5 @@ function getWeather() {
         // Alert the user if the input is empty
         alert("Please enter a city name");
     }
+
 }
