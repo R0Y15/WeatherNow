@@ -100,7 +100,7 @@ header {
     background-color: #0099ff;
 }
 
-/* #result {
+#result {
     margin: 30px 10px 10px 10px;
     padding: 10px;
     border: 1px solid #cccccc;
@@ -111,7 +111,7 @@ header {
 }
 #result .description {
     font-size: 1.5em;
-} */
+}
 
 .result-box {
     font-size: 1em;
