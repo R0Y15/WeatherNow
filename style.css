@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 
 body {
     margin: 0;
@@ -92,12 +92,36 @@ header {
     border: 1px solid #cccccc;
 }
 
-.result-box {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.result-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 17px;
+    background-color: #0099ff;
 }
+
+/* #result {
+    margin: 30px 10px 10px 10px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+}
+#result .temp {
+    color: #ecf0f1;
+    font-size: 2.5em;
+}
+#result .description {
+    font-size: 1.5em;
+} */
+
+.result-box {
+    font-size: 1em;
+    text-align: center;
+    color: #ecf0f1;
+    padding: 20px;
+    background-color: #8db6e6;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+  }
 
 /* Style the navbar */
 .navbar {
@@ -111,7 +135,6 @@ header {
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
-
 }
 
 /* Style the navigation list */
@@ -148,7 +171,7 @@ header {
     margin-top: 100px;
     /* font-family: 'Prompt', sans-serif; */
     /* font-family: 'Young Serif', serif; */
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
 }
 
 .landing-text-2 {
@@ -158,7 +181,7 @@ header {
     transform: translate(-50%, -50%);
     text-align: center; */
     letter-spacing: 10px;
-    font-family: 'Kalam', cursive;
+    font-family: "Kalam", cursive;
 }
 
 /* Style the temperature icon with color */
@@ -209,7 +232,6 @@ header {
     /* Customize the color as needed */
 }
 
-
 /* footer */
 footer {
     background-color: rgb(235, 235, 235);
@@ -223,6 +245,6 @@ footer {
     width: 100%;
 }
 
-.light-text{
+.light-text {
     color: #a5a5a5;
 }
