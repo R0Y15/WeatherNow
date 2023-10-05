@@ -1,145 +1,139 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
 }
 
 /* Style the header */
 header {
-    background-color: whitesmoke;
-    color:gray;
-    text-align: center;
-    padding: 20px 0;
+  background-color: whitesmoke;
+  color: gray;
+  text-align: center;
+  padding: 20px 0;
 }
 
 /* Style the container */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .loc-details {
-    /* make some space between the placeholder and button*/
-    margin-bottom: 20px;
-
+  /* make some space between the placeholder and button*/
+  margin-bottom: 20px;
 }
 
 .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* Style the input field */
 #input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 70%;
-    margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 70%;
+  margin-right: 10px;
 }
 
 /* Style the button */
 #button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    padding-left: 20px;
-
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 20px;
 }
 
 .button {
-    width: 70px;
-    height: 50px;
-    border: none;
-    background-color: #0099ff;
-    color: #ffffff;
-    font-size: 18px;
-    cursor: pointer;
-    margin-left: 20px;
-    border-radius: 50px;
+  width: 70px;
+  height: 50px;
+  border: none;
+  background-color: #0099ff;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 20px;
+  border-radius: 50px;
 }
 
 .button:hover {
-    overflow: hidden;
-    background-color: #0077cc;
-    /* make an arrow appear on hover */
-    background-image: url("https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png");
-    background-repeat: no-repeat;
-    background-position: 50%;
-    /* slide the arrow in and text out of the button in right to left direction */
-    transition: background-position 0.5s, padding-right 0.5s;
-    padding-right: 80px;
-
-    
+  overflow: hidden;
+  background-color: #0077cc;
+  /* make an arrow appear on hover */
+  background-image: url("https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  /* slide the arrow in and text out of the button in right to left direction */
+  transition: background-position 0.5s, padding-right 0.5s;
+  padding-right: 80px;
 }
 
 #result {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #cccccc;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #cccccc;
 }
 
 .result-box {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 /* Style the navbar */
 .navbar {
-    background-color:rgb(218, 218, 218);
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    /* make navbar stick to the center */
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-    
+  background-color: rgb(218, 218, 218);
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  /* make navbar stick to the center */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
 }
 
 /* Style the navigation list */
 .nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Style the list items */
 .nav-item {
-    float: left;
-    margin: 0;
+  float: left;
+  margin: 0;
 }
 
 /* Style the links */
 .nav-item a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 /* Change the link color on hover */
 .nav-item a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
-
