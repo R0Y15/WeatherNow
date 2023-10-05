@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>WeatherNow</title>
     <link rel="stylesheet" href="style.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
 
-<body>
+    <script
+      src="https://kit.fontawesome.com/170b2fd3fe.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
     <nav class="navbar">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#">Home</a></li>
-            <li class="nav-item"><a href="#">About</a></li>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">About</a></li>
 
-            <li class="nav-item"><a href="#">Contact</a></li>
-
-        </ul>
+        <li class="nav-item"><a href="#">Contact</a></li>
+      </ul>
     </nav>
     <header>
         <div class="homepage">
@@ -23,14 +30,14 @@
         </div>
     </header>
     <div class="container">
-        <div class="form">
-            <input id="input" type="text" placeholder="Enter a city name" />
-            <button id="button" onclick="getWeather()">GO</button>
-        </div>
-        <div id="result" class="result-box"></div>
+      <div class="form">
+        <input id="input" type="text" placeholder="Enter a city name" />
+        <button id="button" onclick="getWeather()">GO</button>
+      </div>
+      <div id="result" class="result-box" style="display: none"></div>
     </div>
 
-    <script src="script.js"></script>
-</body>
 
+    <script src="script.js"></script>
+  </body>
 </html>
