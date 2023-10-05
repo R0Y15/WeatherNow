@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>WeatherNow</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <script
-      src="https://kit.fontawesome.com/170b2fd3fe.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+    <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
+</head>
 
-  <body>
+<body>
+    <!-- navbar -->
     <nav class="navbar">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#">Home</a></li>
-        <li class="nav-item"><a href="#">About</a></li>
-
-        <li class="nav-item"><a href="#">Contact</a></li>
-      </ul>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">Contributors</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+        </ul>
     </nav>
+
+    <!-- body -->
     <header>
         <div class="homepage">
             <span class="landing-text">WeatherNow</span> <br />
@@ -30,14 +27,28 @@
         </div>
     </header>
     <div class="container">
-      <div class="form">
-        <input id="input" type="text" placeholder="Enter a city name" />
-        <button id="button" onclick="getWeather()">GO</button>
-      </div>
-      <div id="result" class="result-box" style="display: none"></div>
+        <div class="form">
+            <input id="input" type="text" placeholder="Enter a city name" />
+            <button id="button" onclick="getWeather()">GO</button>
+        </div>
+        <div id="result" class="result-box" style="display: none"></div>
     </div>
 
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <p>
+                        <span class="light-text">WeatherNow is a weather app that shows you the weather of any city</span> <br />
+                        made by the internet lead by Roy
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
