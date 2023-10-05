@@ -131,3 +131,10 @@ function getTemperatureIcon(description) {
   // If no matching description is found, return an empty string
   return "";
 }
+
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    getWeather();
+  }
+})
