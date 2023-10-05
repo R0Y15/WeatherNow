@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="weatherChart" width="400" height="200"></canvas>
+
+    <script>
+        // Replace with your OpenWeatherMap API key
+        const apiKey = '236bb39302420003220a7db6c237c584';
+
+        // Replace with the city you want to get the forecast for
+        const city = 'goa';
+
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('weatherChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.list.map(item => `${item.dt_txt} ${item.weather[0].description} ${item.wind.speed}m/s`),
+                        datasets: [{
+                            label: 'Temperature (in Kelvin)',
+                            data: data.list.map(item => item.main.temp),
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    },
+                });
+            });
+    </script>
+</body>
+</html>
