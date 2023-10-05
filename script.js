@@ -42,6 +42,10 @@ function getWeather() {
                 // Get the result div element and set its inner HTML to the HTML string
                 var result = document.getElementById("result");
                 result.innerHTML = html;
+
+                // Roy
+                var cit = document.getElementById("city");
+                cit.innerHTML = " " + temp + " °C";
             })
             .catch(function (error) {
                 // Handle any errors that may occur

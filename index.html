@@ -8,12 +8,17 @@
 
 <body>
     <h1>Weather Forecasting Website</h1>
-    <div id="container">
-        <div id="form">
-            <input id="input" type="text" placeholder="Enter a city name" />
-            <button id="button" onclick="getWeather()">Get Weather</button>
+    <div class="container">
+        <div class="loc-details">
+            <div id="form">
+                <input class="input" id="input" type="text" placeholder="Enter a city name" />
+                <button class="button" id="button" onclick="getWeather()">GO</button>
+            </div>
         </div>
-        <div id="result"></div>
+        <div class="result">
+            <div id="result"></div>
+            Temp: <span id="city"></span>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -9,12 +9,18 @@ h1 {
     color: #333333;
 }
 
-#container {
+.container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loc-details {
+    /* make some space between the placeholder and button*/
+    margin-bottom: 20px;
+
 }
 
 #form {
@@ -23,26 +29,41 @@ h1 {
     justify-content: center;
 }
 
-#input {
+.input {
     width: 300px;
-    height: 30px;
+    height: 40px;
     border: 1px solid #cccccc;
     padding: 5px;
     font-size: 16px;
+    border-radius: 50px;
+    padding-left: 20px;
+
 }
 
-#button {
-    width: 100px;
-    height: 40px;
+.button {
+    width: 70px;
+    height: 50px;
     border: none;
     background-color: #0099ff;
     color: #ffffff;
     font-size: 18px;
     cursor: pointer;
+    margin-left: 20px;
+    border-radius: 50px;
 }
 
-#button:hover {
+.button:hover {
+    overflow: hidden;
     background-color: #0077cc;
+    /* make an arrow appear on hover */
+    background-image: url("https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    /* slide the arrow in and text out of the button in right to left direction */
+    transition: background-position 0.5s, padding-right 0.5s;
+    padding-right: 80px;
+
+    
 }
 
 #result {
