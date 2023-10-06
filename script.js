@@ -9,6 +9,7 @@ function getWeather() {
     var result_container = document.querySelector(".result-container");
     // Hide the result initially
     result.style.display = "none";
+    loader.style.display = "block";
 
     // Check if the input is not empty
     if (input) {
@@ -68,6 +69,7 @@ function getWeather() {
                 result.innerHTML = html;
 
                 // Show the result div
+                loader.style.display = "none";
                 result_container.style.display = "block";
                 result.style.display = "block";
             })
