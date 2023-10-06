@@ -1,3 +1,11 @@
+//Preloader 
+const preloader = document.querySelector('.preloader');
+function loader() 
+{
+    preloader.style.display = 'none';
+}
+
+
 // JavaScript code for fetching and displaying the weather data
 
 function getWeather() {
@@ -131,11 +139,11 @@ function getTemperatureIcon(description) {
 }
 
 // Function for displaying graph for weather
-async function getGraph(){
+async function getGraph() {
     var cityInput = document.getElementById("input").value;
     if (cityInput) {
         const weatherData = await fetchWeatherData(cityInput);
-        
+
         if (weatherData) {
             updateChart(weatherData);
         }
@@ -143,9 +151,9 @@ async function getGraph(){
         alert('Please enter a city name or zip code.');
     }
 };
-  
-    // Function to fetch data for the weather graph for a given city
-    async function fetchWeatherData(cityName) {
+
+// Function to fetch data for the weather graph for a given city
+async function fetchWeatherData(cityName) {
     try {
         // Replace 'YOUR_API_KEY' with your actual weather API key
         const token = "236bb39302420003220a7db6c237c584";
@@ -163,8 +171,8 @@ async function getGraph(){
     }
 }
 
-    // Function to update the line graph with new data
-    function updateChart(data) {
+// Function to update the line graph with new data
+function updateChart(data) {
     // Extract relevant data from the API response (adjust according to your API)
     const hourlyTemperature = data.list.map(item => item.main.temp);
     const hourlyTime = data.list.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
@@ -176,10 +184,10 @@ async function getGraph(){
 }
 
 // Initial chart setup (you can set initial data or leave it empty)
-     const ctx = document.getElementById('hourlyChart').getContext('2d');
-     const hourlyChart = new Chart(ctx, {
-      type: 'line',
-      data: {
+const ctx = document.getElementById('hourlyChart').getContext('2d');
+const hourlyChart = new Chart(ctx, {
+    type: 'line',
+    data: {
         labels: [],
         datasets: [
             {
@@ -189,8 +197,8 @@ async function getGraph(){
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
             },
         ],
-     },
-      options: {
+    },
+    options: {
         scales: {
             x: {
                 title: {
@@ -205,7 +213,7 @@ async function getGraph(){
                 }
             }
         }
-     },
+    },
 });
 
 
