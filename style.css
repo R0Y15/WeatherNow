@@ -13,7 +13,7 @@ header {
     background-color: whitesmoke;
     color: gray;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 /* Style the container */
@@ -22,16 +22,17 @@ header {
     border-style: solid;
     border-color: black;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 10px;
+    box-sizing: border-box;
 }
 
 .loc-details {
     /* make some space between the placeholder and button*/
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .form {
@@ -39,6 +40,7 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+
 }
 
 /* Style the input field */
