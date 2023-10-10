@@ -1,21 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 
-
 body {
     margin: 0;
     padding: 0;
-    width: 100vw;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-.main-content {
-    flex: 1;
-    padding-bottom: 20px; 
-    width: 100%;
 }
 
 /* Style the header */
@@ -55,7 +45,7 @@ header {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    /* width: 70%; */
+    width: 70%;
     margin-right: 10px;
 }
 
@@ -136,19 +126,22 @@ header {
 /* Style the navbar */
 .navbar {
     background-color: rgb(218, 218, 218);
-    width: 100vw;
+    width: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    /* margin-top: 10px; */
+    margin-top: 10px;
     /* make navbar stick to the center */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
 }
 
 /* Style the navigation list */
 .nav-list {
     list-style-type: none;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 /* Style the list items */
@@ -173,12 +166,12 @@ header {
 }
 
 .landing-text {
-    font-size: 3rem;
+    font-size: 250px;
     text-align: center;
+    margin-top: 100px;
     /* font-family: 'Prompt', sans-serif; */
     /* font-family: 'Young Serif', serif; */
     font-family: "Righteous", cursive;
-    padding: 20px;
 }
 
 .landing-text-2 {
@@ -241,15 +234,16 @@ header {
 
 /* footer */
 footer {
-    width: 100vw;
     background-color: rgb(235, 235, 235);
     color: gray;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 5px;
+    margin-top: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
-
-
 
 .light-text {
     color: #a5a5a5;
