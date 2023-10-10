@@ -11,55 +11,51 @@
 </head>
 
 <body>
-    <!-- Your content goes here -->
-    
     <!-- navbar -->
     <nav class="navbar">
-        <span class="landing-text">WeatherNow</span>
         <ul class="nav-list">
             <li class="nav-item"><a href="#">Home</a></li>
             <li class="nav-item"><a href="#">Contributors</a></li>
             <li class="nav-item"><a href="#">About</a></li>
         </ul>
     </nav>
-    
-    <div class="main-content">
+
     <!-- body -->
-        <header>
-            <div class="homepage">
-                <span class="landing-text-2">Where Is The Sun? Is It Above Or Below The Clouds?</span>
-            </div>
-        </header>
-        <div class="container">
-            <div class="form">
-                <input id="input" type="text" placeholder="Enter a city name" />
-                <button id="button" onclick="getWeather()">GO</button>
-            </div>
-            <div class="result-container" style="display: none">
-                <div id="result" class="result-box" style="display: none"></div>
-            </div>
-            <canvas id="hourlyChart" width="400" height="200"></canvas>
+    <header>
+        <div class="homepage">
+            <span class="landing-text">WeatherNow</span> <br />
+            <span class="landing-text-2">Where Is The Sun? Is It Above Or Below The Clouds?</span>
         </div>
+    </header>
+    <div class="container">
+        <div class="form">
+            <input id="input" type="text" placeholder="Enter a city name" />
+            <button id="button" onclick="getWeather()">GO</button>
+        </div>
+        <div class="result-container" style="display: none">
+            <div id="result" class="result-box" style="display: none"></div>
+        </div>
+        <canvas id="hourlyChart" width="400" height="200" ></canvas>
     </div>
 
+    
 
-
-        <!-- footer -->
-        <footer>
-            <div class="footer">
-                <div class="footer-content">
-                    <div class="footer-section about">
-                        <p>
-                            <span class="light-text">WeatherNow is a weather app that shows you the weather of any
-                                city</span> <br />
-                            made by the internet lead by Roy
-                        </p>
-                    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <p>
+                        <span class="light-text">WeatherNow is a weather app that shows you the weather of any city</span> <br />
+                        made by the internet lead by Roy
+                    </p>
                 </div>
             </div>
-        </footer>
-    <script src="script.js"></script>
+        </div>
+    </footer>
 
+    <script src="script.js"></script>
+    
 </body>
 
 </html>
