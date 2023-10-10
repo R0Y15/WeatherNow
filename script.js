@@ -1,9 +1,22 @@
 //Preloader 
+// Get the DotLottie player
 const preloader = document.querySelector('.preloader');
-function loader() 
-{
-    preloader.style.display = 'none';
+
+// Add a fade-out effect using CSS transitions
+preloader.style.transition = 'opacity 2s';
+preloader.style.opacity = '1';
+
+function loader() {
+    setTimeout(function() {
+        preloader.style.opacity = '0';
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 2000); // delay time in milliseconds for the display to be set to none after opacity reaches 0
+    }, 2000); // delay time in milliseconds for the opacity to reach 0
 }
+
+window.onload = loader;
+
 
 
 // JavaScript code for fetching and displaying the weather data
@@ -14,6 +27,7 @@ function getWeather() {
 
     // Get the result div element
     var result = document.getElementById("result");
+    var loader = document.getElementById("loader");
     var result_container = document.querySelector(".result-container");
     // Hide the result initially
     result.style.display = "none";
