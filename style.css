@@ -23,6 +23,7 @@ header {
     border-color: black;
     margin: 0 auto;
     padding: 30px;
+    margin: 30px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -330,13 +331,27 @@ dotlottie-player {
 
 /*Card CSS*/
 /* Styles for the card */
-.card {
-    width: 300px;
-    margin: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
-}
+.card-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .card {
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    width: 45%;
+    box-sizing: border-box;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+  }
+  
+  .card p {
+    margin: 0;
+  }
 
 .card-header img {
     width: 100%;
@@ -379,4 +394,12 @@ dotlottie-player {
 
 .card-footer a:hover {
     background-color: #1f639e;
+}
+
+
+.flex-div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 20px;
 }

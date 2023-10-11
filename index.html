@@ -1,81 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>WeatherNow</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
 
-    <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/170b2fd3fe.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Loader -->
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-</head>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
 
-<body onload="loader()">
-
+  <body onload="loader()">
     <!-- Loader -->
-    <dotlottie-player class="preloader" src="https://lottie.host/a9b1c4b0-7b6a-458b-baa3-312173892e59/ckDHyqMFQD.json"
-        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+    <dotlottie-player
+      class="preloader"
+      src="https://lottie.host/a9b1c4b0-7b6a-458b-baa3-312173892e59/ckDHyqMFQD.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+    >
     </dotlottie-player>
 
-
     <div class="content">
-        <!-- navbar -->
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#">Home</a></li>
-                <li class="nav-item"><a href="./contributors.html">Contributors</a></li>
-                <li class="nav-item"><a href="#">About</a></li>
-            </ul>
-        </nav>
+      <!-- navbar -->
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item">
+            <a href="./contributors.html">Contributors</a>
+          </li>
+          <li class="nav-item"><a href="#">About</a></li>
+        </ul>
+      </nav>
 
-        <!-- body -->
-        <header>
-            <div class="homepage">
-                <span class="landing-text">WeatherNow</span> <br />
-                <span class="landing-text-2">Where Is The Sun? Is It Above Or Below The Clouds?</span>
-            </div>
-        </header>
+      <!-- body -->
+      <header>
+        <div class="homepage">
+          <span class="landing-text">WeatherNow</span> <br />
+          <span class="landing-text-2"
+            >Where Is The Sun? Is It Above Or Below The Clouds?</span
+          >
+        </div>
+      </header>
+      <div class="flex-div">
+     
         <div class="container">
-            <div class="form">
-                <input id="input" type="text" placeholder="Enter a city name" />
-                <button id="button" onclick="getWeather()">GO</button>
-            </div>
-            <div class="result-container" style="display: none">
-                <div id="loader" class="loader"></div>
-                <div id="result" class="result-box" style="display: none"></div>
-            </div>
+          <div class="form">
+            <input id="input" type="text" placeholder="Enter a city name" />
+            <button id="button" onclick="getWeather()">GO</button>
+          </div>
+
+          <div class="card-section">
             <canvas id="hourlyChart" width="400" height="200"></canvas>
+          </div>
+        
+          <div class="result-container" style="display: none">
+            <div id="loader" class="loader"></div>
+            <div id="result" class="result-box" style="display: none"></div>
+          </div>
         </div>
 
-
-
-
-
-
-
-        <!-- footer -->
-        <footer>
-            <div class="footer">
-                <div class="footer-content">
-                    <div class="footer-section about">
-                        <p>
-                            <span class="light-text">WeatherNow is a weather application that displays the weather of
-                                any city.</span> <br />
-                            © Roy™ 2023
-                        </p>
-                    </div>
+        <div class="container">
+            <div class="card-section">
+                <div class="card">
+                  <h2>Yesterday's Weather</h2>
+                  <p>Temperature: 75&deg;F</p>
+                  <p>Humidity: 50%</p>
                 </div>
+                <div class="card">
+                  <h2>Last Week's Weather</h2>
+                  <p>Temperature: 70&deg;F</p>
+                  <p>Humidity: 60%</p>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer>
+        <div class="footer">
+          <div class="footer-content">
+            <div class="footer-section about">
+              <p>
+                <span class="light-text"
+                  >WeatherNow is a weather application that displays the weather
+                  of any city.</span
+                >
+                <br />
+                © Roy™ 2023
+              </p>
             </div>
-        </footer>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <script src="script.js"></script>
-
-
-
-</body>
-
+  </body>
 </html>
