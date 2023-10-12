@@ -97,6 +97,7 @@ function getWeather() {
             })
             .catch(function (error) {
                 // Handle any errors that may occur
+                result_container.style.display = "none";
                 alert(error.message);
             });
     } else {
