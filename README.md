@@ -1,7 +1,7 @@
 # WeatherNow
 A Weather Forecasting website that tells you precisely about weather conditions of any city in the world. It also has a feature to tell you the weather conditions of your current location. It is made using HTML, CSS, JavaScript and OpenWeatherMap API.
 
-You can visit the site here -> r0y15.github.io/WeatherNow/
+You can visit the site here -> https://r0y15.github.io/WeatherNow/
 
 Please read all the instructions carefully before contributing to the project.
 
