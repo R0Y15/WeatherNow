@@ -22,13 +22,13 @@ header {
     border-style: solid;
     border-color: black;
     margin: 0 auto;
+    margin-bottom: 2rem;
     padding: 30px;
     margin: 30px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 10px;
-    box-sizing: border-box;
 }
 @media (max-width: 1000px) {
     .container{
@@ -138,11 +138,13 @@ header {
 /* Style the navbar */
 .navbar {
     background-color: rgb(218, 218, 218);
-    width: 20%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    flex-direction: row;
+    justify-content: center;
     /* make navbar stick to the center */
     margin-left: auto;
     margin-right: auto;
@@ -183,7 +185,7 @@ header {
 }
 
 .landing-text {
-    font-size: 250px;
+    font-size: 12rem;
     text-align: center;
     margin-top: 100px;
     /* font-family: 'Prompt', sans-serif; */
@@ -201,7 +203,6 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; */
-    letter-spacing: 10px;
     font-family: 'Kalam', cursive;
 }
 
@@ -263,7 +264,6 @@ footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
     position: sticky;
 }
 .light-text {
@@ -357,6 +357,11 @@ dotlottie-player {
     padding: 10px;
     width: 45%;
     box-sizing: border-box;
+     /* width: 300px; */
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
   }
   
   .card h2 {
@@ -410,19 +415,65 @@ dotlottie-player {
     background-color: #1f639e;
 }
 
-
-
-.flex-div{
+/* .flex-div{
     display: flex;
     justify-content:center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 20px; */
 
+/* Mobile-First Responsive Design */
+/* Smaller screens, like smartphones */
+@media (max-width: 768px) {
+    /* Adjust the header and landing text */
+    header {
+        font-size: 20px;
+    }
+
+    .landing-text {
+        font-size: 4rem; /* Adjust to your preference */
+    }
+
+    .landing-text-2 {
+        font-size: 0.7rem; /* Adjust to your preference */
+    }
+
+    /* Modify the container width and padding */
+    .container {
+        margin-top: 2rem;
+        max-width: 85%;
+        padding: 10px;
+    }
+
+    /* Adjust the input and button sizes */
+    #input {
+        width: 60%;
+        font-size: 12px;
+    }
+
+    #button {
+        padding: 8px 16px;
+    }
+
+    /* Make the navbar full width and smaller text */
+    .navbar {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Modify the footer text size and padding */
+    footer {
+        position: relative;
+        margin-top: 26vh;
+        font-size: 12px;
+        padding: 2px;
+    }
+}
 .content{
     width: 100%;
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow-x: hidden;
-
 }
+
+
