@@ -191,8 +191,8 @@ async function fetchWeatherData(cityName) {
 // Function to update the line graph with new data
 function updateChart(data) {
     // Extract relevant data from the API response (adjust according to your API)
-    const hourlyTemperature = data.list.map(item => item.main.temp);
-    const hourlyTime = data.list.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    const hourlyTemperature = data?.list?.map(item => item.main.temp);
+    const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
 
     // Update the chart data
     hourlyChart.data.labels = hourlyTime;
