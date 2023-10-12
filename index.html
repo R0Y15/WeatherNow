@@ -5,13 +5,17 @@
     <title>WeatherNow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
+    <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
+
+    <!-- Loader -->
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body onload="loader()">
+
 
     <!-- Loader -->
     <div class="preloader">
@@ -19,13 +23,12 @@
     </div>
 
 
-
     <div class="content">
         <!-- navbar -->
         <nav class="navbar">
             <ul class="nav-list">
                 <li class="nav-item"><a href="#">Home</a></li>
-                <li class="nav-item"><a href="contributors.html">Contributors</a></li>
+                <li class="nav-item"><a href="./contributors.html">Contributors</a></li>
                 <li class="nav-item"><a href="#">About</a></li>
             </ul>
         </nav>
@@ -43,10 +46,18 @@
                 <button id="button" onclick="getWeather()">GO</button>
             </div>
             <div class="result-container" style="display: none">
+                <div id="loader" class="loader"></div>
                 <div id="result" class="result-box" style="display: none"></div>
             </div>
             <canvas id="hourlyChart" width="400" height="200"></canvas>
         </div>
+
+
+
+
+
+
+
         <!-- footer -->
         <footer>
             <div class="footer">
