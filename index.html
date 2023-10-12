@@ -16,12 +16,12 @@
 
 </head>
 
-<body onload="loader()">
-
+<body >
+    <!-- onload="loader()" -->
     <!-- Loader -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="spinner"></div>
-    </div>
+    </div> -->
 
 
     <div class="content">
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="form">
                 <input id="input" type="text" placeholder="Enter a city name" />
-                <button id="button" onclick="getWeather()">GO</button>
+                <button id="button" class="button" onclick="getWeather()">GO</button>
             </div>
             <div class="result-container" style="display: none">
                 <div id="loader" class="loader"></div>
