@@ -18,7 +18,7 @@ header {
 
 /* Style the container */
 .container {
-    max-width: 600px;
+    width: 600px;
     border-style: solid;
     border-color: black;
     margin: 0 auto;
@@ -29,7 +29,14 @@ header {
     border-radius: 10px;
     margin-top: 10px;
 }
-
+@media (max-width: 1000px) {
+    .container{
+        width: 100%;
+    }
+    .navbar{
+        width: 100%;
+    }
+  }
 .loc-details {
     /* make some space between the placeholder and button*/
     margin-bottom: 30px;
@@ -142,7 +149,12 @@ header {
     margin-right: auto;
     border-radius: 5px;
 }
-
+@media (max-width: 1000px) {
+    .navbar{
+        width: 80%;
+        font-size: 3em;
+    }
+  }
 /* Style the navigation list */
 .nav-list {
     list-style-type: none;
@@ -179,7 +191,11 @@ header {
     /* font-family: 'Young Serif', serif; */
     font-family: 'Righteous', cursive;
 }
-
+@media (max-width: 1450px) {
+    .landing-text {
+      font-size: 10em;
+    }
+  }
 .landing-text-2 {
     /* position: absolute;
     top: 35%;
@@ -248,9 +264,7 @@ footer {
     left: 0;
     bottom: 0;
     position: sticky;
-
 }
-
 .light-text {
     color: #a5a5a5;
 }
@@ -427,4 +441,11 @@ dotlottie-player {
         font-size: 12px;
         padding: 2px;
     }
+}
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
 }
