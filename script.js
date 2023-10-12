@@ -3,8 +3,8 @@
 const preloader = document.querySelector('.preloader');
 
 // Add a fade-out effect using CSS transitions
-preloader.style.transition = 'opacity 2s';
-preloader.style.opacity = '1';
+// preloader.style.transition = 'opacity 2s';
+// preloader.style.opacity = '1';
 
 function loader() {
     setTimeout(function() {
