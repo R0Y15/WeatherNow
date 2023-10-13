@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 
-html{
-    box-sizing: border-box;
-    font-size: 14px;
+html {
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
 /* Style the navbar */
@@ -123,14 +123,6 @@ body {
   align-items: center;
   margin-top: 20px;
 }
-/* 
-.card {
-  margin: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
-  background-color: #1f639e;
-} */
 
 .card-body {
   display: flex;
