@@ -449,3 +449,34 @@ dotlottie-player {
     height: 100%;
     overflow-x: hidden;
 }
+.style-fields{
+    display: flex;
+}
+.style-btn{
+    width: 60px;
+    height: 20px;
+    color: white;
+    background-color:#0099ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.style-form{
+    width: 300px;
+    align-items: center;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.style-form > *{
+    margin: 5px;
+}
+.style-btn:hover{
+    background-color: #0077cc;
+}
+.style-input{
+    height: 20px;
+}
+#hourlyChart{
+    border-radius: 5px;
+}

@@ -229,6 +229,28 @@ const hourlyChart = new Chart(ctx, {
     },
 });
 
+// For Changing The Window Background Color
+function windowColor(event){
+    event.preventDefault();
+    const condition1 = event.target[0].value.includes('#') && event.target[0].value.length > 0;
+    const condition2 = !event.target[0].value.includes('#') && event.target[0].value.length > 0;
+    if(condition1||condition2){
+        document.querySelector('.container').style.backgroundColor = event.target[0].value;
+    }else{
+        document.querySelector('.container').style.backgroundColor = 'white';
+    }
+}
+// For Changing The Graph Background color
+function graphBackgroundColor(event){
+    event.preventDefault();
+    const condition1 = event.target[0].value.includes('#') && event.target[0].value.length > 0;
+    const condition2 = !event.target[0].value.includes('#') && event.target[0].value.length > 0;
+    if(condition1||condition2){
+        document.getElementById('hourlyChart').style.backgroundColor = event.target[0].value;
+    }else{
+        document.getElementById('hourlyChart').style.backgroundColor = 'white';
+    }
+}
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {

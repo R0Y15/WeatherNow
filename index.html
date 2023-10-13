@@ -62,6 +62,21 @@
         <canvas id="hourlyChart" width="400" height="200"></canvas>
       </div>
 
+      <!-- Fields for Changing Colour Options -->
+      <div class="style-fields">
+        <form onsubmit="windowColor(event)" class="container-color-form style-form">
+          <label class="container-label">Window Background Colour</label>
+          <input placeholder="red or #FF0000" type="text" class="container-color style-input">
+          <button onsubmit="windowColor('red')" type="submit" class="container-color-sbt style-btn">Apply</button>
+        </form>
+        <hr>
+        <form onsubmit="graphBackgroundColor(event)" class="graph-background-color-form style-form">
+          <label class="graph-background-label">Graph Background Colour</label>
+          <input placeholder="red or #FF0000" type="text" class="graph-background-color style-input">
+          <button type="submit" class="graph-background-color-sbt style-btn ">Apply</button>
+        </form>
+      </div>
+
       <!-- footer -->
       <footer>
         <div class="footer">
