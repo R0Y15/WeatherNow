@@ -282,4 +282,10 @@ footer {
   text-align: center;
   padding: 5px;
   margin-top: 2px;
+  /* make it stick to the bottom of the page */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
 }
