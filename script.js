@@ -235,3 +235,8 @@ document.addEventListener("keydown", (event) => {
         getWeather();
     }
 });
+
+window.addEventListener("load", function() {
+    const currentYear = new Date().getFullYear();
+    document.getElementById("copyrightYear").textContent = currentYear;
+});
