@@ -230,6 +230,59 @@ const hourlyChart = new Chart(ctx, {
 });
 
 
+// Update Graph Type
+function selectedDropdown(event){
+    document.querySelector('.dropbtn').textContent = event.target.textContent;
+    document.querySelector('.dropbtn').name = event.target.name;
+    switch (event.target.name) {
+        case 'bar':
+            hourlyChart.options={
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+            };
+            break;
+        case 'doughnut':
+            hourlyChart.options={};
+            break;
+        case 'polarArea':
+            hourlyChart.options={};
+            break;
+        case 'radar':
+            hourlyChart.options={
+                elements: {
+                  line: {
+                    borderWidth: 3
+                  }
+                }
+              };
+            break;
+        default:
+            hourlyChart.options={
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Hour'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Temperature (°C)'
+                        }
+                    }
+                }
+            };
+            break;
+    }
+    hourlyChart.config.type= event.target.name;
+    hourlyChart.update('none');
+    // Graph Type Updated
+}
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         getWeather();
