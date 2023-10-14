@@ -88,12 +88,20 @@ body {
 }
 
 .bottom-btn {
-  position: fixed;
+  z-index: 9;
+  /* position: relative; */
   bottom: 83px;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.back {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  margin: 10px;
+}
 .light-text {
   color: #a5a5a5;
 }
@@ -283,9 +291,8 @@ footer {
   padding: 5px;
   margin-top: 2px;
   /* make it stick to the bottom of the page */
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   right: 0;
-  
 }
