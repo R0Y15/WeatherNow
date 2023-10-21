@@ -17,7 +17,9 @@
 
 // JavaScript code for fetching and displaying the weather data
 
-function getWeather() {
+import { OPENWEATHERMAP_TOKEN } from './config.js'
+
+window.getWeather = function() {
     // Get the user input from the text box
     var input = document.getElementById("input").value;
 
@@ -32,7 +34,7 @@ function getWeather() {
     // Check if the input is not empty
     if (input) {
         // Create a URL for the weather API with the input as a query parameter
-        const token = "236bb39302420003220a7db6c237c584";
+        const token = OPENWEATHERMAP_TOKEN;
         var url =
             "https://api.openweathermap.org/data/2.5/weather?q=" +
             input +
@@ -63,7 +65,7 @@ function getWeather() {
 
                 // Create a HTML string to display the data in a formatted way
 
-                html =
+                let html =
                     "<p><span class='value temp'>" +
                     temp +
                     " °C " +
@@ -169,7 +171,7 @@ async function getGraph() {
 async function fetchWeatherData(cityName) {
     try {
         // Replace 'YOUR_API_KEY' with your actual weather API key
-        const token = "236bb39302420003220a7db6c237c584";
+        const token = OPENWEATHERMAP_TOKEN;
         var url =
             "https://api.openweathermap.org/data/2.5/forecast?q=" +
             cityName +
