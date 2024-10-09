@@ -49,7 +49,7 @@
     </div>
 
     <div class="content" id="cards">
-      <!-- Contributors Card -->
+      <!-- Contributors Card
       <div class="card">
         <div class="card-body">
           <div class="left">
@@ -193,7 +193,7 @@
             /></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Add your card above this and leave a blank line -->
 
@@ -280,5 +280,68 @@
         </div>
       </div>
     </footer>
+    <script>
+      // GitHub API URL for the repository contributors
+      const repoOwner = "R0Y15";  // Replace with your repo owner
+      const repoName = "WeatherNow";  // Replace with your repository name
+      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`;
+    
+      // Function to fetch contributors and display them
+      async function fetchContributors() {
+        try {
+          const response = await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error("Failed to fetch contributors.");
+          }
+          const contributors = await response.json();
+          displayContributors(contributors);
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("cards").innerHTML = "<p>Failed to load contributors.</p>";
+        }
+      }
+    
+      // Function to display contributors
+      function displayContributors(contributors) {
+        const cardsContainer = document.getElementById("cards");
+    
+        contributors.forEach((contributor) => {
+          const contributorCard = `
+            <div class="card">
+              <div class="card-body">
+                <div class="left">
+                  <div class="card-img">
+                    <img
+                      width="48"
+                      height="48"
+                      src="${contributor.avatar_url}"
+                      alt="${contributor.login}"
+                    />
+                  </div>
+                  <div class="card-text">
+                    <h2>${contributor.login}</h2>
+                    <p>Contributed ${contributor.contributions} time(s) to this project</p>
+                  </div>
+                </div>
+                <div class="right">
+                  <div class="seperator"></div>
+                  <a href="${contributor.html_url}" target="_blank">
+                    <img
+                      src="https://img.icons8.com/clouds/100/github.png"
+                      alt="github"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          cardsContainer.innerHTML += contributorCard;
+        });
+      }
+    
+      // Fetch contributors when the page loads
+      document.addEventListener("DOMContentLoaded", fetchContributors);
+    </script>
+    
   </body>
 </html>
