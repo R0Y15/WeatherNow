@@ -191,99 +191,80 @@ function updateChart(data) {
     // Extract relevant data from the API response (adjust according to your API)
     const hourlyTemperature = data?.list?.map(item => item.main.temp);
     const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-
+    
     // Update the chart data
     hourlyChart.data.labels = hourlyTime;
     hourlyChart.data.datasets[0].data = hourlyTemperature;
     hourlyChart.update();
 }
-
-// Initial chart setup (you can set initial data or leave it empty)
+// If you're using Chart.js, make sure hourlyChart is defined correctly in your script
 const ctx = document.getElementById('hourlyChart').getContext('2d');
 const hourlyChart = new Chart(ctx, {
-    type: 'line',
+    type: 'line', // Default type
     data: {
-        labels: [],
-        datasets: [
-            {
-                label: 'Temperature (°C)',
-                data: [],
-                borderColor: 'rgb(75, 192, 192)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            },
-        ],
+        labels: [], // Populate with your labels
+        datasets: [{
+            label: 'Hourly Temperatures',
+            data: [], // Populate with your data
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 3,
+            fill: false,
+        }]
     },
     options: {
         scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Hour'
-                }
+            x: { 
+                title: { display: true, text: 'Hour' } 
             },
-            y: {
-                title: {
-                    display: true,
-                    text: 'Temperature (°C)'
-                }
-            }
+            y: { title: { display: true, text: 'Temperature (°C)' }, beginAtZero: true }
         }
-    },
+    }
 });
 
+// Define the selectedDropdown function
+function selectedDropdown(event) {
+    event.preventDefault(); // Prevent default link behavior
+    const target = event.currentTarget;
+    const dropbtn = document.querySelector('.dropbtn');
 
-// Update Graph Type
-function selectedDropdown(event){
-    document.querySelector('.dropbtn').textContent = event.target.textContent;
-    document.querySelector('.dropbtn').name = event.target.name;
-    switch (event.target.name) {
+    dropbtn.textContent = target.textContent;
+    dropbtn.name = target.getAttribute('name');
+
+    // Update chart options based on selection
+    switch (dropbtn.name) {
         case 'bar':
-            hourlyChart.options={
-                scales: {
-                  y: {
-                    beginAtZero: true
-                  }
-                }
-            };
+            // Update options for bar chart
+            hourlyChart.options.scales.y.beginAtZero = true;
+            //hourlyChart.options.scales.x.borderWidth = 3;
             break;
         case 'doughnut':
-            hourlyChart.options={};
+            // Update options for doughnut chart
+            hourlyChart.options = {};
             break;
         case 'polarArea':
-            hourlyChart.options={};
+            // Update options for polar area chart
+            hourlyChart.options = {};
             break;
         case 'radar':
-            hourlyChart.options={
-                elements: {
-                  line: {
-                    borderWidth: 3
-                  }
-                }
-              };
+            // Update options for radar chart
+            hourlyChart.options.elements.line.borderWidth = 3;
             break;
         default:
-            hourlyChart.options={
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Hour'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Temperature (°C)'
-                        }
-                    }
-                }
+            // Default options
+            hourlyChart.options.scales = {
+                x: { title: { display: true, text: 'Hour' } },
+                y: { title: { display: true, text: 'Temperature (°C)' } }
             };
             break;
     }
-    hourlyChart.config.type= event.target.name;
-    hourlyChart.update('none');
-    // Graph Type Updated
+
+    hourlyChart.config.type = dropbtn.name; // Set the chart type
+    hourlyChart.update(); // Update the chart
 }
+
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', selectedDropdown);
+});
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
