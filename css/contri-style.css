@@ -102,6 +102,7 @@ body {
   justify-content: center;
   margin: 10px;
 }
+
 .light-text {
   color: #a5a5a5;
 }
@@ -151,14 +152,20 @@ body {
 
 .card-header img {
   /* width: 100%; */
-  height: auto;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #555;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
+.img {
+  border-radius: 50%;
+}
+
 .card-img {
   position: relative;
-  left: 10px;
   flex: 1;
 }
 
@@ -235,6 +242,7 @@ body {
 /* Mobile-First Responsive Design */
 /* Smaller screens, like smartphones */
 @media (max-width: 768px) {
+
   /* Adjust the header and landing text */
   header {
     font-size: 20px;
