@@ -3,6 +3,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
 }
 
 .content {
@@ -29,6 +34,8 @@ body {
 
 .navbar a:hover {
   text-decoration: underline;
+  color: black;
+  text-shadow: black;
 }
 
 .about-section {
@@ -37,17 +44,31 @@ body {
 
 h1 {
   font-size: 28px;
-  color: #007bff;
+  color: #1e00ff;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  
+  
 }
 
 h2 {
   font-size: 24px;
   color: #007bff;
+  
+  
 }
 
-p {
+#p1,#p2,#p3 {
   font-size: 16px;
   line-height: 1.5;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 10px;
+  margin-right: 50px;
+  padding: 15px;
 }
 
 ul {
@@ -64,4 +85,18 @@ ul li {
   color: #fff;
   text-align: center;
   padding: 10px 0;
+}
+
+#list{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+ 
+  
 }
