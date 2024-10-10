@@ -88,19 +88,28 @@ body {
 }
 
 .bottom-btn {
-  z-index: 9;
-  /* position: relative; */
-  bottom: 83px;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.bottom-btn:hover{
+  background-color: #333333d3;
 }
 
 .back {
   display: flex;
   align-items: center;
-
+  width: 100vh;
   justify-content: center;
-  margin: 10px;
+  margin: auto;
 }
 .light-text {
   color: #a5a5a5;
@@ -110,7 +119,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 500px;
   overflow-x: hidden;
   flex-wrap: wrap;
   justify-content: center;
@@ -120,11 +129,17 @@ body {
 
 /*Card CSS*/
 /* Styles for the card */
+.card{
+  transition: 0.5s;
+}
+.card:hover{
+  scale: 1.05;
+}
 .admin-card {
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 250px;
   overflow-x: hidden;
   flex-wrap: wrap;
   justify-content: center;

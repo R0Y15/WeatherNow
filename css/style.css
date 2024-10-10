@@ -5,13 +5,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #5bdbf1;
 }
 
 /* Style the header */
 header {
-    background-color: whitesmoke;
-    color: gray;
+    background-color: #5bdbf1;
+    color: white;
     text-align: center;
     padding: 30px 0;
 }
@@ -75,26 +75,18 @@ header {
 
 .button {
     width: 70px;
-    height: 50px;
+    
     border: none;
-    background-color: #0099ff;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 10px;
     border-radius: 50px;
+    transition: 0.2s;
 }
 
-.button:hover {
-    overflow: hidden;
-    background-color: #0077cc;
-    /* make an arrow appear on hover */
-    background-image: url("https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png");
-    background-repeat: no-repeat;
-    background-position: 50%;
-    /* slide the arrow in and text out of the button in right to left direction */
-    transition: background-position 0.5s, padding-right 0.5s;
-    padding-right: 80px;
+#button:hover {
+    background-color: rgb(0, 150, 0);
 }
 
 #result {
@@ -136,7 +128,7 @@ header {
 
 /* Style the navbar */
 .navbar {
-    background-color: rgb(218, 218, 218);
+    background-color: white;
     width: 35%;
     display: flex;
     justify-content: center;
@@ -425,7 +417,7 @@ dotlottie-player {
     }
 
     #button {
-        padding: 8px 16px;
+        padding: 10px;
     }
 
     /* Make the navbar full width and smaller text */
@@ -455,7 +447,7 @@ dotlottie-player {
     border-radius: 5px;
     color: white;
     padding: 10px;
-    margin-right: 5px;
+    margin-right: 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -496,6 +488,6 @@ dotlottie-player {
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
-    background-color: gray;
+    background-color: rgb(71, 71, 71);
   }
 /* DROPDOWN ENDS */
