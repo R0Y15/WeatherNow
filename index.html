@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
-    <script
-      src="https://kit.fontawesome.com/170b2fd3fe.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
 
     <!-- Loader -->
     <script
@@ -62,11 +56,32 @@
                 <a name="polarArea">PolarArea</a>
                 <a name="radar">Radar</a>
             </div>
-        </div>
+          </div>
           <!-- End -->
-          <input id="input" type="text" placeholder="Enter a city name" />
+
+          <!-- <input id="input" type="text" placeholder="Enter a city name" /> -->
+
+          <!-- Input City Name -->
+          <input list="cities" id="input" placeholder="Enter or Select a city name">
+
+          <!-- Popular City Name  -->
+          <datalist id="cities">
+            <option value="Bangalore">
+            <option value="Beijing">
+            <option value="Chicago">
+            <option value="Chennai">  
+            <option value="Delhi">
+            <option value="Lucknow"> 
+            <option value="Mumbai">
+            <option value="Noida">
+            <option value="New York">
+            <option value="Tokyo">    
+          </datalist>
+          <!-- Input End -->
+
           <button id="button" class="button" onclick="getWeather()">GO</button>
         </div>
+
         <div class="result-container" style="display: none">
           <div id="loader" class="loader"></div>
           <div id="result" class="result-box" style="display: none"></div>
