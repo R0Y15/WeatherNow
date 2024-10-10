@@ -5,17 +5,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    background-image: url(https://wallpapers.com/images/hd/weather-scenarios-collage-dbk9c5n23l7e5fgb.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
+    background-color: #53c5f1;
+    color: white;
 }
 
 /* Style the header */
 header {
-    background-color: rgba(66, 67, 80, 0.428);
-    color: rgb(0, 229, 255);
+    background-color: #53c5f1;
+    color: white;
     text-align: center;
     padding: 30px 0;
 }
@@ -66,8 +63,8 @@ header {
 
 /* Style the button */
 #button {
-    padding: 15px;
-    background-color: #156820;
+    padding: 10px;
+    background-color: #1f9f30;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -77,12 +74,12 @@ header {
 }
 
 #button:hover {
-    background-color: #0d6efd;
+    background-color: #107815;
 }
 
 .button {
     width: 70px;
-    height: 50px;
+    height: 40px;
     border: none;
     background-color: #0099ff;
     color: #ffffff;
@@ -92,15 +89,6 @@ header {
     border-radius: 50px;
 }
 
-.button:hover {
-    overflow: hidden;
-    background-color: #0077cc;
-    background-image: url("https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png");
-    background-repeat: no-repeat;
-    background-position: 50%;
-    transition: background-position 0.5s, padding-right 0.5s;
-    padding-right: 80px;
-}
 
 #result {
     margin-top: 20px;
@@ -458,11 +446,12 @@ dotlottie-player {
     border-radius: 5px;
     color: white;
     padding: 10px;
-    margin-right: 5px;
+    margin-right: 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
   }
+  
   
   /* The container <div> - needed to position the dropdown content */
   .dropdown {

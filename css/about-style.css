@@ -2,17 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 
 body {
-    background-color: #f4f4f4;
+    background-color: #53c5f1;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .content {
+    
     max-width: 800px;
     margin: 20px auto; /* Add margin to the top and bottom */
     background-color: #fff;
@@ -23,14 +20,14 @@ body {
 
 /* Style the navbar */
 .navbar {
-    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
+    background: linear-gradient(to right, #3498db, #2980b9);
     width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
+    margin: 20px auto;
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    
 }
 
 /* Style the links in the navbar */
@@ -84,9 +81,9 @@ h2 {
 p {
     font-size: 16px;
     line-height: 1.5;
-    background-color: rgba(30, 64, 216, 0.547);
+    background-color: rgba(245, 236, 107, 0.547);
     border-radius: 10px;
-    margin-right: 50px;
+    margin: auto;
     padding: 15px;
 }
 
@@ -103,12 +100,16 @@ ul li {
 
 /* Footer Styles */
 .footer {
-    background-color: #007bff;
+    background-color: #e2e2e2;
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    border-radius: 10px;
+    color: black;
 }
-
+.footer p{
+    background-color: #e2e2e2;
+}
 #list {
     margin-left: 20px;
     margin-right: 20px;
