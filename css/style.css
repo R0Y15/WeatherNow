@@ -63,17 +63,36 @@ header {
 
 /* Style the button */
 #button {
+
     padding: 10px;
     background-color: #1f9f30;
+
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
-    padding-left: 20px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Smooth background and shadow transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.button-text {
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth text transitions */
+}
+
+.arrow {
+    margin-left: 10px;
+    opacity: 0; /* Hide the arrow initially */
+    transform: translateX(-10px); /* Position arrow to the left */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Add transition for smooth effect */
 }
 
 #button:hover {
+
     background-color: #107815;
 }
 
@@ -88,6 +107,8 @@ header {
     margin-left: 20px;
     border-radius: 50px;
 }
+
+
 
 
 #result {
