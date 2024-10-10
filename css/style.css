@@ -10,8 +10,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-
-  
 }
 
 /* Style the header */
@@ -35,16 +33,17 @@ header {
     border-radius: 10px;
     margin-top: 10px;
 }
+
 @media (max-width: 1000px) {
-    .container{
+    .container {
         width: 100%;
     }
-    .navbar{
+    .navbar {
         width: 100%;
     }
-  }
+}
+
 .loc-details {
-    /* make some space between the placeholder and button*/
     margin-bottom: 30px;
 }
 
@@ -53,7 +52,6 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-
 }
 
 /* Style the input field */
@@ -75,7 +73,6 @@ header {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 5px;
     padding-left: 20px;
 }
 
@@ -98,11 +95,9 @@ header {
 .button:hover {
     overflow: hidden;
     background-color: #0077cc;
-    /* make an arrow appear on hover */
     background-image: url("https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png");
     background-repeat: no-repeat;
     background-position: 50%;
-    /* slide the arrow in and text out of the button in right to left direction */
     transition: background-position 0.5s, padding-right 0.5s;
     padding-right: 80px;
 }
@@ -126,10 +121,12 @@ header {
     padding: 10px;
     border: 1px solid #cccccc;
 }
+
 #result .temp {
     color: #ecf0f1;
     font-size: 2.5em;
 }
+
 #result .description {
     font-size: 1.5em;
 }
@@ -142,11 +139,11 @@ header {
     background-color: #8db6e6;
     border: 1px solid #ccc;
     border-radius: 15px;
-  }
+}
 
 /* Style the navbar */
 .navbar {
-    background-color: rgb(64, 0, 255);
+    background: linear-gradient(to right, #3498db, #2980b9);
     width: 35%;
     display: flex;
     justify-content: center;
@@ -154,114 +151,108 @@ header {
     margin-top: 10px;
     flex-direction: row;
     justify-content: center;
-    /* make navbar stick to the center */
     margin-left: auto;
     margin-right: auto;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 1000px) {
-    .navbar{
-        width: 80%;
-        font-size: 3em;
-    }
-  }
+
 /* Style the navigation list */
 .nav-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 /* Style the list items */
 .nav-item {
-    float: left;
-    margin: 0;
+    margin: 0 15px;
 }
 
 /* Style the links */
 .nav-item a {
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Change the link color on hover */
 .nav-item a:hover {
-    background-color: #2132ce;
-    color: black;
-    text-decoration:underline;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+    .navbar {
+        width: 80%;
+        font-size: 2em;
+    }
+    .nav-item {
+        margin: 0 10px;
+    }
 }
 
 .landing-text {
     font-size: 12rem;
     text-align: center;
     margin-top: 100px;
-    /* font-family: 'Prompt', sans-serif; */
-    /* font-family: 'Young Serif', serif; */
     font-family: 'Righteous', cursive;
 }
+
 @media (max-width: 1450px) {
     .landing-text {
-      font-size: 10em;
+        font-size: 10em;
     }
-  }
+}
+
 .landing-text-2 {
-    /* position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; */
     font-family: 'Kalam', cursive;
 }
 
 /* Style the temperature icon with color */
 .fa-thermometer-half.fa-lg {
     color: #ff5733;
-    /* Customize the color as needed */
 }
 
 /* Style the humidity icon with color */
 .fa-tint.fa-lg {
     color: #3498db;
-    /* Customize the color as needed */
 }
 
 /* Style the wind icon with color */
 .fa-wind.fa-lg {
     color: #f39c12;
-    /* Customize the color as needed */
 }
 
 /* Style the sun icon with color */
 .fa-sun {
     color: #ffd700;
-    /* Customize the color as needed */
 }
 
 /* Style the cloud icons with color */
 .fa-cloud {
     color: #ecf0f1;
-    /* Customize the color as needed */
 }
 
 /* Style the fog icon with color */
 .fa-smog {
     color: #7f8c8d;
-    /* Customize the color as needed */
 }
 
 /* Style the rainfall icon with color */
 .fa-cloud-showers-heavy {
     color: #3498db;
-    /* Customize the color as needed */
 }
 
 /* Style the light rain icon with color */
 .fa-cloud-rain {
     color: #3498db;
-    /* Customize the color as needed */
 }
 
 /* footer */
@@ -276,6 +267,7 @@ footer {
     bottom: 0;
     position: sticky;
 }
+
 .light-text {
     color: #a5a5a5;
 }
@@ -291,8 +283,9 @@ footer {
     background-repeat: no-repeat;
     position: relative;
     box-sizing: border-box;
-  }
-  .loader::after {
+}
+
+.loader::after {
     content: '';  
     left: 0;
     right: 0;
@@ -306,16 +299,16 @@ footer {
     border-color: #00c3ff transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-  }
-  
-  @keyframes rotation {
+}
+
+@keyframes rotation {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
 /* Styles for the preloader */
 .preloader {
@@ -330,7 +323,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 
 dotlottie-player {
     width: 100%;
