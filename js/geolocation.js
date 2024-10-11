@@ -1,44 +1,42 @@
-//Preloader 
-// Get the DotLottie player
-// const preloader = document.querySelector('.preloader');
-
-// function loader() {
-//     setTimeout(function() {
-//         preloader.style.opacity = '0';
-//         setTimeout(function() {
-//             preloader.style.display = 'none';
-//         }, 2000); // delay time in milliseconds for the display to be set to none after opacity reaches 0
-//     }, 2000); // delay time in milliseconds for the opacity to reach 0
-// }
-
-// window.onload = loader;
-
-
-
-// JavaScript code for fetching and displaying the weather data
-
 import { OPENWEATHERMAP_TOKEN } from './config.js'
 
-window.getWeather = function() {
-    // Get the user input from the text box
-    var input = document.getElementById("input").value;
+window.getCurrLoc = function() {
 
     // Get the result div element
     var result = document.getElementById("result");
     var loader = document.getElementById("loader");
     var result_container = document.querySelector(".result-container");
-    var hourlyChart = document.getElementById("hourlyChart");
+    // var hourlyChart = document.getElementById("hourlyChart");
+    
 
     // Hide the result initially
     result.style.display = "none";
     loader.style.display = "block";
-    hourlyChart.style.display = "block";
     
-    // Check if the input is not empty
-    if (input) {
-        // Create a URL for the weather API with the input as a query parameter
+    // hourlyChart.style.display = "none";
+    
+    if (navigator.geolocation) {
+        console.log("Geolocation is supported. Getting location...");
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        document.getElementById('weather-info').innerHTML = "Geolocation is not supported by this browser.";
+        console.error("Geolocation is not supported by this browser.");
+    }
+
+    
+
+    function showPosition(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        console.log(`User's location: Latitude: ${lat}, Longitude: ${lon}`);
+
         const token = OPENWEATHERMAP_TOKEN;
-        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=metric&appid=" + token;
+
+        // Construct the OpenWeatherMap API URL
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+    
+        console.log(`Fetching weather data from: ${url}`);
 
         // Fetch the data from the URL using the fetch API
         fetch(url)
@@ -65,6 +63,10 @@ window.getWeather = function() {
                 // Create a HTML string to display the data in a formatted way
 
                 let html =
+                    "<p><span class='value city'>" +
+                    city + "," + country +
+                    "</span></p>";  
+                html +=
                     "<p><span class='value temp'>" +
                     temp +
                     " °C " +
@@ -75,6 +77,10 @@ window.getWeather = function() {
                     description +
                     getWeatherIcon(description) +
                     "</span></p>";
+                html +=
+                    "<p><span class='value city'>" +
+                    "Feels Like: " + feels_like + "°C" +
+                    "</span></p>"; 
                 html +=
                     "<p><span class='label'>Humidity:</span> <span class='value'>" +
                     humidity +
@@ -97,12 +103,31 @@ window.getWeather = function() {
                 result_container.style.display = "none";
                 alert(error.message);
             });
-    } else {
-        // Alert the user if the input is empty
-        alert("Please enter a city name");
     }
+
+    function showError(error) {
+        let errorMessage = "";
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                errorMessage = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                errorMessage = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                errorMessage = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                errorMessage = "An unknown error occurred.";
+                break;
+        }
+        document.getElementById('weather-info').innerHTML = errorMessage;
+        console.error("Geolocation error: ", errorMessage);
+    }
+
     getGraph();
 }
+
 
 function getWeatherIcon(description) {
     // Define mappings of weather descriptions to Font Awesome icons
@@ -128,6 +153,8 @@ function getWeatherIcon(description) {
     return "";
 }
 
+
+
 function getTemperatureIcon(description) {
     // Define mappings of weather descriptions to Font Awesome temperature icons
     var iconMappings = {
@@ -152,49 +179,53 @@ function getTemperatureIcon(description) {
     return "";
 }
 
-// Function for displaying graph for weather
-async function getGraph() {
-    var cityInput = document.getElementById("input").value;
-    if (cityInput) {
-        const weatherData = await fetchWeatherData(cityInput);
 
-        if (weatherData) {
-            updateChart(weatherData);
-        }
-    } else {
-        alert('Please enter a city name or zip code.');
-    }
-}
 
-// Function to fetch data for the weather graph for a given city
-async function fetchWeatherData(cityName) {
+async function getWeatherApiUrl() {
     try {
-        // Replace 'YOUR_API_KEY' with your actual weather API key
+        // Await the geolocation position
+        const position = await getCurrentPositionPromise();
+
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
         const token = OPENWEATHERMAP_TOKEN;
-        var url =
-            "https://api.openweathermap.org/data/2.5/forecast?q=" +
-            cityName +
-            "&units=metric&appid=" +
-            token;
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
+
+        // Construct the API URL
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+        return apiUrl;  // Return the constructed URL
     } catch (error) {
-        console.error('Error fetching weather data:', error);
-        return null;
+        console.error('Error retrieving geolocation:', error);
+        return null;  // Return null if there's an error
     }
 }
 
-// Function to update the line graph with new data
-function updateChart(data) {
-    // Extract relevant data from the API response (adjust according to your API)
-    const hourlyTemperature = data?.list?.map(item => item.main.temp);
-    const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    
-    // Update the chart data
-    hourlyChart.data.labels = hourlyTime;
-    hourlyChart.data.datasets[0].data = hourlyTemperature;
-    hourlyChart.update();
+async function getForecastApiUrl() {
+    try {
+        // Await the geolocation position
+        const position = await getCurrentPositionPromise();
+
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        const token = OPENWEATHERMAP_TOKEN;
+
+        // Construct the API URL
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+        return apiUrl;  // Return the constructed URL
+    } catch (error) {
+        console.error('Error retrieving geolocation:', error);
+        return null;  // Return null if there's an error
+    }
+}
+
+// Geolocation Promise
+function getCurrentPositionPromise() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
 }
 
 
@@ -226,6 +257,69 @@ window.hourlyChart = new Chart(ctx, {
         }
     }
 });
+
+
+// Function to update the line graph with new data
+function updateChart(data) {
+    // Extract relevant data from the API response (adjust according to your API)
+    const hourlyTemperature = data?.list?.map(item => item.main.temp);
+    const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    
+    // Update the chart data
+    if (hourlyTime && hourlyTemperature) {
+        hourlyChart.data.labels = hourlyTime;
+        hourlyChart.data.datasets[0].data = hourlyTemperature;
+        hourlyChart.update();
+    } else {
+        console.log("Data for chart update is missing or invalid.");
+    }
+}
+
+
+// Function to fetch data for the weather graph for a given city
+async function fetchWeatherData() {
+    try {
+        const url = await getForecastApiUrl();
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        return null;
+    }
+}
+
+// Function for displaying graph for weather
+async function getGraph() {
+    const url = await getWeatherApiUrl();
+
+    // write code to retrieve name of city to cityinput
+    const response = await fetch(url);
+    const data = await response.json();
+    var cityInput = data.name;
+
+    if (cityInput) {
+        const weatherData = await fetchWeatherData();
+        if (weatherData) {
+            // updateChart(weatherData);
+            const forecast_url = await getForecastApiUrl();
+            fetch(forecast_url)
+            .then(response => response.json())
+            .then(data => {
+                // Call updateChart after the data is fetched
+                updateChart(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }   
+    } else {
+        alert('Current City is not accessible.');
+    }
+}
+
+
+
+
+
 
 // Define the selectedDropdown function
 function selectedDropdown(event) {
@@ -271,11 +365,13 @@ document.querySelectorAll('.dropdown-content a').forEach(item => {
     item.addEventListener('click', selectedDropdown);
 });
 
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        getWeather();
+        getCurrLoc();
     }
 });
+
 
 window.addEventListener("load", function() {
     const currentYear = new Date().getFullYear();
