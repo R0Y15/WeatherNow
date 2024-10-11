@@ -96,10 +96,7 @@ body {
 
 .bottom-btn {
   z-index: 9;
-  /* position: relative; */
-  bottom: 83px;
-  left: 50%;
-  transform: translateX(-50%);
+  
 }
 
 .back {
