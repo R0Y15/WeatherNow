@@ -259,21 +259,36 @@ window.hourlyChart = new Chart(ctx, {
 });
 
 
-// Function to update the line graph with new data
+// Function to update the line graph with new data for daily forecast
 function updateChart(data) {
-    // Extract relevant data from the API response (adjust according to your API)
-    const hourlyTemperature = data?.list?.map(item => item.main.temp);
-    const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    
-    // Update the chart data
-    if (hourlyTime && hourlyTemperature) {
-        hourlyChart.data.labels = hourlyTime;
-        hourlyChart.data.datasets[0].data = hourlyTemperature;
-        hourlyChart.update();
-    } else {
-        console.log("Data for chart update is missing or invalid.");
-    }
+    // Group the data by date
+    const dailyData = data.list.reduce((acc, item) => {
+        const date = new Date(item.dt * 1000).toLocaleDateString(); // Get the date from the timestamp
+        if (!acc[date]) {
+            acc[date] = [];
+        }
+        acc[date].push(item.main.temp); // Collect temperatures for each day
+        return acc;
+    }, {});
+
+    // Compute the average temperature for each day
+    const dailyTemperature = Object.keys(dailyData).map(date => {
+        const temps = dailyData[date];
+        const avgTemp = temps.reduce((sum, temp) => sum + temp, 0) / temps.length;
+        return { date, avgTemp };
+    });
+
+    // Update chart labels and data
+    const labels = dailyTemperature.map(item => item.date);
+    const temperatures = dailyTemperature.map(item => item.avgTemp);
+
+    // Update the chart
+    hourlyChart.data.labels = labels;
+    hourlyChart.data.datasets[0].data = temperatures;
+    hourlyChart.data.datasets[0].label = "Daily Average Temperatures";
+    hourlyChart.update();
 }
+
 
 
 // Function to fetch data for the weather graph for a given city
@@ -293,24 +308,22 @@ async function fetchWeatherData() {
 async function getGraph() {
     const url = await getWeatherApiUrl();
 
-    // write code to retrieve name of city to cityinput
     const response = await fetch(url);
     const data = await response.json();
-    var cityInput = data.name;
+    const cityInput = data.name;
 
     if (cityInput) {
         const weatherData = await fetchWeatherData();
         if (weatherData) {
-            // updateChart(weatherData);
             const forecast_url = await getForecastApiUrl();
             fetch(forecast_url)
             .then(response => response.json())
             .then(data => {
-                // Call updateChart after the data is fetched
+                // Call updateChart with grouped daily data
                 updateChart(data);
             })
             .catch(error => console.error('Error fetching data:', error));
-        }   
+        }
     } else {
         alert('Current City is not accessible.');
     }
