@@ -164,7 +164,7 @@ async function getGraph() {
     } else {
         alert('Please enter a city name or zip code.');
     }
-};
+}
 
 // Function to fetch data for the weather graph for a given city
 async function fetchWeatherData(cityName) {
@@ -196,9 +196,16 @@ function updateChart(data) {
     hourlyChart.data.datasets[0].data = hourlyTemperature;
     hourlyChart.update();
 }
+
+
+// Check if the hourlyChart already exists, and destroy it if it does
+if (window.hourlyChart instanceof Chart) {
+    window.hourlyChart.destroy();
+}
+
 // If you're using Chart.js, make sure hourlyChart is defined correctly in your script
 const ctx = document.getElementById('hourlyChart').getContext('2d');
-const hourlyChart = new Chart(ctx, {
+window.hourlyChart = new Chart(ctx, {
     type: 'line', // Default type
     data: {
         labels: [], // Populate with your labels
