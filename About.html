@@ -1,57 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>About WeatherNow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/about-style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-a" href="./index.html">WeatherNow</a>
+      </div>
+      <ul class="nav-links">
+        <li class="nav-links-li"><a href="./index.html">Home</a></li>
+        <li class="nav-links-li">
+          <a href="./contributors.html">Contributors</a>
+        </li>
+        <li class="nav-links-li"><a href="./About.html">About</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+    </script>
     <div class="content">
-        <!-- Navbar -->
-        <nav class="navbar">
+      <!-- Navbar -->
+      <!-- <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="./contributors.html">Contributors</a>
             <a href="#">About</a>
-        </nav>
+        </nav> -->
 
-        <!-- About Us Section -->
-        <div class="about-section">
-            <h1>About WeatherNow</h1>
-            <p>
-                Welcome to WeatherNow, your go-to destination for real-time weather information. We are passionate about providing you with the most accurate and up-to-date weather data for any city around the world.
-            </p>
+      <!-- About Us Section -->
+      <div class="about-section">
+        <h1>About WeatherNow</h1>
+        <p>
+          Welcome to WeatherNow, your go-to destination for real-time weather
+          information. We are passionate about providing you with the most
+          accurate and up-to-date weather data for any city around the world.
+        </p>
 
-            <h2>Our Mission</h2>
-            <p>
-                Our mission is to make it easy for you to access essential weather information, whether you're planning your day or traveling to a new location. WeatherNow is designed to keep you informed about the current weather conditions so you can make the right decisions.
-            </p>
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is to make it easy for you to access essential weather
+          information, whether you're planning your day or traveling to a new
+          location. WeatherNow is designed to keep you informed about the
+          current weather conditions so you can make the right decisions.
+        </p>
 
-            <h2>Key Features</h2>
-            <ul>
-                <li>Instantly check the weather in any city.</li>
-                <li>Get detailed information such as temperature, humidity, wind speed, and more.</li>
-                <li>View weather forecasts for the upcoming hours.</li>
-                <li>Beautifully designed and easy to use.</li>
-            </ul>
+        <h2>Key Features</h2>
+        <ul class="features-ul">
+          <li class="features-ul-li">
+            Instantly check the weather in any city.
+          </li>
+          <li>
+            Get detailed information such as temperature, humidity, wind speed,
+            and more.
+          </li>
+          <li>View weather forecasts for the upcoming hours.</li>
+          <li>Beautifully designed and easy to use.</li>
+        </ul>
 
-            <h2>Contributors</h2>
-            <p>
-                WeatherNow is made possible by a team of dedicated contributors who are passionate about weather data and technology. We couldn't do it without their hard work and expertise.
-                <a href="./contributors.html">Learn more about our contributors here</a>.
-            </p>
-        </div>
+        <h2>Contributors</h2>
+        <p>
+          WeatherNow is made possible by a team of dedicated contributors who
+          are passionate about weather data and technology. We couldn't do it
+          without their hard work and expertise.
+          <a href="./contributors.html"
+            >Learn more about our contributors here</a
+          >.
+        </p>
+      </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>
-                <span class="light-text">WeatherNow is a weather application that displays the weather of any city.</span>
-                <br />
-                © Roy™ <span id="copyrightYear"></span>
-            </p>
-        </div>
+      <!-- Footer -->
+      <div class="footer">
+        <p>
+          <span class="light-text"
+            >WeatherNow is a weather application that displays the weather of
+            any city.</span
+          >
+          <br />
+          © Roy™ <span id="copyrightYear"></span>
+        </p>
+      </div>
     </div>
 
     <script src="./js/script.js"></script>
-</body>
+  </body>
 </html>

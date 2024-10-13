@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!-- <meta charset="UTF-8" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contributors List</title>
     <link rel="stylesheet" href="./css/contri-style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/170b2fd3fe.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
   </head>
 
   <body>
     <!-- navbar -->
-    <nav class="navbar">
+    <!-- <nav class="navbar">
       <ul class="nav-list">
         <li class="nav-item"><a href="./index.html">Home</a></li>
         <li class="nav-item"><a href="#">Contributors</a></li>
         <li class="nav-item"><a href="./About.html">About</a></li>
       </ul>
+    </nav> -->
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-a" href="./index.html">WeatherNow</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./contributors.html">Contributors</a></li>
+        <li><a href="./About.html">About</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+  
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    </script>
 
     <div class="admin-card">
       <!-- Admin Card -->
@@ -311,10 +347,10 @@
     </footer>
     <script>
       // GitHub API URL for the repository contributors
-      const repoOwner = "R0Y15";  // Replace with your repo owner
-      const repoName = "WeatherNow";  // Replace with your repository name
+      const repoOwner = "R0Y15"; // Replace with your repo owner
+      const repoName = "WeatherNow"; // Replace with your repository name
       const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`;
-    
+
       // Function to fetch contributors and display them
       async function fetchContributors() {
         try {
@@ -326,14 +362,15 @@
           displayContributors(contributors);
         } catch (error) {
           console.error("Error:", error);
-          document.getElementById("cards").innerHTML = "<p>Failed to load contributors.</p>";
+          document.getElementById("cards").innerHTML =
+            "<p>Failed to load contributors.</p>";
         }
       }
-    
+
       // Function to display contributors
       function displayContributors(contributors) {
         const cardsContainer = document.getElementById("cards");
-    
+
         contributors.forEach((contributor) => {
           const contributorCard = `
             <div class="card">
@@ -367,10 +404,9 @@
           cardsContainer.innerHTML += contributorCard;
         });
       }
-    
+
       // Fetch contributors when the page loads
       document.addEventListener("DOMContentLoaded", fetchContributors);
     </script>
-    
   </body>
 </html>

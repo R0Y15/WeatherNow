@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>WeatherNow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/170b2fd3fe.js"
+      crossorigin="anonymous"
+    ></script>
 
-<head>
-  <title>WeatherNow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- Loader -->
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
 
-  <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
-
-  <!-- Loader -->
-  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-</head>
-
-<body>
-  <!-- onload="loader()" -->
-  <!-- Loader -->
-  <!-- <div class="preloader">
+  <body>
+    <!-- onload="loader()" -->
+    <!-- Loader -->
+    <!-- <div class="preloader">
         <div class="spinner"></div>
     </div> -->
 
-  <div class="content">
-    <!-- navbar -->
-    <nav class="navbar">
+    <div class="content">
+      <!-- navbar -->
+      <!-- <nav class="navbar">
       <ul class="nav-list">
         <li class="nav-item"><a href="#">Home</a></li>
         <li class="nav-item">
@@ -31,99 +38,128 @@
         </li>
         <li class="nav-item"><a href="./About.html">About</a></li>
       </ul>
-    </nav>
+    </nav> -->
+      <nav class="navbar">
+        <div class="logo">
+          <a class="logo-a" href="./index.html">WeatherNow</a>
+        </div>
+        <ul class="nav-links">
+          <li><a  href="./index.html">Home</a></li>
+          <li><a  href="./contributors.html">Contributors</a></li>
+          <li><a  href="./About.html">About</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('open');
+        });
+      </script>
 
-    <!-- body -->
-    <header>
-      <div class="homepage">
-        <span class="landing-text">WeatherNow</span> <br />
-        <span class="landing-text-2">Where Is The Sun? Is It Above Or Below The Clouds?</span>
+      <!-- body -->
+      <header>
+        <div class="homepage">
+          <span class="landing-text">WeatherNow</span> <br />
+          <span class="landing-text-2"
+            >Where Is The Sun? Is It Above Or Below The Clouds?</span
+          >
+        </div>
+      </header>
+      <div class="container">
+        <div class="form">
+          <!-- DropDown Menu -->
+          <div class="dropdown">
+            <button name="line" class="dropbtn" id="button">Default</button>
+            <div class="dropdown-content">
+              <a name="line">Default</a>
+              <a name="bar">Bar</a>
+              <a name="doughnut">Doughnut</a>
+              <a name="polarArea">PolarArea</a>
+              <a name="radar">Radar</a>
+            </div>
+          </div>
+          <!-- End -->
+
+          <!-- <input id="input" type="text" placeholder="Enter a city name" /> -->
+
+          <!-- Input City Name -->
+          <input
+            list="cities"
+            id="input"
+            placeholder="Enter or Select a city name"
+          />
+
+          <!-- Popular City Name  -->
+          <datalist id="cities">
+            <!-- <option value="CurrentLocation"> -->
+            <option value="Bangalore"></option>
+            <option value="Beijing"></option>
+            <option value="Chicago"></option>
+            <option value="Chennai"></option>
+            <option value="Delhi"></option>
+            <option value="Lucknow"></option>
+            <option value="Mumbai"></option>
+            <option value="Noida"></option>
+            <option value="New York"></option>
+            <option value="Tokyo"></option>
+          </datalist>
+
+          <!-- Input End -->
+
+          <button id="button" class="button" onclick="getWeather()">
+            <span class="button-text">Go</span>
+            <img
+              class="arrow"
+              src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png"
+              alt="arrow"
+            />
+          </button>
+        </div>
+
+        <!-- Current Weather Location -->
+        <button id="currloc_button" onclick="getCurrLoc()">
+          Use My Current Location
+        </button>
+        <br /><br />
+        <div id="weather-info"></div>
+
+        <!-- Displaying weather info  -->
+        <div class="result-container" style="display: none">
+          <div id="loader" class="loader"></div>
+          <div id="result" class="result-box" style="display: none"></div>
+        </div>
+        <canvas id="hourlyChart" width="400" height="200"></canvas>
       </div>
-    </header>
-    <div class="container">
-      <div class="form">
-        <!-- DropDown Menu -->
-        <div class="dropdown">
-          <button name="line" class="dropbtn" id="button">Default</button>
-          <div class="dropdown-content">
-            <a name="line">Default</a>
-            <a name="bar">Bar</a>
-            <a name="doughnut">Doughnut</a>
-            <a name="polarArea">PolarArea</a>
-            <a name="radar">Radar</a>
+
+      <!-- footer -->
+      <footer>
+        <div class="footer">
+          <div class="footer-content">
+            <div class="footer-section about">
+              <p>
+                <span class="light-text"
+                  >WeatherNow is a weather application that displays the weather
+                  of any city.</span
+                >
+                <br />
+                © Roy™ <span id="copyrightYear"></span>
+              </p>
+            </div>
           </div>
         </div>
-        <!-- End -->
-
-        <!-- <input id="input" type="text" placeholder="Enter a city name" /> -->
-
-        <!-- Input City Name -->
-        <input list="cities" id="input" placeholder="Enter or Select a city name">
-
-        <!-- Popular City Name  -->
-        <datalist id="cities">
-          <!-- <option value="CurrentLocation"> -->
-          <option value="Bangalore">
-          <option value="Beijing">
-          <option value="Chicago">
-          <option value="Chennai">
-          <option value="Delhi">
-          <option value="Lucknow">
-          <option value="Mumbai">
-          <option value="Noida">
-          <option value="New York">
-          <option value="Tokyo">
-        </datalist>
-        <!-- Input End -->
-
-        
-        <button id="button" class="button" onclick="getWeather()">
-          <span class="button-text">Go</span>
-          <img class="arrow" src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png" alt="arrow">
-        </button>
-
-      </div>
-
-
-      <!-- Current Weather Location -->
-      <button id="currloc_button" onclick="getCurrLoc()">Use My Current Location</button>
-      <br><br>
-      <div id="weather-info"></div>
-
-
-      <!-- Displaying weather info  -->
-      <div class="result-container" style="display: none">
-        <div id="loader" class="loader"></div>
-        <div id="result" class="result-box" style="display: none"></div>
-      </div>
-      <canvas id="hourlyChart" width="400" height="200"></canvas>
-      
+      </footer>
     </div>
 
+    <!-- scripts -->
 
-
-    <!-- footer -->
-    <footer>
-      <div class="footer">
-        <div class="footer-content">
-          <div class="footer-section about">
-            <p>
-              <span class="light-text">WeatherNow is a weather application that displays the weather
-                of any city.</span>
-              <br />
-              © Roy™ <span id="copyrightYear"></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- scripts -->
-   
-  <script src="./js/geolocation.js" type="module"></script> 
-  <script src="./js/script.js" type="module"></script>
-
-</body>
-
+    <script src="./js/geolocation.js" type="module"></script>
+    <script src="./js/script.js" type="module"></script>
+  </body>
 </html>

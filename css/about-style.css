@@ -2,121 +2,240 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 
 body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .content {
-    max-width: 800px;
-    margin: 20px auto; /* Add margin to the top and bottom */
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  max-width: 800px;
+  /* margin: 20px auto; Add margin to the top and bottom */
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 /* Style the navbar */
-.navbar {
-    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+.navbarx {
+  background: linear-gradient(
+    to right,
+    #3498db,
+    #2980b9
+  ); /* Gradient background */
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #333; */
+  background: linear-gradient(to right, #3498db, #2980b9);
+  padding: 10px 20px;
+}
+
+.logo-a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  /* font-family: "Dancing Script", cursive; */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links-li {
+    margin-left: 10px;
+}
+
+/* .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0a500;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+} */
+@media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  } 
 
 /* Style the links in the navbar */
 .navbar a {
-    color: white; /* Change to white for contrast */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  color: white; /* Change to white for contrast */
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: "Dancing Script", cursive;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
 /* Change the link color on hover */
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
-    color: #ecf0f1; /* Lighter text color */
-    border-radius: 5px; /* Rounded corners on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+  color: #ecf0f1; /* Lighter text color */
+  border-radius: 5px; /* Rounded corners on hover */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .navbar {
-        width: 80%;
-    }
-    .navbar a {
-        padding: 10px 15px;
-    }
+  /* .navbar {
+    width: 80%;
+  } */
+  .navbar a {
+    padding: 10px 15px;
+  }
+}
+.landing-text {
+  font-size: 12rem;
+  text-align: center;
+  margin-top: 100px;
+  font-family: "Righteous", cursive;
 }
 
+@media (max-width: 1450px) {
+  .landing-text {
+    font-size: 10em;
+  }
+}
+
+.landing-text-2 {
+  font-family: "Kalam", cursive;
+}
+
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px;
+    transition: 0.3s;
+    margin-right: 30px;
+  }
+  
+  /* Media query for screens smaller than 768px */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 35px;
+      right: 0;
+      width: 100%;
+      background-color: #333;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease-in-out;
+      z-index: 9;
+    }
+  
+    .nav-links.open {
+      max-height: 300px; /* Adjust based on how many links you have */
+    }
+  
+    .nav-links li {
+      text-align: center;
+      padding: 15px 0;
+      width: 100%;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  }
+  
 .about-section {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 h1 {
-    font-family: 'Righteous', cursive; /* Changed font for the title */
-    font-size: 28px;
-    color: #1e00ff;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
+  font-family: "Righteous", cursive; /* Changed font for the title */
+  font-size: 28px;
+  color: #1e00ff;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 h2 {
-    font-family: 'Kalam', cursive; /* Changed font for the subtitles */
-    font-size: 24px;
-    color: #007bff;
+  font-family: "Kalam", cursive; /* Changed font for the subtitles */
+  font-size: 24px;
+  color: #007bff;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: rgba(30, 64, 216, 0.547);
-    border-radius: 10px;
-    margin-right: 50px;
-    padding: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 10px;
+  margin-right: 50px;
+  padding: 15px;
 }
 
-ul {
-    list-style: disc;
-    padding-left: 20px;
+.features-ul {
+  list-style: disc;
+  padding-left: 20px;
 }
 
-ul li {
-    margin-bottom: 10px;
-    background: url('https://img.icons8.com/ios-filled/20/ffffff/checked.png') no-repeat left center; /* Custom bullet */
-    padding-left: 30px; /* Space for custom bullet */
+.features-ul-li {
+  margin-bottom: 10px;
+  background: url("https://img.icons8.com/ios-filled/20/ffffff/checked.png")
+    no-repeat left center; /* Custom bullet */
+  padding-left: 30px; /* Space for custom bullet */
 }
 
 /* Footer Styles */
 .footer {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
 }
 
 #list {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: rgba(30, 64, 216, 0.547);
-    border-radius: 10px;
-    font-size: 16px;
-    line-height: 1.5;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.5;
 }
