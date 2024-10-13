@@ -34,61 +34,52 @@ window.getCurrLoc = function() {
         // Construct the OpenWeatherMap API URL
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
 
-        const aqi_url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+        // console.log("original url", url);
 
-        var aqi_value;
-
-        fetch(aqi_url)
-            .then(response => response.json())
-                .then(data => {
-                    const aqi = data.list[0].main.aqi;
-                    
-                    switch(aqi) {
-                        case 1: 
-                            aqi_value = "Good";
-                            break;
-                        case 2: 
-                            aqi_value = "Fair";
-                            break;
-                        case 3: 
-                            aqi_value = "Moderate";
-                            break;
-                        case 4: 
-                            aqi_value = "Poor";
-                            break;
-                        case 5: 
-                            aqi_value = "Very Poor";
-                            break;
-                        default: aqi_value = "Not able to fetch";
-                    }
-                })
-                .catch(error => console.error("Error fetching AQI data:", error));
-
-    
-        console.log(`Fetching weather data from: ${url}`);
-
-        // Fetch the data from the URL using the fetch API
+        let city,country,temp,feels_like,humidity,wind,description,visibility,aqi, aqiUrl, aqi_value;
+        // First fetch to get AQI
         fetch(url)
-            .then(function (response) {
-                // Check if the response is ok
-                if (response.ok) {
-                    // Convert the response to JSON format
-                    return response.json();
-                } else {
-                    // Throw an error if the response is not ok
-                    throw new Error("Something went wrong");
-                }
+            .then(response => response.json())
+            .then(data => {
+                city = data.name; // The city name
+                country = data.sys.country; // The country code
+                temp = data.main.temp; // The current temperature in Celsius
+                feels_like = data.main.feels_like; // The feels like temperature in Celsius
+                humidity = data.main.humidity; // The humidity percentage
+                wind = data.wind.speed; // The wind speed in meters per second
+                description = data.weather[0].description; // The weather description
+                visibility = data.visibility/1000; // The visibility in km
+
+                aqiUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+                // console.log("aqi url", aqiUrl);
+            
+                // Now, perform the second fetch using some information from the first fetch
+                return fetch(aqiUrl);
             })
-            .then(function (data) {
-                // Extract the relevant data from the JSON object
-                var city = data.name; // The city name
-                var country = data.sys.country; // The country code
-                var temp = data.main.temp; // The current temperature in Celsius
-                var feels_like = data.main.feels_like; // The feels like temperature in Celsius
-                var humidity = data.main.humidity; // The humidity percentage
-                var wind = data.wind.speed; // The wind speed in meters per second
-                var description = data.weather[0].description; // The weather description
-                var visibility = data.visibility/1000; // The visibility in km
+            .then(response => response.json())
+            .then(aqiData => {
+                aqi = aqiData.list[0].main.aqi;  // Assign AQI to global variable
+                // console.log(`Air Quality Index: ${aqi}`);
+
+                switch(aqi) {
+                    case 1: 
+                        aqi_value = "Good";
+                        break;
+                    case 2: 
+                        aqi_value = "Fair";
+                        break;
+                    case 3: 
+                        aqi_value = "Moderate";
+                        break;
+                    case 4: 
+                        aqi_value = "Poor";
+                        break;
+                    case 5: 
+                        aqi_value = "Very Poor";
+                        break;
+                    default: aqi_value = "Not able to fetch";
+                }
 
                 // Create a HTML string to display the data in a formatted way
 
