@@ -54,6 +54,7 @@ window.getWeather = function() {
             })
             .then(function (data) {
                 // Extract the relevant data from the JSON object
+                console.log("mera data humko dikhao", data);
                 var city = data.name; // The city name
                 var country = data.sys.country; // The country code
                 var temp = data.main.temp; // The current temperature in Celsius
@@ -61,10 +62,15 @@ window.getWeather = function() {
                 var humidity = data.main.humidity; // The humidity percentage
                 var wind = data.wind.speed; // The wind speed in meters per second
                 var description = data.weather[0].description; // The weather description
+                var visibility = data.visibility/1000; // The visibility in km
 
                 // Create a HTML string to display the data in a formatted way
 
                 let html =
+                "<p><span class='value city'>" +
+                city + "," + country +
+                "</span></p>";
+                html +=
                     "<p><span class='value temp'>" +
                     temp +
                     " °C " +
@@ -76,6 +82,10 @@ window.getWeather = function() {
                     getWeatherIcon(description) +
                     "</span></p>";
                 html +=
+                    "<p><span class='value city'>" +
+                    "Feels Like: " + feels_like + "°C" +
+                    "</span></p>"; 
+                html +=
                     "<p><span class='label'>Humidity:</span> <span class='value'>" +
                     humidity +
                     " % <i class='fas fa-tint fa-lg'></i></span></p>";
@@ -83,6 +93,10 @@ window.getWeather = function() {
                     "<p><span class='label'>Wind:</span> <span class='value'>" +
                     wind +
                     " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
+                html +=
+                    "<p><span class='value city'>" +
+                    "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
+                    "</span></p>"; 
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
