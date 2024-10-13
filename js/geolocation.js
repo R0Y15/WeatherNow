@@ -28,12 +28,41 @@ window.getCurrLoc = function() {
     function showPosition(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        console.log(`User's location: Latitude: ${lat}, Longitude: ${lon}`);
 
         const token = OPENWEATHERMAP_TOKEN;
 
         // Construct the OpenWeatherMap API URL
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+        const aqi_url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+        var aqi_value;
+
+        fetch(aqi_url)
+            .then(response => response.json())
+                .then(data => {
+                    const aqi = data.list[0].main.aqi;
+                    
+                    switch(aqi) {
+                        case 1: 
+                            aqi_value = "Good";
+                            break;
+                        case 2: 
+                            aqi_value = "Fair";
+                            break;
+                        case 3: 
+                            aqi_value = "Moderate";
+                            break;
+                        case 4: 
+                            aqi_value = "Poor";
+                            break;
+                        case 5: 
+                            aqi_value = "Very Poor";
+                            break;
+                        default: aqi_value = "Not able to fetch";
+                    }
+                })
+                .catch(error => console.error("Error fetching AQI data:", error));
 
     
         console.log(`Fetching weather data from: ${url}`);
@@ -79,7 +108,7 @@ window.getCurrLoc = function() {
                     getWeatherIcon(description) +
                     "</span></p>";
                 html +=
-                    "<p><span class='value city'>" +
+                    "<p><span class='value feels_like'>" +
                     "Feels Like: " + feels_like + "°C" +
                     "</span></p>"; 
                 html +=
@@ -91,9 +120,13 @@ window.getCurrLoc = function() {
                     wind +
                     " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
                 html +=
-                    "<p><span class='value city'>" +
+                    "<p><span class='value visibility'>" +
                     "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
                     "</span></p>";
+                html +=
+                    "<p><span class='value aqi'>" +
+                    "AQI: " + aqi_value +
+                    "</span></p>"; 
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
