@@ -59,6 +59,7 @@ window.getCurrLoc = function() {
                 var humidity = data.main.humidity; // The humidity percentage
                 var wind = data.wind.speed; // The wind speed in meters per second
                 var description = data.weather[0].description; // The weather description
+                var visibility = data.visibility/1000; // The visibility in km
 
                 // Create a HTML string to display the data in a formatted way
 
@@ -89,6 +90,10 @@ window.getCurrLoc = function() {
                     "<p><span class='label'>Wind:</span> <span class='value'>" +
                     wind +
                     " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
+                html +=
+                    "<p><span class='value city'>" +
+                    "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
+                    "</span></p>";
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
