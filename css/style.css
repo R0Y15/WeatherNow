@@ -508,3 +508,16 @@ dotlottie-player {
     background-color: gray;
   }
 /* DROPDOWN ENDS */
+
+/* Media query for screens between 768px and 1000px width */
+@media (max-width: 1000px) and (min-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    .navbar {
+        width: 80%;
+    }
+    .landing-text {
+        font-size: 6rem;
+    }
+}
