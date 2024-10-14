@@ -34,61 +34,38 @@ window.getWeather = function() {
     loader.style.display = "block";
     hourlyChart.style.display = "block";
     
-    let api_value;
     // Check if the input is not empty
     if (input) {
         // Create a URL for the weather API with the input as a query parameter
         const token = OPENWEATHERMAP_TOKEN;
         var url = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=metric&appid=" + token;
 
-        console.log("original url", url);
-
-        let city,country,temp,feels_like,humidity,wind,description,visibility,lat,lon,aqi, aqiUrl, aqi_value;
-        // First fetch to get AQI
+        // Fetch the data from the URL using the fetch API
         fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                city = data.name; // The city name
-                country = data.sys.country; // The country code
-                temp = data.main.temp; // The current temperature in Celsius
-                feels_like = data.main.feels_like; // The feels like temperature in Celsius
-                humidity = data.main.humidity; // The humidity percentage
-                wind = data.wind.speed; // The wind speed in meters per second
-                description = data.weather[0].description; // The weather description
-                visibility = data.visibility/1000; // The visibility in km
-
-                lat = data.coord.lat;
-                lon = data.coord.lon;
-
-                aqiUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
-            
-                // Now, perform the second fetch using some information from the first fetch
-                return fetch(aqiUrl);
-            })
-            .then(response => response.json())
-            .then(aqiData => {
-                aqi = aqiData.list[0].main.aqi;  // Assign AQI to global variable
-                console.log(`Air Quality Index: ${aqi}`);
-
-                switch(aqi) {
-                    case 1: 
-                        aqi_value = "Good";
-                        break;
-                    case 2: 
-                        aqi_value = "Fair";
-                        break;
-                    case 3: 
-                        aqi_value = "Moderate";
-                        break;
-                    case 4: 
-                        aqi_value = "Poor";
-                        break;
-                    case 5: 
-                        aqi_value = "Very Poor";
-                        break;
-                    default: aqi_value = "Not able to fetch";
+            .then(function (response) {
+                // Check if the response is ok
+                if (response.ok) {
+                    // Convert the response to JSON format
+                    return response.json();
+                } else {
+                    // Throw an error if the response is not ok
+                    throw new Error("Something went wrong");
                 }
-                
+            })
+            .then(function (data) {
+                // Extract the relevant data from the JSON object
+                var city = data.name; // The city name
+                var country = data.sys.country; // The country code
+                var temp = data.main.temp; // The current temperature in Celsius
+                var feels_like = data.main.feels_like; // The feels like temperature in Celsius
+                var humidity = data.main.humidity; // The humidity percentage
+                var wind = data.wind.speed; // The wind speed in meters per second
+                var description = data.weather[0].description; // The weather description
+                var visibility = data.visibility/1000; // The visibility in km
+
+                const sunrise = data.sys.sunrise;
+                const sunset = data.sys.sunset;
+
                 // Create a HTML string to display the data in a formatted way
 
                 let html =
@@ -121,10 +98,14 @@ window.getWeather = function() {
                 html +=
                     "<p><span class='value city'>" +
                     "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
-                    "</span></p>";
+                    "</span></p>"; 
                 html +=
-                    "<p><span class='value aqi'>" +
-                    "AQI: " + aqi_value +
+                    "<p><span class='value city'>" +
+                    "Sunrise: " + formatTime(sunrise) +
+                    "</span></p>"; 
+                html +=
+                    "<p><span class='value city'>" +
+                    "Sunset: " + formatTime(sunset) + 
                     "</span></p>"; 
 
                 // Set the inner HTML of the result div to the HTML string
@@ -135,14 +116,31 @@ window.getWeather = function() {
                 result_container.style.display = "block";
                 result.style.display = "block";
             })
-            .catch(error => console.error('Error fetching data:', error));
-               
+            .catch(function (error) {
+                // Handle any errors that may occur
+                result_container.style.display = "none";
+                alert(error.message);
+            });
     } else {
         // Alert the user if the input is empty
         alert("Please enter a city name");
     }
     getGraph();
 }
+
+
+// Convert UNIX timestamp to readable time in AM/PM format
+function formatTime(unixTime) {
+    const date = new Date(unixTime * 1000);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;  // Convert 0 to 12
+    const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
+    return `${hours}:${minutesFormatted} ${ampm}`;
+}
+
 
 function getWeatherIcon(description) {
     // Define mappings of weather descriptions to Font Awesome icons
