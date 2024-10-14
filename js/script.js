@@ -65,7 +65,8 @@ window.getWeather = function() {
 
                 const sunrise = data.sys.sunrise;
                 const sunset = data.sys.sunset;
-
+                const timezoneOffset = data.timezone;  // Get timezone offset in seconds
+                
                 // Create a HTML string to display the data in a formatted way
 
                 let html =
@@ -101,11 +102,11 @@ window.getWeather = function() {
                     "</span></p>"; 
                 html +=
                     "<p><span class='value city'>" +
-                    "Sunrise: " + formatTime(sunrise) +
+                    "Sunrise: " + convertToLocalTime(sunrise, timezoneOffset) +
                     "</span></p>"; 
                 html +=
                     "<p><span class='value city'>" +
-                    "Sunset: " + formatTime(sunset) + 
+                    "Sunset: " + convertToLocalTime(sunset, timezoneOffset) + 
                     "</span></p>"; 
 
                 // Set the inner HTML of the result div to the HTML string
@@ -129,17 +130,18 @@ window.getWeather = function() {
 }
 
 
-// Convert UNIX timestamp to readable time in AM/PM format
-function formatTime(unixTime) {
-    const date = new Date(unixTime * 1000);
-    let hours = date.getHours();
-    const minutes = date.getMinutes();
+// Convert UNIX timestamp to local time in AM/PM format
+function convertToLocalTime(unixTimestamp, timezoneOffset) {
+    const localTime = new Date((unixTimestamp + timezoneOffset) * 1000);  // Convert to milliseconds
+    let hours = localTime.getUTCHours();
+    const minutes = localTime.getUTCMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
-    hours = hours ? hours : 12;  // Convert 0 to 12
+    hours = hours ? hours : 12;  // Convert hour '0' to '12'
     const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
     return `${hours}:${minutesFormatted} ${ampm}`;
 }
+
 
 
 function getWeatherIcon(description) {
