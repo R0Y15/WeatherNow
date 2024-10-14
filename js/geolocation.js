@@ -28,15 +28,12 @@ window.getCurrLoc = function() {
     function showPosition(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        console.log(`User's location: Latitude: ${lat}, Longitude: ${lon}`);
 
         const token = OPENWEATHERMAP_TOKEN;
 
         // Construct the OpenWeatherMap API URL
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
 
-    
-        console.log(`Fetching weather data from: ${url}`);
 
         // Fetch the data from the URL using the fetch API
         fetch(url)
