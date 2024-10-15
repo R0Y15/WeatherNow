@@ -81,6 +81,26 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
 
+#currloc_button{
+    padding: 5px 10px;
+    background-color: #28a745; /* Updated background color */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Smooth background and shadow transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+#currloc_button:hover{
+    background-color: rgb(0, 99, 0);
+}
+
 .button-text {
     transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth text transitions */
 }
