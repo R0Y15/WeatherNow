@@ -1,123 +1,226 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+  --text-color: #333;
+  --bg-color: #f0f2f5;
+}
 
 body {
-    background-color: #f4f4f4;
-    font-family: "Poppins", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-color: #f4f4f4;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .content {
-    max-width: 800px;
-    margin: 20px auto; /* Add margin to the top and bottom */
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  max-width: 1000px;
+  margin: 40px auto; /* Add margin to the top and bottom */
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
 }
 
 /* Style the navbar */
 .navbar {
-    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  background: linear-gradient(
+    to right,
+    #3498db,
+    #2980b9
+  ); /* Gradient background */
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 10px 0;
 }
 
 /* Style the links in the navbar */
 .navbar a {
-    color: white; /* Change to white for contrast */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  color: white; /* Change to white for contrast */
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 /* Change the link color on hover */
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
-    color: #ecf0f1; /* Lighter text color */
-    border-radius: 5px; /* Rounded corners on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+  color: #ecf0f1; /* Lighter text color */
+  border-radius: 5px; /* Rounded corners on hover */
+  transform: translateY(-3px);
+  padding: 14px 20px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .navbar {
-        width: 80%;
-    }
-    .navbar a {
-        padding: 10px 15px;
-    }
+  .navbar {
+    width: 80%;
+  }
+  .navbar a {
+    padding: 10px 15px;
+  }
 }
 
 .about-section {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 h1 {
-    font-family: 'Righteous', cursive; /* Changed font for the title */
-    font-size: 28px;
-    color: #1e00ff;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  color: #1e00ff;
+  text-align: center;
+  margin-bottom: 20px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  font-weight: 700;
+   animation: glowPulse 5s infinite alternate;
+}
+
+
+@keyframes glowPulse {
+  0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px var(--secondary-color); }
+  100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 40px var(--primary-color); }
 }
 
 h2 {
-    font-family: 'Kalam', cursive; /* Changed font for the subtitles */
-    font-size: 24px;
-    color: #007bff;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+
+  margin-top: 40px;
+  color: #007bff;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: rgba(30, 64, 216, 0.547);
-    border-radius: 10px;
-    margin-right: 50px;
-    padding: 15px;
+  font-size: 18px;
+  line-height: 1.8;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
+
+p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
 ul {
-    list-style: disc;
-    padding-left: 20px;
+  list-style: none;
+  padding-left: 0px;
 }
 
 ul li {
-    margin-bottom: 10px;
-    background: url('https://img.icons8.com/ios-filled/20/ffffff/checked.png') no-repeat left center; /* Custom bullet */
-    padding-left: 30px; /* Space for custom bullet */
+  margin-bottom: 15px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%236a11cb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>')
+    no-repeat left 5px;
+  padding-left: 40px;
+  font-size: 18px;
+   transition: all 0.3s ease;
 }
 
+
+ul li:hover {
+  transform: translateX(10px);
+  color: var(--primary-color);
+}
 /* Footer Styles */
 .footer {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-radius: 0 0 20px 20px;
 }
 
 #list {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: rgba(30, 64, 216, 0.547);
-    border-radius: 10px;
-    font-size: 16px;
-    line-height: 1.5;
+  margin: 30px 0;
+  padding: 25px;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 15px;
+  font-size: 18px;
+  line-height: 1.8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+.navbar a {
+  width: 25%;
+  padding: 12px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content > * {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.content > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.content > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.content > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+
+@keyframes subtleParallax {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
+  background-size: 120% 120%;
+  opacity: 0.1;
+  z-index: -1;
+  animation: subtleParallax 20s ease-in-out infinite alternate;
 }
