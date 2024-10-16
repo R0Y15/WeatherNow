@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     background-color: #f5f5f5;
     background-image: url(https://wallpapers.com/images/hd/weather-scenarios-collage-dbk9c5n23l7e5fgb.jpg);
     background-size: cover;
@@ -79,6 +80,26 @@ header {
     overflow: hidden;
     transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Smooth background and shadow transitions */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+#currloc_button{
+    padding: 5px 10px;
+    background-color: #28a745; /* Updated background color */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Smooth background and shadow transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+#currloc_button:hover{
+    background-color: rgb(0, 99, 0);
 }
 
 .button-text {

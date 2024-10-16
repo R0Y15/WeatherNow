@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
     background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
