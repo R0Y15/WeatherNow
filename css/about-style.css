@@ -16,16 +16,17 @@ body {
 .content {
     max-width: 800px;
     margin: 20px auto; /* Add margin to the top and bottom */
-    background-color: #fff;
+    background-color: rgba(25, 33, 61, 0.5);
+    backdrop-opacity: 10;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 /* Style the navbar */
 .navbar {
     background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
-    width: 35%;
+    width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,61 +46,79 @@ body {
 
 /* Change the link color on hover */
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    background-color: rgba(255, 255, 255, 0.4); /* Light background on hover */
     color: #ecf0f1; /* Lighter text color */
     border-radius: 5px; /* Rounded corners on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        width: 80%;
-    }
-    .navbar a {
-        padding: 10px 15px;
-    }
 }
 
 .about-section {
     padding: 20px 0;
 }
 
+
 h1 {
     font-family: 'Righteous', cursive; /* Changed font for the title */
     font-size: 28px;
-    color: #1e00ff;
+    background: linear-gradient(209deg, #ff0000, #deff0a, #ff4800); /* Adjusted gradient direction */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Make the text transparent */
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
 }
 
+
+.aboutmain{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutmain p{
+    width: 300px;
+}
+
+
 h2 {
     font-family: 'Kalam', cursive; /* Changed font for the subtitles */
     font-size: 24px;
-    color: #007bff;
+    background: linear-gradient(90deg, #ff7b00, #deff0a); /* Adjusted gradient direction */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Make the text transparent */
+    text-align: center;
+    margin-block: 0px;
 }
 
 p {
     font-size: 16px;
     line-height: 1.5;
-    background-color: rgba(30, 64, 216, 0.547);
+    background-color: ;
+    color: white;
+    text-align: center;
     border-radius: 10px;
-    margin-right: 50px;
-    padding: 15px;
+    margin-inline: auto;
+    padding-inline: 15px;
+    margin-top: 5px;
 }
 
 ul {
-    list-style: disc;
+    list-style: none;
     padding-left: 20px;
+    color: white;
 }
 
 ul li {
     margin-bottom: 10px;
-    background: url('https://img.icons8.com/ios-filled/20/ffffff/checked.png') no-repeat left center; /* Custom bullet */
+    display: flex;
+    gap: 10px;
+    align-items: center;
     padding-left: 30px; /* Space for custom bullet */
+    
 }
 
 /* Footer Styles */
@@ -108,6 +127,7 @@ ul li {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    border-radius: 10px;
 }
 
 #list {
@@ -120,4 +140,29 @@ ul li {
     border-radius: 10px;
     font-size: 16px;
     line-height: 1.5;
+}
+
+a{
+    display: block;
+    color: #dc0073;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content{
+        margin: 0px;
+        border-radius: 0px;
+    }
+    .navbar {
+        width: 90%;
+    }
+    .navbar a {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 680px) {
+    .aboutmain{
+        flex-direction: column;
+    }
 }
