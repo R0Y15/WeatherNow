@@ -7,6 +7,7 @@ window.getCurrLoc = function() {
     var loader = document.getElementById("loader");
     var result_container = document.querySelector(".result-container");
     // var hourlyChart = document.getElementById("hourlyChart");
+    var know_more = document.getElementById('km_btn');
     
 
     // Hide the result initially
@@ -76,33 +77,14 @@ window.getCurrLoc = function() {
                     "</span></p>";
                 html +=
                     "<p><span class='value description' style='text-transform:capitalize'>" +
-                    description +
+                    description + " " +
                     getWeatherIcon(description) +
                     "</span></p>";
                 html +=
-                    "<p><span class='value city'>" +
+                    "<p><span class='value feels_like'>" +
                     "Feels Like: " + feels_like + "°C" +
                     "</span></p>"; 
-                html +=
-                    "<p><span class='label'>Humidity:</span> <span class='value'>" +
-                    humidity +
-                    " % <i class='fas fa-tint fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='label'>Wind:</span> <span class='value'>" +
-                    wind +
-                    " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='value city'>" +
-                    "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
-                    "</span></p>";
-                html +=
-                    "<p><span class='value city'>" +
-                    "Sunrise: " + convertToLocalTime(sunrise, timezoneOffset) +
-                    "</span></p>"; 
-                html +=
-                    "<p><span class='value city'>" +
-                    "Sunset: " + convertToLocalTime(sunset, timezoneOffset) + 
-                    "</span></p>"; 
+                
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
@@ -111,6 +93,13 @@ window.getCurrLoc = function() {
                 loader.style.display = "none";
                 result_container.style.display = "block";
                 result.style.display = "block";
+                know_more.style.display = "block";
+
+                // Add event listener to the dynamically created button
+                document.getElementById('km_btn').addEventListener('click', function() {
+                    // Pass the data to the showContent function
+                    showContent(humidity, wind, visibility,sunrise, sunset, timezoneOffset);
+                });
             })
             .catch(function (error) {
                 // Handle any errors that may occur
@@ -140,6 +129,49 @@ window.getCurrLoc = function() {
     }
 
     getGraph();
+}
+
+
+// To know more weather data
+function showContent(humidity, wind, visibility, sunrise, sunset, timezoneOffset) {
+    // Get the result div element
+    var result = document.getElementById("result");
+    var loader = document.getElementById("loader");
+    var result_container = document.querySelector(".result-container");
+    var know_more = document.getElementById('km_btn');
+    
+    let html = 
+            "<p><span class='value sunrise'>" +
+                "Sunrise: " + convertToLocalTime(sunrise, timezoneOffset) +
+            " <i class='fas fa-sun'></i> </span></p>"; 
+        
+        html += 
+            "<p><span class='value sunset'>" +
+                "Sunset: " + convertToLocalTime(sunset, timezoneOffset) +
+            " <i class='fas fa-moon'></i> </span></p>"; 
+
+        html +=
+            "<p><span class='value humidityl'>Humidity:</span> <span class='value'>" +
+            humidity +
+            " % <i class='fas fa-tint fa-lg'></i></span></p>";
+
+        html +=
+            "<p><span class='value wind'>Wind:</span> <span class='value'>" +
+            wind +
+            " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
+        
+        html +=
+            "<p><span class='value visibility'>" +
+            "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>";
+
+    // Set the inner HTML of the result div to the HTML string
+    result.innerHTML = html;
+
+    // Show the result div
+    loader.style.display = "none";
+    result_container.style.display = "block";
+    result.style.display = "block";
+    know_more.style.display = "none";
 }
 
 
