@@ -521,3 +521,20 @@ dotlottie-player {
         font-size: 6rem;
     }
 }
+
+
+/* Current Location Button */
+#currloc_button {
+    padding: 5px;
+    border-radius: 15px;
+    margin-left: 200px;
+    margin-top: 10px;
+    background-color: #acb5a9;
+}
+
+#currloc_button:hover {
+    background-color: #43cb63;
+    cursor: pointer;
+}
+
+/* Know More button */
