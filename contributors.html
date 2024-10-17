@@ -21,6 +21,7 @@
     <div class="admin-card">
       <!-- Admin Card -->
       <div class="card">
+        <a href="https://github.com/R0Y15">
         <div class="card-body">
           <div class="left">
             <div class="card-img">
@@ -37,20 +38,17 @@
               <p>Project Lead and Repository Maintainer</p>
             </div>
           </div>
-          <div class="right">
-            <div class="seperator"></div>
-
-            <a href="https://github.com/R0Y15"
-              ><img
-                src="https://img.icons8.com/clouds/100/github.png"
-                alt="github"
-            /></a>
-          </div>
         </div>
+      </a>
       </div>
     </div>
+    <div class="heading" style="margin-top: 70px; text-decoration: underline; margin-bottom: 30px;">
+      <center><h1>All Contributors</h1></center>
+    </div>
+   
 
     <div class="content" id="cards">
+      
       <!-- Contributors Card 
       <div class="card">
         <div class="card-body">
@@ -338,31 +336,26 @@
         contributors.forEach((contributor) => {
           const contributorCard = `
             <div class="card">
+              <a href="${contributor.html_url}" target="_blank">
               <div class="card-body">
                 <div class="left">
                   <div class="card-img">
                     <img class="img"
-                      width="48"
-                      height="48"
+                      width="80"
+                      height="80"
                       src="${contributor.avatar_url}"
                       alt="${contributor.login}"
                     />
                   </div>
                   <div class="card-text">
                     <h2>${contributor.login}</h2>
-                    <p>Contributed ${contributor.contributions} time(s) to this project</p>
+                    <p>Contributed <strong>${contributor.contributions} time(s)</strong> to this project</p>
                   </div>
                 </div>
-                <div class="right">
-                  <div class="seperator"></div>
-                  <a href="${contributor.html_url}" target="_blank">
-                    <img
-                      src="https://img.icons8.com/clouds/100/github.png"
-                      alt="github"
-                    />
-                  </a>
+                <div class="right">     
                 </div>
               </div>
+              </a>
             </div>
           `;
           cardsContainer.innerHTML += contributorCard;

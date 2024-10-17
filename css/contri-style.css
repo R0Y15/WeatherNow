@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 html {
   box-sizing: border-box;
@@ -68,8 +69,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", Arial, sans-serif;
-  background-color: #f5f5f5;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #FFFBF3;
+}
+*{
+  text-decoration: none;
 }
 
 /* Style the button */
@@ -122,6 +126,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 /*Card CSS*/
@@ -135,13 +140,13 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .card-body {
   display: flex;
-  padding: 10px;
-  background-color: #f8f8f8;
+  padding: 20px;
+  background-color: #F8F2E8;
   /* make the text appear right to the image */
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -149,16 +154,22 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 300px;
-  margin: 20px;
+  margin: 30px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ebbb68;
 }
-
+.card-body:hover{
+  transform: scale(1.15);
+  transition: 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.card-img img{
+  border: 2px solid #ebbb68;
+}
 .card-header img {
   /* width: 100%; */
-  height: 50px;
-  width: 50px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   background-color: #555;
   border-top-left-radius: 10px;
@@ -187,6 +198,7 @@ body {
   margin: 0;
   font-size: 1.5rem;
   color: #333;
+  overflow: hidden;
 }
 
 .card-text p {
@@ -216,32 +228,11 @@ body {
 .card-footer a:hover {
   background-color: #1f639e;
 }
-
-.seperator {
-  border-left: 1.5px solid rgb(214, 214, 214);
-  height: 125px;
-}
-
 .left {
   flex: 1;
   display: flex;
   align-items: center;
   padding: 5px;
-}
-
-.right {
-  display: flex;
-  align-items: center;
-  width: 60px;
-  padding: 5px;
-}
-
-.right a {
-  width: 100%;
-}
-
-.right a img {
-  width: 100%;
 }
 
 /* Mobile-First Responsive Design */
