@@ -23,6 +23,11 @@ html {
   margin-right: auto;
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+
+  position: sticky;         /* For modern browsers */
+  top: 0;                   /* Sticks to the top of the page */
+  z-index: 1000;            /* Ensures it's above other elements */
+  transition: background-color 0.3s ease; /* Smooth transition for background change */
 }
 
 /* Style the navigation list */
