@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
 /* Style the navbar */
