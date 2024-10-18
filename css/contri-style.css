@@ -279,8 +279,9 @@ body {
 
   /* Make the navbar full width and smaller text */
   .navbar {
-    width: 100%;
+    width: 90%;
     font-size: 14px;
+    margin-top: 15px;
   }
 
   /* Modify the footer text size and padding */
