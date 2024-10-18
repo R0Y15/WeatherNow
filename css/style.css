@@ -15,7 +15,7 @@ body {
 
 /* Style the header */
 header {
-    background-color: rgba(66, 67, 80, 0.428);
+    background-color: rgb(20 24 75 / 60%);;
     color: rgb(0, 229, 255);
     text-align: center;
     padding: 30px 0;
@@ -42,6 +42,7 @@ header {
 
     .navbar {
         width: 100%;
+        
     }
 }
 
@@ -512,21 +513,22 @@ dotlottie-player {
     /* Adjust the header and landing text */
     header {
         font-size: 20px;
+        margin-top: 25px;
     }
 
     .landing-text {
-        font-size: 4rem;
+        font-size: 3.5rem;
         /* Adjust to your preference */
     }
 
     .landing-text-2 {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         /* Adjust to your preference */
     }
 
     /* Modify the container width and padding */
     .container {
-        margin-top: 2rem;
+        margin-top: 4rem;
         max-width: 85%;
         padding: 10px;
     }
@@ -543,8 +545,9 @@ dotlottie-player {
 
     /* Make the navbar full width and smaller text */
     .navbar {
-        width: 100%;
+        width: 90%;
         font-size: 14px;
+        margin-top: 15px;
     }
 
     /* Modify the footer text size and padding */
@@ -625,7 +628,8 @@ dotlottie-player {
     }
 
     .navbar {
-        width: 80%;
+        width: 70%;
+        font-size: 1.6rem;
     }
 
     .landing-text {
