@@ -17,7 +17,6 @@ body {
     max-width: 800px;
     margin: 20px auto; /* Add margin to the top and bottom */
     background-color: rgba(25, 33, 61, 0.5);
-    backdrop-opacity: 10;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
