@@ -43,52 +43,67 @@
     </header>
     <div class="container">
       <div class="form">
-        <!-- DropDown Menu -->
-        <div class="dropdown">
-          <button name="line" class="dropbtn" id="button">Default</button>
-          <div class="dropdown-content">
-            <a name="line">Default</a>
-            <a name="bar">Bar</a>
-            <a name="doughnut">Doughnut</a>
-            <a name="polarArea">PolarArea</a>
-            <a name="radar">Radar</a>
-          </div>
+
+        <div class="search-go">
+
+          <!-- Input City Name -->
+         
+          <input list="cities" id="input" placeholder="Enter or Select a city name">
+          
+          
+          <button id="button" class="button" onclick="getWeather()">
+            <span class="button-text">Go</span>
+            <img class="arrow" src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png" alt="arrow">
+          </button>
         </div>
-        <!-- End -->
+        <div class="go-curloc-btn">
 
-        <!-- <input id="input" type="text" placeholder="Enter a city name" /> -->
+          <!-- DropDown Menu -->
+          <div class="dropdown">
+            <button name="line" class="dropbtn" id="button">Default</button>
+            <div class="dropdown-content">
+              <a name="line">Default</a>
+              <a name="bar">Bar</a>
+              <a name="doughnut">Doughnut</a>
+              <a name="polarArea">PolarArea</a>
+              <a name="radar">Radar</a>
+            </div>
+          </div>
 
-        <!-- Input City Name -->
-        <input list="cities" id="input" placeholder="Enter or Select a city name">
+          <!-- Current Weather Location -->
+          <button id="currloc_button" onclick="getCurrLoc()">Use My Current Location</button>
+          <div id="weather-info"></div>
+          
+          <!-- End -->
+        </div>
 
-        <!-- Popular City Name  -->
-        <datalist id="cities">
-          <!-- <option value="CurrentLocation"> -->
-          <option value="Bangalore">
-          <option value="Beijing">
-          <option value="Chicago">
-          <option value="Chennai">
-          <option value="Delhi">
-          <option value="Lucknow">
-          <option value="Mumbai">
-          <option value="Noida">
-          <option value="New York">
-          <option value="Tokyo">
-        </datalist>
-        <!-- Input End -->
+          <!-- <input id="input" type="text" placeholder="Enter a city name" /> -->
 
 
-        <button id="button" class="button" onclick="getWeather()">
-          <span class="button-text">Go</span>
-          <img class="arrow" src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png" alt="arrow">
-        </button>
+          <!-- Popular City Name  -->
+          <datalist id="cities">
+            <!-- <option value="CurrentLocation"> -->
+            <option value="Bangalore">🌆 Bangalore</option>
+            <option value="Beijing">🏯 Beijing</option>
+            <option value="Chicago">🌭 Chicago</option>
+            <option value="Chennai">🌊 Chennai</option>
+            <option value="Delhi">🏛️ Delhi</option>
+            <option value="Lucknow">🕌 Lucknow</option>
+            <option value="Mumbai">🎬 Mumbai</option>
+            <option value="Noida">🏙️ Noida</option>
+            <option value="New York">🗽 New York</option>
+            <option value="Tokyo">🗼 Tokyo</option>
+          </datalist>
+          <!-- Input End -->
+
+
+
+  
 
       </div>
 
 
-      <!-- Current Weather Location -->
-      <button id="currloc_button" onclick="getCurrLoc()">Use My Current Location</button>
-      <div id="weather-info"></div>
+      
 
 
       <!-- Displaying weather info  -->
