@@ -29,6 +29,35 @@
     - Click on the **Compare & pull request** button.
     - Submit the pull request.
 
+## 🚀 Local Setup Guide
+
+1. **Add ENVIRONMENT variables**
+   ```bash
+   OPENWEATHERMAP_TOKEN=your_open_weather_api_key
+   WEATHER_API_BASE_URL=https://api.openweathermap.org/data/2.5/weather
+   WEATHER_DATA_UNIT=metric
+   ```
+   Keep your `.env` file inside `netlify/functions` directory.
+2. **Install required packages**
+   Run:
+   ```bash
+   npm i 
+   ```   
+3. **Intall Netlify CLI locally**
+   This site is hosted on Netlify. Netlify CLI is needed to run it locally.
+   ```bash
+   npm install netlify-cli --global
+   ``` 
+   Check version
+   ```bash
+   ntl --version
+   ```
+4. **Run project in local**
+   ```bash
+   netlify dev
+   ```    
+
+
 It's that easy! We are eagerly waiting for your pull request. 😊
 
 ## 📝 How to Get Concluded
