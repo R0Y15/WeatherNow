@@ -14,8 +14,7 @@ body {
 }
 
 .content {
-    max-width: 800px;
-    margin: 20px auto; /* Add margin to the top and bottom */
+    margin: 20px; /* Add margin to the top and bottom */
     background-color: rgba(25, 33, 61, 0.5);
     /* backdrop-opacity: 10; */
     padding: 20px;
@@ -25,30 +24,60 @@ body {
 
 /* Style the navbar */
 .navbar {
-    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
-    width: 45%;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Style the links in the navbar */
-.navbar a {
-    color: white; /* Change to white for contrast */
+/* Style the navigation list */
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Style the list items */
+.nav-item {
+    margin: 0 15px;
+}
+
+/* Style the links */
+.nav-item a {
+    display: block;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Change the link color on hover */
-.navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.4); /* Light background on hover */
-    color: #ecf0f1; /* Lighter text color */
-    border-radius: 5px; /* Rounded corners on hover */
+.nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+    .navbar {
+        width: 80%;
+        font-size: 2em;
+    }
+
+    .nav-item {
+        margin: 0 10px;
+    }
 }
 
 .about-section {
