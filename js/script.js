@@ -42,7 +42,7 @@ window.getWeather = function () {
         var url = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=metric&appid=" + token;
 
         // Fetch the data from the URL using the fetch API
-        fetch(url)
+        fetch(`/.netlify/functions/getWeatherData?city=${input}`)
             .then(function (response) {
                 // Check if the response is ok
                 if (response.ok) {
@@ -50,10 +50,15 @@ window.getWeather = function () {
                     return response.json();
                 } else {
                     // Throw an error if the response is not ok
-                    throw new Error("Something went wrong");
+                    throw new Error(`Invalid response code from open weather API: ${response.status}`);
                 }
             })
-            .then(function (data) {
+            .then(function (responseData) {
+                let data = responseData["data"]
+                if(!data){
+                    console.log(responseData["error"])
+                    throw new Error(responseData["error"])
+                }
                 // Extract the relevant data from the JSON object
                 var city = data.name; // The city name
                 var country = data.sys.country; // The country code
