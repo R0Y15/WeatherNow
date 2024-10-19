@@ -2,6 +2,8 @@
 // Get the DotLottie player
 // const preloader = document.querySelector('.preloader');
 
+import { OPENWEATHERMAP_TOKEN } from "./config.js";
+
 // function loader() {
 //     setTimeout(function() {
 //         preloader.style.opacity = '0';
@@ -16,8 +18,6 @@
 
 
 // JavaScript code for fetching and displaying the weather data
-
-import { OPENWEATHERMAP_TOKEN } from './env.js';
 
 window.getWeather = function () {
     // Get the user input from the text box

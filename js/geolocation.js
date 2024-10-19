@@ -1,4 +1,4 @@
-import { OPENWEATHERMAP_TOKEN } from "./env.js";
+import { OPENWEATHERMAP_TOKEN } from "./config.js";
 
 window.getCurrLoc = function () {
 
