@@ -37,6 +37,7 @@
    WEATHER_API_BASE_URL=https://api.openweathermap.org/data/2.5/weather
    WEATHER_DATA_UNIT=metric
    ```
+   Keep your `.env` file inside `netlify/functions` directory.
 2. **Install required packages**
    Run:
    ```bash
