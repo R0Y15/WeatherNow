@@ -24,16 +24,38 @@
     ```bash
     git push origin ~your branch name~
     ```
-6. **Add ENVIRONMENT variable**
-   Create new file `env.js` in `/js` directory.
-   Add your open weather API token in this file.
-   ```javascript
-   export const OPENWEATHERMAP_TOKEN = {your_token};
-   ```
-7. **Submit your changes for review**:
+6. **Submit your changes for review**:
     - Go to your repository on GitHub.
     - Click on the **Compare & pull request** button.
     - Submit the pull request.
+
+## 🚀 Local Setup Guide
+
+1. **Add ENVIRONMENT variables**
+   ```bash
+   OPENWEATHERMAP_TOKEN=your_open_weather_api_key
+   WEATHER_API_BASE_URL=https://api.openweathermap.org/data/2.5/weather
+   WEATHER_DATA_UNIT=metric
+   ```
+2. **Install required packages**
+   Run:
+   ```bash
+   npm i 
+   ```   
+3. **Intall Netlify CLI locally**
+   This site is hosted on Netlify. Netlify CLI is needed to run it locally.
+   ```bash
+   npm install netlify-cli --global
+   ``` 
+   Check version
+   ```bash
+   ntl --version
+   ```
+4. **Run project in local**
+   ```bash
+   netlify dev
+   ```    
+
 
 It's that easy! We are eagerly waiting for your pull request. 😊
 
