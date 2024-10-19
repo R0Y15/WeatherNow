@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contributors List</title>
+    <script src="https://kit.fontawesome.com/9ce43fc1dc.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="./css/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/contri-style.css" />
   </head>
 
@@ -20,33 +22,32 @@
     <div class="admin-card">
       <!-- Admin Card -->
       <div class="card">
-        <div class="card-body">
-          <div class="left">
-            <div class="card-img">
-              <img
-                width="64"
-                height="64"
-                border-radius="50%"
-                src="https://img.icons8.com/external-victoruler-linear-colour-victoruler/64/external-boy-children-avatar-victoruler-linear-colour-victoruler-1.png"
-                alt="external-boy-children-avatar-victoruler-linear-colour-victoruler-1"
-              />
-            </div>
-            <div class="card-text">
-              <h2>Bishal Roy</h2>
-              <p>Project Lead and Repository Maintainer</p>
+        <a href="https://github.com/R0Y15">
+          <div class="card-body">
+            <div class="left">
+              <div class="card-img">
+                <img
+                  width="64"
+                  height="64"
+                  border-radius="50%"
+                  src="https://img.icons8.com/external-victoruler-linear-colour-victoruler/64/external-boy-children-avatar-victoruler-linear-colour-victoruler-1.png"
+                  alt="external-boy-children-avatar-victoruler-linear-colour-victoruler-1"
+                />
+              </div>
+              <div class="card-text">
+                <h2>Bishal Roy</h2>
+                <p>Project Lead and Repository Maintainer</p>
+              </div>
             </div>
           </div>
-          <div class="right">
-            <div class="seperator"></div>
-
-            <a href="https://github.com/R0Y15"
-              ><img
-                src="https://img.icons8.com/clouds/100/github.png"
-                alt="github"
-            /></a>
-          </div>
-        </div>
+        </a>
       </div>
+    </div>
+    <div
+      class="heading"
+      style="margin-top: 70px; text-decoration: underline; margin-bottom: 30px"
+    >
+      <center><h1>All Contributors</h1></center>
     </div>
 
     <div class="content" id="cards">
@@ -292,6 +293,12 @@
     <div class="back">
       <a href="./" class="button bottom-btn">BACK</a>
     </div>
+
+    <!-- scroll to top button -->
+    <a href="#top" class="to-top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
     <!-- footer -->
     <footer>
       <div class="footer">
@@ -311,10 +318,10 @@
     </footer>
     <script>
       // GitHub API URL for the repository contributors
-      const repoOwner = "R0Y15";  // Replace with your repo owner
-      const repoName = "WeatherNow";  // Replace with your repository name
+      const repoOwner = "R0Y15"; // Replace with your repo owner
+      const repoName = "WeatherNow"; // Replace with your repository name
       const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`;
-    
+
       // Function to fetch contributors and display them
       async function fetchContributors() {
         try {
@@ -326,51 +333,57 @@
           displayContributors(contributors);
         } catch (error) {
           console.error("Error:", error);
-          document.getElementById("cards").innerHTML = "<p>Failed to load contributors.</p>";
+          document.getElementById("cards").innerHTML =
+            "<p>Failed to load contributors.</p>";
         }
       }
-    
+
       // Function to display contributors
       function displayContributors(contributors) {
         const cardsContainer = document.getElementById("cards");
-    
+
         contributors.forEach((contributor) => {
           const contributorCard = `
             <div class="card">
+              <a href="${contributor.html_url}" target="_blank">
               <div class="card-body">
                 <div class="left">
                   <div class="card-img">
                     <img class="img"
-                      width="48"
-                      height="48"
+                      width="80"
+                      height="80"
                       src="${contributor.avatar_url}"
                       alt="${contributor.login}"
                     />
                   </div>
                   <div class="card-text">
                     <h2>${contributor.login}</h2>
-                    <p>Contributed ${contributor.contributions} time(s) to this project</p>
+                    <p>Contributed <strong>${contributor.contributions} time(s)</strong> to this project</p>
                   </div>
                 </div>
-                <div class="right">
-                  <div class="seperator"></div>
-                  <a href="${contributor.html_url}" target="_blank">
-                    <img
-                      src="https://img.icons8.com/clouds/100/github.png"
-                      alt="github"
-                    />
-                  </a>
+                <div class="right">     
                 </div>
               </div>
+              </a>
             </div>
           `;
           cardsContainer.innerHTML += contributorCard;
         });
       }
-    
+
       // Fetch contributors when the page loads
       document.addEventListener("DOMContentLoaded", fetchContributors);
+
+      //scroll to top
+      var toTop = document.querySelector(".to-top");
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 100) {
+          toTop.classList.add("active");
+        } else {
+          toTop.classList.remove("active");
+        }
+      });
     </script>
-    
   </body>
 </html>
