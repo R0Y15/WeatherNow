@@ -17,7 +17,7 @@
 
 // JavaScript code for fetching and displaying the weather data
 
-import { OPENWEATHERMAP_TOKEN } from './config.js'
+import { OPENWEATHERMAP_TOKEN } from './env.js';
 
 window.getWeather = function () {
     // Get the user input from the text box
