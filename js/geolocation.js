@@ -1,20 +1,20 @@
 import { OPENWEATHERMAP_TOKEN } from './config.js'
 
-window.getCurrLoc = function() {
+window.getCurrLoc = function () {
 
     // Get the result div element
     var result = document.getElementById("result");
     var loader = document.getElementById("loader");
     var result_container = document.querySelector(".result-container");
     // var hourlyChart = document.getElementById("hourlyChart");
-    
+
 
     // Hide the result initially
     result.style.display = "none";
     loader.style.display = "block";
-    
+
     // hourlyChart.style.display = "none";
-    
+
     if (navigator.geolocation) {
         console.log("Geolocation is supported. Getting location...");
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -23,20 +23,17 @@ window.getCurrLoc = function() {
         console.error("Geolocation is not supported by this browser.");
     }
 
-    
+
 
     function showPosition(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        console.log(`User's location: Latitude: ${lat}, Longitude: ${lon}`);
 
         const token = OPENWEATHERMAP_TOKEN;
 
         // Construct the OpenWeatherMap API URL
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
 
-    
-        console.log(`Fetching weather data from: ${url}`);
 
         // Fetch the data from the URL using the fetch API
         fetch(url)
@@ -59,41 +56,31 @@ window.getCurrLoc = function() {
                 var humidity = data.main.humidity; // The humidity percentage
                 var wind = data.wind.speed; // The wind speed in meters per second
                 var description = data.weather[0].description; // The weather description
-                var visibility = data.visibility/1000; // The visibility in km
+                var visibility = data.visibility / 1000; // The visibility in km
+
+                const sunrise = data.sys.sunrise;
+                const sunset = data.sys.sunset;
+                const timezoneOffset = data.timezone;  // Get timezone offset in seconds
 
                 // Create a HTML string to display the data in a formatted way
 
-                let html =
-                    "<p><span class='value city'>" +
-                    city + "," + country +
-                    "</span></p>";  
-                html +=
-                    "<p><span class='value temp'>" +
-                    temp +
-                    " °C " +
-                    getTemperatureIcon(description) +
-                    "</span></p>";
-                html +=
-                    "<p><span class='value description' style='text-transform:capitalize'>" +
-                    description +
-                    getWeatherIcon(description) +
-                    "</span></p>";
-                html +=
-                    "<p><span class='value city'>" +
-                    "Feels Like: " + feels_like + "°C" +
-                    "</span></p>"; 
-                html +=
-                    "<p><span class='label'>Humidity:</span> <span class='value'>" +
-                    humidity +
-                    " % <i class='fas fa-tint fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='label'>Wind:</span> <span class='value'>" +
-                    wind +
-                    " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='value city'>" +
-                    "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
-                    "</span></p>";
+                let html = '<div class="card-content">';
+                html += '<div class="left-side">';
+                html += `<p><span class='value city'>${city}, ${country}</span></p>`;
+                html += `<p><span class='value temp'>${temp} °C ${getTemperatureIcon(description)}</span></p>`;
+                html += `<p><span class='value description' style='text-transform:capitalize'>${description} ${getWeatherIcon(description)}</span></p>`;
+                html += `<p><span class='value feels_like'>Feels Like: ${feels_like}°C</span></p>`;
+                html += '</div>';
+                html += '<div class="separator"></div>';
+                html += '<div class="right-side">';
+                html += `<p><span class='value sunrise'>Sunrise: ${convertToLocalTime(sunrise, timezoneOffset)} <i class='fas fa-sun'></i></span></p>`;
+                html += `<p><span class='value sunset'>Sunset: ${convertToLocalTime(sunset, timezoneOffset)} <i class='fas fa-moon'></i></span></p>`;
+                html += `<p><span class='value humidity'>Humidity: ${humidity}% <i class='fas fa-tint'></i></span></p>`;
+                html += `<p><span class='value wind'>Wind: ${wind} m/s <i class='fas fa-wind'></i></span></p>`;
+                html += `<p><span class='value visibility'>Visibility: ${visibility} km <i class='fas fa-eye'></i></span></p>`;
+                html += '</div>';
+                html += '</div>';
+
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
@@ -112,7 +99,7 @@ window.getCurrLoc = function() {
 
     function showError(error) {
         let errorMessage = "";
-        switch(error.code) {
+        switch (error.code) {
             case error.PERMISSION_DENIED:
                 errorMessage = "User denied the request for Geolocation.";
                 break;
@@ -132,6 +119,62 @@ window.getCurrLoc = function() {
 
     getGraph();
 }
+
+
+// To know more weather data
+function showContent(humidity, wind, visibility, sunrise, sunset, timezoneOffset) {
+    // Get the result div element
+    var result = document.getElementById("result");
+    var loader = document.getElementById("loader");
+    var result_container = document.querySelector(".result-container");
+
+    let html =
+        "<p><span class='value sunrise'>" +
+        "Sunrise: " + convertToLocalTime(sunrise, timezoneOffset) +
+        " <i class='fas fa-sun'></i> </span></p>";
+
+    html +=
+        "<p><span class='value sunset'>" +
+        "Sunset: " + convertToLocalTime(sunset, timezoneOffset) +
+        " <i class='fas fa-moon'></i> </span></p>";
+
+    html +=
+        "<p><span class='value humidityl'>Humidity:</span> <span class='value'>" +
+        humidity +
+        " % <i class='fas fa-tint fa-lg'></i></span></p>";
+
+    html +=
+        "<p><span class='value wind'>Wind:</span> <span class='value'>" +
+        wind +
+        " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
+
+    html +=
+        "<p><span class='value visibility'>" +
+        "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>";
+
+    // Set the inner HTML of the result div to the HTML string
+    result.innerHTML = html;
+
+    // Show the result div
+    loader.style.display = "none";
+    result_container.style.display = "block";
+    result.style.display = "block";
+}
+
+
+
+// Convert UNIX timestamp to local time in AM/PM format
+function convertToLocalTime(unixTimestamp, timezoneOffset) {
+    const localTime = new Date((unixTimestamp + timezoneOffset) * 1000);  // Convert to milliseconds
+    let hours = localTime.getUTCHours();
+    const minutes = localTime.getUTCMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;  // Convert hour '0' to '12'
+    const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
+    return `${hours}:${minutesFormatted} ${ampm}`;
+}
+
 
 
 function getWeatherIcon(description) {
@@ -255,8 +298,8 @@ window.hourlyChart = new Chart(ctx, {
     },
     options: {
         scales: {
-            x: { 
-                title: { display: true, text: 'Hour' } 
+            x: {
+                title: { display: true, text: 'Hour' }
             },
             y: { title: { display: true, text: 'Temperature (°C)' }, beginAtZero: true }
         }
@@ -269,7 +312,7 @@ function updateChart(data) {
     // Extract relevant data from the API response (adjust according to your API)
     const hourlyTemperature = data?.list?.map(item => item.main.temp);
     const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    
+
     // Update the chart data
     if (hourlyTime && hourlyTemperature) {
         hourlyChart.data.labels = hourlyTime;
@@ -309,13 +352,13 @@ async function getGraph() {
             // updateChart(weatherData);
             const forecast_url = await getForecastApiUrl();
             fetch(forecast_url)
-            .then(response => response.json())
-            .then(data => {
-                // Call updateChart after the data is fetched
-                updateChart(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-        }   
+                .then(response => response.json())
+                .then(data => {
+                    // Call updateChart after the data is fetched
+                    updateChart(data);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
     } else {
         alert('Current City is not accessible.');
     }
@@ -378,7 +421,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     const currentYear = new Date().getFullYear();
     document.getElementById("copyrightYear").textContent = currentYear;
 });

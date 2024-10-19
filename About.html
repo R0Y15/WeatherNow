@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>About WeatherNow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./css/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/about-style.css" />
 </head>
 
@@ -18,34 +20,70 @@
         <!-- About Us Section -->
         <div class="about-section">
             <h1>About WeatherNow</h1>
-            <p>
-                Welcome to WeatherNow, your go-to destination for real-time weather information. We are passionate about providing you with the most accurate and up-to-date weather data for any city around the world.
-            </p>
+            <div class="aboutmain">
+               <!-- mainaboutsection styled with an free image imported from lottie.  -->
+                <div>
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module"></script>
+
+                    <dotlottie-player src="https://lottie.host/3312bd84-ca61-4616-ba9f-88b626331bd5/b7kvvtUn90.json"
+                        background="transparent" speed="1" style="width: 300px; height: 300px" loop
+                        autoplay></dotlottie-player>
+                </div>
+                <div class="aboutmainp">
+                    <p>
+                        Welcome to WeatherNow, your go-to destination for real-time
+                        weather information. We are passionate about providing you with
+                        the most accurate and up-to-date weather data for any city around
+                        the world.
+                    </p>
+                </div>
+                
+            </div>
 
             <h2>Our Mission</h2>
             <p>
-                Our mission is to make it easy for you to access essential weather information, whether you're planning your day or traveling to a new location. WeatherNow is designed to keep you informed about the current weather conditions so you can make the right decisions.
+                Our mission is to make it easy for you to access essential weather
+                information, whether you're planning your day or traveling to a new
+                location. WeatherNow is designed to keep you informed about the
+                current weather conditions so you can make the right decisions.
             </p>
 
             <h2>Key Features</h2>
             <ul>
-                <li>Instantly check the weather in any city.</li>
-                <li>Get detailed information such as temperature, humidity, wind speed, and more.</li>
-                <li>View weather forecasts for the upcoming hours.</li>
-                <li>Beautifully designed and easy to use.</li>
+                <li>
+                    <img src="./css/check.svg" alt="">
+                    Instantly check the weather in any city.
+                </li>
+                <li>
+                    <img src="./css/check.svg" alt="">
+                    Get detailed information such as temperature, humidity, wind speed,
+                    and more.
+                </li>
+                <li>
+                    <img src="./css/check.svg" alt="">
+                    View weather forecasts for the upcoming hours.
+                </li>
+                <li>
+                    <img src="./css/check.svg" alt="">
+                    Beautifully designed and easy to use.
+                </li>
             </ul>
 
             <h2>Contributors</h2>
             <p>
-                WeatherNow is made possible by a team of dedicated contributors who are passionate about weather data and technology. We couldn't do it without their hard work and expertise.
-                <a href="./contributors.html">Learn more about our contributors here</a>.
+                WeatherNow is made possible by a team of dedicated contributors who
+                are passionate about weather data and technology. We couldn't do it
+                without their hard work and expertise.
+                <a href="./contributors.html">Learn more about our contributors here</a>
             </p>
         </div>
 
         <!-- Footer -->
         <div class="footer">
             <p>
-                <span class="light-text">WeatherNow is a weather application that displays the weather of any city.</span>
+                <span class="light-text">WeatherNow is a weather application that displays the weather of
+                    any city.</span>
                 <br />
                 © Roy™ <span id="copyrightYear"></span>
             </p>
@@ -54,4 +92,5 @@
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 html {
   box-sizing: border-box;
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
 /* Style the navbar */
@@ -21,6 +24,11 @@ html {
   margin-right: auto;
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+
+  position: sticky;         /* For modern browsers */
+  top: 0;                   /* Sticks to the top of the page */
+  z-index: 1000;            /* Ensures it's above other elements */
+  transition: background-color 0.3s ease; /* Smooth transition for background change */
 }
 
 /* Style the navigation list */
@@ -67,8 +75,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #FFFBF3;
+}
+*{
+  text-decoration: none;
 }
 
 /* Style the button */
@@ -121,6 +132,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 /*Card CSS*/
@@ -134,13 +146,13 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .card-body {
   display: flex;
-  padding: 10px;
-  background-color: #f8f8f8;
+  padding: 20px;
+  background-color: #F8F2E8;
   /* make the text appear right to the image */
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -148,16 +160,22 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 300px;
-  margin: 20px;
+  margin: 30px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ebbb68;
 }
-
+.card-body:hover{
+  transform: scale(1.15);
+  transition: 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.card-img img{
+  border: 2px solid #ebbb68;
+}
 .card-header img {
   /* width: 100%; */
-  height: 50px;
-  width: 50px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   background-color: #555;
   border-top-left-radius: 10px;
@@ -186,6 +204,7 @@ body {
   margin: 0;
   font-size: 1.5rem;
   color: #333;
+  overflow: hidden;
 }
 
 .card-text p {
@@ -215,32 +234,11 @@ body {
 .card-footer a:hover {
   background-color: #1f639e;
 }
-
-.seperator {
-  border-left: 1.5px solid rgb(214, 214, 214);
-  height: 125px;
-}
-
 .left {
   flex: 1;
   display: flex;
   align-items: center;
   padding: 5px;
-}
-
-.right {
-  display: flex;
-  align-items: center;
-  width: 60px;
-  padding: 5px;
-}
-
-.right a {
-  width: 100%;
-}
-
-.right a img {
-  width: 100%;
 }
 
 /* Mobile-First Responsive Design */
@@ -281,8 +279,9 @@ body {
 
   /* Make the navbar full width and smaller text */
   .navbar {
-    width: 100%;
+    width: 90%;
     font-size: 14px;
+    margin-top: 15px;
   }
 
   /* Modify the footer text size and padding */
@@ -308,3 +307,39 @@ footer {
   left: 0;
   right: 0;
 }
+
+/*scroll to top button*/
+
+.to-top {
+  z-index: 10;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  pointer-events: none;
+ 
+   width: auto;
+  height:auto;
+  color: black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  text-decoration: none;
+  opacity: 0;
+  transition: all .4s;
+}
+
+.to-top img {
+  display : block;
+}
+.to-top .fa-arrow-up {
+  position: absolute;
+  
+}
+
+.to-top.active {
+  
+cursor: pointer;
+ pointer-events: auto;
+ opacity:1
+}   

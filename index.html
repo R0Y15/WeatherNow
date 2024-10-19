@@ -7,8 +7,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
   <link rel="stylesheet" href="C:\Users\91784\Desktop\weather\WeatherNow\css\review.css" />
   <link rel="stylesheet" href="WeatherNow/css/contact.css" />
+
+  <link rel="icon" href="./css/favicon.ico" type="image/x-icon">
+
+
   <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
 
   <!-- Loader -->
@@ -79,7 +84,7 @@
         </datalist>
         <!-- Input End -->
 
-        
+
         <button id="button" class="button" onclick="getWeather()">
           <span class="button-text">Go</span>
           <img class="arrow" src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png" alt="arrow">
@@ -90,7 +95,6 @@
 
       <!-- Current Weather Location -->
       <button id="currloc_button" onclick="getCurrLoc()">Use My Current Location</button>
-      <br><br>
       <div id="weather-info"></div>
 
 
@@ -98,13 +102,11 @@
       <div class="result-container" style="display: none">
         <div id="loader" class="loader"></div>
         <div id="result" class="result-box" style="display: none"></div>
+        <!-- <button id="km_btn" style="display: none;">Know More</button> -->
       </div>
+      <br><br>
       <canvas id="hourlyChart" width="400" height="200"></canvas>
-      
     </div>
-
-
-
     <!-- footer -->
     <footer>
       <div class="footer">
@@ -123,9 +125,14 @@
   </div>
 
   <!-- scripts -->
+
    
   <script src="./js/geolocation.js" type="module"></script> 
    <script src="./js/review.js" type="module"></script>
+
+
+  <script src="./js/geolocation.js" type="module"></script>
+
   <script src="./js/script.js" type="module"></script>
 
 </body>

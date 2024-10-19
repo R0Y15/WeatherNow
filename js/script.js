@@ -19,7 +19,7 @@
 
 import { OPENWEATHERMAP_TOKEN } from './config.js'
 
-window.getWeather = function() {
+window.getWeather = function () {
     // Get the user input from the text box
     var input = document.getElementById("input").value;
 
@@ -28,12 +28,13 @@ window.getWeather = function() {
     var loader = document.getElementById("loader");
     var result_container = document.querySelector(".result-container");
     var hourlyChart = document.getElementById("hourlyChart");
+    // var know_more = document.getElementById('km_btn');
 
     // Hide the result initially
     result.style.display = "none";
     loader.style.display = "block";
     hourlyChart.style.display = "block";
-    
+
     // Check if the input is not empty
     if (input) {
         // Create a URL for the weather API with the input as a query parameter
@@ -54,7 +55,6 @@ window.getWeather = function() {
             })
             .then(function (data) {
                 // Extract the relevant data from the JSON object
-                console.log("mera data humko dikhao", data);
                 var city = data.name; // The city name
                 var country = data.sys.country; // The country code
                 var temp = data.main.temp; // The current temperature in Celsius
@@ -62,41 +62,32 @@ window.getWeather = function() {
                 var humidity = data.main.humidity; // The humidity percentage
                 var wind = data.wind.speed; // The wind speed in meters per second
                 var description = data.weather[0].description; // The weather description
-                var visibility = data.visibility/1000; // The visibility in km
+                var visibility = data.visibility / 1000; // The visibility in km
+
+                const sunrise = data.sys.sunrise;
+                const sunset = data.sys.sunset;
+                const timezoneOffset = data.timezone;  // Get timezone offset in seconds
 
                 // Create a HTML string to display the data in a formatted way
 
-                let html =
-                "<p><span class='value city'>" +
-                city + "," + country +
-                "</span></p>";
-                html +=
-                    "<p><span class='value temp'>" +
-                    temp +
-                    " °C " +
-                    getTemperatureIcon(description) +
-                    "</span></p>";
-                html +=
-                    "<p><span class='value description' style='text-transform:capitalize'>" +
-                    description +
-                    getWeatherIcon(description) +
-                    "</span></p>";
-                html +=
-                    "<p><span class='value city'>" +
-                    "Feels Like: " + feels_like + "°C" +
-                    "</span></p>"; 
-                html +=
-                    "<p><span class='label'>Humidity:</span> <span class='value'>" +
-                    humidity +
-                    " % <i class='fas fa-tint fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='label'>Wind:</span> <span class='value'>" +
-                    wind +
-                    " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
-                html +=
-                    "<p><span class='value city'>" +
-                    "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>" +
-                    "</span></p>"; 
+                // Create a HTML string to display the data in a formatted way
+                let html = '<div class="card-content">';
+                html += '<div class="left-side">';
+                html += `<p><span class='value city'>${city}, ${country}</span></p>`;
+                html += `<p><span class='value temp'>${temp} °C ${getTemperatureIcon(description)}</span></p>`;
+                html += `<p><span class='value description' style='text-transform:capitalize'>${description} ${getWeatherIcon(description)}</span></p>`;
+                html += `<p><span class='value feels_like'>Feels Like: ${feels_like}°C</span></p>`;
+                html += '</div>';
+                html += '<div class="separator"></div>';
+                html += '<div class="right-side">';
+                html += `<p><span class='value sunrise'>Sunrise: ${convertToLocalTime(sunrise, timezoneOffset)} <i class='fas fa-sun'></i></span></p>`;
+                html += `<p><span class='value sunset'>Sunset: ${convertToLocalTime(sunset, timezoneOffset)} <i class='fas fa-moon'></i></span></p>`;
+                html += `<p><span class='value humidity'>Humidity: ${humidity}% <i class='fas fa-tint'></i></span></p>`;
+                html += `<p><span class='value wind'>Wind: ${wind} m/s <i class='fas fa-wind'></i></span></p>`;
+                html += `<p><span class='value visibility'>Visibility: ${visibility} km <i class='fas fa-eye'></i></span></p>`;
+                html += '</div>';
+                html += '</div>';
+
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
@@ -105,6 +96,13 @@ window.getWeather = function() {
                 loader.style.display = "none";
                 result_container.style.display = "block";
                 result.style.display = "block";
+                // know_more.style.display = "block";
+
+                // // Add event listener to the dynamically created button
+                // document.getElementById('km_btn').addEventListener('click', function () {
+                //     // Pass the data to the showContent function
+                //     showContent(humidity, wind, visibility, sunrise, sunset, timezoneOffset);
+                // });
             })
             .catch(function (error) {
                 // Handle any errors that may occur
@@ -118,6 +116,63 @@ window.getWeather = function() {
     getGraph();
 }
 
+
+// To know more weather data
+function showContent(humidity, wind, visibility, sunrise, sunset, timezoneOffset) {
+    // Get the result div element
+    var result = document.getElementById("result");
+    var loader = document.getElementById("loader");
+    var result_container = document.querySelector(".result-container");
+    // var know_more = document.getElementById('km_btn');
+
+    let html =
+        "<p><span class='value sunrise'>" +
+        "Sunrise: " + convertToLocalTime(sunrise, timezoneOffset) +
+        " <i class='fas fa-sun'></i> </span></p>";
+
+    html +=
+        "<p><span class='value sunset'>" +
+        "Sunset: " + convertToLocalTime(sunset, timezoneOffset) +
+        " <i class='fas fa-moon'></i> </span></p>";
+
+    html +=
+        "<p><span class='value humidityl'>Humidity:</span> <span class='value'>" +
+        humidity +
+        " % <i class='fas fa-tint fa-lg'></i></span></p>";
+
+    html +=
+        "<p><span class='value wind'>Wind:</span> <span class='value'>" +
+        wind +
+        " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
+
+    html +=
+        "<p><span class='value visibility'>" +
+        "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>";
+
+    // Set the inner HTML of the result div to the HTML string
+    result.innerHTML = html;
+
+    // Show the result div
+    loader.style.display = "none";
+    result_container.style.display = "block";
+    result.style.display = "block";
+    // know_more.style.display = "none";
+}
+
+// Convert UNIX timestamp to local time in AM/PM format
+function convertToLocalTime(unixTimestamp, timezoneOffset) {
+    const localTime = new Date((unixTimestamp + timezoneOffset) * 1000);  // Convert to milliseconds
+    let hours = localTime.getUTCHours();
+    const minutes = localTime.getUTCMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;  // Convert hour '0' to '12'
+    const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
+    return `${hours}:${minutesFormatted} ${ampm}`;
+}
+
+
+
 function getWeatherIcon(description) {
     // Define mappings of weather descriptions to Font Awesome icons
     var iconMappings = {
@@ -126,7 +181,7 @@ function getWeatherIcon(description) {
         "scattered clouds": "<i class='fas fa-cloud'></i>",
         "broken clouds": "<i class='fas fa-cloud'></i>",
         "overcast clouds": "<i class='fas fa-cloud'></i>",
-        fog: "<i class='fas fa-smog'></i>",
+        "fog": "<i class='fas fa-smog'></i>",
         "light rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "moderate rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "heavy rain": "<i class='fas fa-cloud-showers-heavy'></i>",
@@ -150,7 +205,7 @@ function getTemperatureIcon(description) {
         "scattered clouds": "<i class='fas fa-cloud-sun'></i>",
         "broken clouds": "<i class='fas fa-cloud-sun'></i>",
         "overcast clouds": "<i class='fas fa-cloud'></i>",
-        fog: "<i class='fas fa-smog'></i>",
+        "fog": "<i class='fas fa-smog'></i>",
         "light rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "moderate rain": "<i class='fas fa-cloud-showers-heavy'></i>",
         "heavy rain": "<i class='fas fa-cloud-showers-heavy'></i>",
@@ -204,7 +259,7 @@ function updateChart(data) {
     // Extract relevant data from the API response (adjust according to your API)
     const hourlyTemperature = data?.list?.map(item => item.main.temp);
     const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    
+
     // Update the chart data
     hourlyChart.data.labels = hourlyTime;
     hourlyChart.data.datasets[0].data = hourlyTemperature;
@@ -233,8 +288,8 @@ window.hourlyChart = new Chart(ctx, {
     },
     options: {
         scales: {
-            x: { 
-                title: { display: true, text: 'Hour' } 
+            x: {
+                title: { display: true, text: 'Hour' }
             },
             y: { title: { display: true, text: 'Temperature (°C)' }, beginAtZero: true }
         }
@@ -291,7 +346,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     const currentYear = new Date().getFullYear();
     document.getElementById("copyrightYear").textContent = currentYear;
 });
