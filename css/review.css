@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto; /* Add margin to the top and bottom */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Style the navbar */
+.navbar {
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+/* Style the links in the navbar */
+.navbar a {
+    color: white; /* Change to white for contrast */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Change the link color on hover */
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #ecf0f1; /* Lighter text color */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        width: 80%;
+    }
+    .navbar a {
+        padding: 10px 15px;
+    }
+}
+<!--------testimonial------->
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.review-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #6eb2fa;
+
+  border: 1px solid #cac5c5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#stars {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(247, 223, 87);
+  margin-right: 10px;
+}
+
+.stars {
+  color: #1a0751;
+      margin-right:10px;
+  }
+  .container-review {
+    
+     background-color: rgba(47, 83, 242, 0.547);
+      padding: 80px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(148, 155, 191, 0.912);
+      text-align: center;
+      justify-content: space-between;
+  }
+  
+  h1 {
+      font-size: 20px;
+      margin: 20px 5px 5px 5px;
+  }
+  #review{
+      background-color: rgb(232, 229, 231);
+      color: #220756;
+  }
+  #submit{
+      color:#efeffa;
+      background-color: #0b0f18;
+  }
+  
+
