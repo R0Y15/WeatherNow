@@ -1,20 +1,20 @@
 import { OPENWEATHERMAP_TOKEN } from './config.js'
 
-window.getCurrLoc = function () {
+window.getCurrLoc = function() {
 
     // Get the result div element
     var result = document.getElementById("result");
     var loader = document.getElementById("loader");
     var result_container = document.querySelector(".result-container");
     // var hourlyChart = document.getElementById("hourlyChart");
-
+    
 
     // Hide the result initially
     result.style.display = "none";
     loader.style.display = "block";
-
+    
     // hourlyChart.style.display = "none";
-
+    
     if (navigator.geolocation) {
         console.log("Geolocation is supported. Getting location...");
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -23,44 +23,69 @@ window.getCurrLoc = function () {
         console.error("Geolocation is not supported by this browser.");
     }
 
-
+    
 
     function showPosition(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
+        // console.log(`User's location: Latitude: ${lat}, Longitude: ${lon}`);
 
         const token = OPENWEATHERMAP_TOKEN;
 
         // Construct the OpenWeatherMap API URL
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
 
+        // console.log("original url", url);
 
-        // Fetch the data from the URL using the fetch API
+        let city,country,temp,feels_like,humidity,wind,description,visibility,aqi, aqiUrl, aqi_value, sunrise, sunset , timezoneOffset;
+
+        // First fetch to get AQI
         fetch(url)
-            .then(function (response) {
-                // Check if the response is ok
-                if (response.ok) {
-                    // Convert the response to JSON format
-                    return response.json();
-                } else {
-                    // Throw an error if the response is not ok
-                    throw new Error("Something went wrong");
-                }
-            })
-            .then(function (data) {
-                // Extract the relevant data from the JSON object
-                var city = data.name; // The city name
-                var country = data.sys.country; // The country code
-                var temp = data.main.temp; // The current temperature in Celsius
-                var feels_like = data.main.feels_like; // The feels like temperature in Celsius
-                var humidity = data.main.humidity; // The humidity percentage
-                var wind = data.wind.speed; // The wind speed in meters per second
-                var description = data.weather[0].description; // The weather description
-                var visibility = data.visibility / 1000; // The visibility in km
+            .then(response => response.json())
+            .then(data => {
+                city = data.name; // The city name
+                country = data.sys.country; // The country code
+                temp = data.main.temp; // The current temperature in Celsius
+                feels_like = data.main.feels_like; // The feels like temperature in Celsius
+                humidity = data.main.humidity; // The humidity percentage
+                wind = data.wind.speed; // The wind speed in meters per second
+                description = data.weather[0].description; // The weather description
+                visibility = data.visibility/1000; // The visibility in km
 
-                const sunrise = data.sys.sunrise;
-                const sunset = data.sys.sunset;
-                const timezoneOffset = data.timezone;  // Get timezone offset in seconds
+                sunrise = data.sys.sunrise;
+                sunset = data.sys.sunset;
+                timezoneOffset = data.timezone;  // Get timezone offset in seconds
+
+                aqiUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${token}&units=metric`;
+
+                // console.log("aqi url", aqiUrl);
+            
+                // Now, perform the second fetch using some information from the first fetch
+                return fetch(aqiUrl);
+            })
+            .then(response => response.json())
+            .then(aqiData => {
+                aqi = aqiData.list[0].main.aqi;  // Assign AQI to global variable
+                // console.log(`Air Quality Index: ${aqi}`);
+
+                switch(aqi) {
+                    case 1: 
+                        aqi_value = "Good";
+                        break;
+                    case 2: 
+                        aqi_value = "Fair";
+                        break;
+                    case 3: 
+                        aqi_value = "Moderate";
+                        break;
+                    case 4: 
+                        aqi_value = "Poor";
+                        break;
+                    case 5: 
+                        aqi_value = "Very Poor";
+                        break;
+                    default: aqi_value = "Not able to fetch";
+                }
 
                 // Create a HTML string to display the data in a formatted way
 
@@ -78,9 +103,10 @@ window.getCurrLoc = function () {
                 html += `<p><span class='value humidity'>Humidity: ${humidity}% <i class='fas fa-tint'></i></span></p>`;
                 html += `<p><span class='value wind'>Wind: ${wind} m/s <i class='fas fa-wind'></i></span></p>`;
                 html += `<p><span class='value visibility'>Visibility: ${visibility} km <i class='fas fa-eye'></i></span></p>`;
+                html += `<p><span class='value aqi'>AQI: ${aqi_value} </span></p>`;
                 html += '</div>';
                 html += '</div>';
-
+                 
 
                 // Set the inner HTML of the result div to the HTML string
                 result.innerHTML = html;
@@ -99,7 +125,7 @@ window.getCurrLoc = function () {
 
     function showError(error) {
         let errorMessage = "";
-        switch (error.code) {
+        switch(error.code) {
             case error.PERMISSION_DENIED:
                 errorMessage = "User denied the request for Geolocation.";
                 break;
@@ -121,48 +147,6 @@ window.getCurrLoc = function () {
 }
 
 
-// To know more weather data
-function showContent(humidity, wind, visibility, sunrise, sunset, timezoneOffset) {
-    // Get the result div element
-    var result = document.getElementById("result");
-    var loader = document.getElementById("loader");
-    var result_container = document.querySelector(".result-container");
-
-    let html =
-        "<p><span class='value sunrise'>" +
-        "Sunrise: " + convertToLocalTime(sunrise, timezoneOffset) +
-        " <i class='fas fa-sun'></i> </span></p>";
-
-    html +=
-        "<p><span class='value sunset'>" +
-        "Sunset: " + convertToLocalTime(sunset, timezoneOffset) +
-        " <i class='fas fa-moon'></i> </span></p>";
-
-    html +=
-        "<p><span class='value humidityl'>Humidity:</span> <span class='value'>" +
-        humidity +
-        " % <i class='fas fa-tint fa-lg'></i></span></p>";
-
-    html +=
-        "<p><span class='value wind'>Wind:</span> <span class='value'>" +
-        wind +
-        " m/s <i class='fas fa-wind fa-lg'></i></span></p>";
-
-    html +=
-        "<p><span class='value visibility'>" +
-        "Visibility: " + visibility + " km <i class='fas fa-eye fa-lg'></i></span></p>";
-
-    // Set the inner HTML of the result div to the HTML string
-    result.innerHTML = html;
-
-    // Show the result div
-    loader.style.display = "none";
-    result_container.style.display = "block";
-    result.style.display = "block";
-}
-
-
-
 // Convert UNIX timestamp to local time in AM/PM format
 function convertToLocalTime(unixTimestamp, timezoneOffset) {
     const localTime = new Date((unixTimestamp + timezoneOffset) * 1000);  // Convert to milliseconds
@@ -174,7 +158,6 @@ function convertToLocalTime(unixTimestamp, timezoneOffset) {
     const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
     return `${hours}:${minutesFormatted} ${ampm}`;
 }
-
 
 
 function getWeatherIcon(description) {
@@ -298,8 +281,8 @@ window.hourlyChart = new Chart(ctx, {
     },
     options: {
         scales: {
-            x: {
-                title: { display: true, text: 'Hour' }
+            x: { 
+                title: { display: true, text: 'Hour' } 
             },
             y: { title: { display: true, text: 'Temperature (°C)' }, beginAtZero: true }
         }
@@ -312,7 +295,7 @@ function updateChart(data) {
     // Extract relevant data from the API response (adjust according to your API)
     const hourlyTemperature = data?.list?.map(item => item.main.temp);
     const hourlyTime = data?.list?.map(item => new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-
+    
     // Update the chart data
     if (hourlyTime && hourlyTemperature) {
         hourlyChart.data.labels = hourlyTime;
@@ -352,13 +335,13 @@ async function getGraph() {
             // updateChart(weatherData);
             const forecast_url = await getForecastApiUrl();
             fetch(forecast_url)
-                .then(response => response.json())
-                .then(data => {
-                    // Call updateChart after the data is fetched
-                    updateChart(data);
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
+            .then(response => response.json())
+            .then(data => {
+                // Call updateChart after the data is fetched
+                updateChart(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }   
     } else {
         alert('Current City is not accessible.');
     }
@@ -421,7 +404,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     const currentYear = new Date().getFullYear();
     document.getElementById("copyrightYear").textContent = currentYear;
 });
