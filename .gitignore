@@ -2,3 +2,4 @@
 .netlify
 .vscode
 node_modules/
+.env
