@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto; /* Add margin to the top and bottom */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Style the navbar */
+.navbar {
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+/* Style the links in the navbar */
+.navbar a {
+    color: white; /* Change to white for contrast */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Change the link color on hover */
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #ecf0f1; /* Lighter text color */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        width: 80%;
+    }
+    .navbar a {
+        padding: 10px 15px;
+    }
+}
+/* Contact Section */
+#contact {
+    padding: 3em 2em .5em;
+    background-color: #8095e0; /* Soft background for contrast */
+  }
+  
+  /* Form Input Fields */
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="submit"] {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08); /* Subtle 3D depth */
+    background: #f7efef;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  form input[type="text"]:focus,
+  form input[type="email"]:focus,
+  form textarea:focus {
+    outline: none;
+    transform: translateY(-2px); /* Lift on focus */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    background: #ffffff;
+  }
+  
+  /* Textarea */
+  textarea {
+    width: 100%;
+    padding: 1em;
+    min-height: 120px;
+    resize: vertical;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  form button {
+    background-color: #201d2c;
+    
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 5px;
+      }
+  
+  form button:hover {
+    background-color: #5f5f5e;
+  }
+  
