@@ -24,7 +24,13 @@
     ```bash
     git push origin ~your branch name~
     ```
-6. **Submit your changes for review**:
+6. **Add ENVIRONMENT variable**
+   Create new file `env.js` in `/js` directory.
+   Add your open weather API token in this file.
+   ```javascript
+   export const OPENWEATHERMAP_TOKEN = {your_token};
+   ```
+7. **Submit your changes for review**:
     - Go to your repository on GitHub.
     - Click on the **Compare & pull request** button.
     - Submit the pull request.
