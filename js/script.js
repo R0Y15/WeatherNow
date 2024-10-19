@@ -2,8 +2,6 @@
 // Get the DotLottie player
 // const preloader = document.querySelector('.preloader');
 
-import { OPENWEATHERMAP_TOKEN } from "./config.js";
-
 // function loader() {
 //     setTimeout(function() {
 //         preloader.style.opacity = '0';
@@ -18,6 +16,8 @@ import { OPENWEATHERMAP_TOKEN } from "./config.js";
 
 
 // JavaScript code for fetching and displaying the weather data
+
+import { OPENWEATHERMAP_TOKEN } from './config.js';
 
 window.getWeather = function () {
     // Get the user input from the text box
@@ -38,10 +38,8 @@ window.getWeather = function () {
     // Check if the input is not empty
     if (input) {
         // Create a URL for the weather API with the input as a query parameter
-        const token = OPENWEATHERMAP_TOKEN;
-        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=metric&appid=" + token;
 
-        // Fetch the data from the URL using the fetch API
+        // Fetch the data from netlify function using the fetch API
         fetch(`/.netlify/functions/getWeatherData?city=${input}`)
             .then(function (response) {
                 // Check if the response is ok
