@@ -636,3 +636,54 @@ dotlottie-player {
         font-size: 6rem;
     }
 }
+
+/* Voice search button styles */
+#voice-search-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#voice-search-btn:hover {
+  background-color: #45a049;
+}
+
+#voice-search-btn.listening {
+  background-color: #f44336;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Adjust the layout to accommodate the voice search button */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Make sure the input field doesn't stretch too wide */
+#input {
+  flex-grow: 1;
+  max-width: 300px;
+}
