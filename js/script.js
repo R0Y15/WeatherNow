@@ -19,6 +19,153 @@
 
 import { OPENWEATHERMAP_TOKEN } from './config.js'
 
+// Function to fetch and display AQI
+async function getAQI(lat, lon) {
+  const token = OPENWEATHERMAP_TOKEN;
+  const url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${token}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    // Calculate AQI based on pollutant concentrations
+    const aqi = calculateAQI(data.list[0].components);
+    
+    const aqiInfo = document.getElementById('aqi-info');
+    
+    let aqiDescription = '';
+    let aqiColor = '';
+
+    if (aqi <= 50) {
+      aqiDescription = 'Good';
+      aqiColor = '#00e400';
+    } else if (aqi <= 100) {
+      aqiDescription = 'Moderate';
+      aqiColor = '#ffff00';
+    } else if (aqi <= 150) {
+      aqiDescription = 'Unhealthy for Sensitive Groups';
+      aqiColor = '#ff7e00';
+    } else if (aqi <= 200) {
+      aqiDescription = 'Unhealthy';
+      aqiColor = '#ff0000';
+    } else if (aqi <= 300) {
+      aqiDescription = 'Very Unhealthy';
+      aqiColor = '#8f3f97';
+    } else {
+      aqiDescription = 'Hazardous';
+      aqiColor = '#7e0023';
+    }
+
+    aqiInfo.innerHTML = `
+      <p>Air Quality Index: <span style="color: ${aqiColor}; font-weight: bold;">${aqi} - ${aqiDescription}</span></p>
+    `;
+    aqiInfo.style.display = 'block';
+  } catch (error) {
+    console.error('Error fetching AQI:', error);
+  }
+}
+
+// Function to calculate AQI based on pollutant concentrations
+function calculateAQI(components) {
+  // This is a simplified calculation and may not be 100% accurate
+  // For a more accurate calculation, you'd need to implement the full EPA algorithm
+  const pm25 = components.pm2_5;
+  let aqi;
+
+  if (pm25 <= 12.1) {
+    aqi = linearScale(pm25, 0, 12.1, 0, 50);
+  } else if (pm25 <= 35.5) {
+    aqi = linearScale(pm25, 12.1, 35.5, 51, 100);
+  } else if (pm25 <= 55.5) {
+    aqi = linearScale(pm25, 35.5, 55.5, 101, 150);
+  } else if (pm25 <= 150.5) {
+    aqi = linearScale(pm25, 55.5, 150.5, 151, 200);
+  } else if (pm25 <= 250.5) {
+    aqi = linearScale(pm25, 150.5, 250.5, 201, 300);
+  } else {
+    aqi = linearScale(pm25, 250.5, 500.5, 301, 500);
+  }
+
+  return Math.round(aqi);
+}
+
+// Helper function for linear scaling
+function linearScale(value, fromLow, fromHigh, toLow, toHigh) {
+  return (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;
+}
+
+// Voice search functionality
+const voiceSearchBtn = document.getElementById('voice-search-btn');
+const input = document.getElementById('input');
+
+if (voiceSearchBtn) {
+  if (typeof annyang !== 'undefined') {
+    // annyang is available
+    const commands = {
+      'search for *city': function(city) {
+        // Remove any unnecessary punctuation or dots
+        const cleanCity = city.replace(/[^\w\s]/g, '').trim();
+        input.value = cleanCity;
+        getWeather();
+      }
+    };
+
+    annyang.addCommands(commands);
+
+    voiceSearchBtn.addEventListener('click', function() {
+      if (annyang.isListening()) {
+        annyang.abort();
+        voiceSearchBtn.classList.remove('listening');
+      } else {
+        annyang.start({ autoRestart: false, continuous: false });
+        voiceSearchBtn.classList.add('listening');
+      }
+    });
+
+    annyang.addCallback('result', function() {
+      voiceSearchBtn.classList.remove('listening');
+    });
+
+    annyang.addCallback('error', function() {
+      voiceSearchBtn.classList.remove('listening');
+    });
+  } else {
+    // annyang is not available, use browser's built-in speech recognition
+    if ('webkitSpeechRecognition' in window) {
+      const recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      voiceSearchBtn.addEventListener('click', function() {
+        recognition.start();
+        voiceSearchBtn.classList.add('listening');
+      });
+
+      recognition.onresult = function(event) {
+        let result = event.results[0][0].transcript;
+        // Clean up the result to remove unnecessary dots or punctuation
+        const cleanResult = result.replace(/[^\w\s]/g, '').trim();
+        input.value = cleanResult;
+        getWeather();
+        voiceSearchBtn.classList.remove('listening');
+      };
+
+      recognition.onerror = function(event) {
+        console.error('Speech recognition error', event.error);
+        voiceSearchBtn.classList.remove('listening');
+      };
+
+      recognition.onend = function() {
+        voiceSearchBtn.classList.remove('listening');
+      };
+    } else {
+      // Neither annyang nor webkitSpeechRecognition is available
+      voiceSearchBtn.style.display = 'none';
+      console.warn('Speech recognition is not supported in this browser');
+    }
+  }
+}
+// ... rest of your existing code ...
 window.getWeather = function () {
     // Get the user input from the text box
     var input = document.getElementById("input").value;
@@ -103,6 +250,11 @@ window.getWeather = function () {
                 //     // Pass the data to the showContent function
                 //     showContent(humidity, wind, visibility, sunrise, sunset, timezoneOffset);
                 // });
+
+                // changeBackgroundImage(description);
+
+      // Fetch and display AQI
+               getAQI(data.coord.lat, data.coord.lon);
             })
             .catch(function (error) {
                 // Handle any errors that may occur
@@ -350,3 +502,5 @@ window.addEventListener("load", function () {
     const currentYear = new Date().getFullYear();
     document.getElementById("copyrightYear").textContent = currentYear;
 });
+
+

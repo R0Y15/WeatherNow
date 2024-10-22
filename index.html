@@ -83,20 +83,26 @@
           <img class="arrow" src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png" alt="arrow">
         </button>
 
+         <!-- Voice Search Button -->
+      <button id="voice-search-btn" class="button">
+        <i class="fas fa-microphone"></i>
+      </button>
+
+
       </div>
-
-
+      
       <!-- Current Weather Location -->
       <button id="currloc_button" onclick="getCurrLoc()">Use My Current Location</button>
       <div id="weather-info"></div>
 
 
       <!-- Displaying weather info  -->
-      <div class="result-container" style="display: none">
-        <div id="loader" class="loader"></div>
-        <div id="result" class="result-box" style="display: none"></div>
-        <!-- <button id="km_btn" style="display: none;">Know More</button> -->
-      </div>
+        <div class="result-container" style="display: none">
+      <div id="loader" class="loader"></div>
+      <div id="result" class="result-box" style="display: none"></div>
+      <div id="aqi-info" class="aqi-box" style="display: none"></div>
+    </div>
+
       <br><br>
       <canvas id="hourlyChart" width="400" height="200"></canvas>
 
