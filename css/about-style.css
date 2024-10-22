@@ -51,7 +51,15 @@ body {
 }
 
 .about-section {
-    padding: 20px 0;
+    /* padding: 20px 0; */
+    width:75%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.container{
+    width:85%;
+    margin: auto;
 }
 
 h1 {
@@ -116,12 +124,20 @@ ul li {
 }
 
 /* Footer Styles */
-.footer {
+/* .footer {
     background-color: #007bff;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     border-radius: 10px;
+} */
+footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0px;
+    /* position: absolute;
+    bottom: 0px; */
 }
 
 #list {
@@ -143,6 +159,11 @@ a {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .about-section {
+        /* padding: 20px 0; */
+        width:90%;
+        margin: auto;
+    }
     .content {
         margin: 0px;
         border-radius: 0px;
