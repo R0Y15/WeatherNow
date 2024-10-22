@@ -193,7 +193,7 @@ header {
 /* Style the navbar */
 .navbar {
     background: linear-gradient(to right, #3498db, #2980b9);
-    width: 35%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
