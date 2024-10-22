@@ -10,10 +10,10 @@ html {
 }
 
 /* Style the navbar */
-/* Style the navbar */
 .navbar {
-  background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
+  background: linear-gradient(to right, #3498db, #2980b9);
   width: 35%;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,13 +22,8 @@ html {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-
-  position: sticky;         /* For modern browsers */
-  top: 0;                   /* Sticks to the top of the page */
-  z-index: 1000;            /* Ensures it's above other elements */
-  transition: background-color 0.3s ease; /* Smooth transition for background change */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Style the navigation list */
@@ -36,46 +31,47 @@ html {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex; /* Use flexbox for spacing */
+  display: flex;
 }
 
 /* Style the list items */
 .nav-item {
-  margin: 0 15px; /* Spacing between items */
+  margin: 0 15px;
 }
 
 /* Style the links */
 .nav-item a {
   display: block;
-  color: white; /* Change to white for contrast */
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Change the link color on hover */
 .nav-item a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
-  color: #ecf0f1; /* Lighter text color */
-  border-radius: 5px; /* Rounded corners on hover */
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ecf0f1;
+  border-radius: 5px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1000px) {
   .navbar {
       width: 80%;
-      font-size: 2em; /* Adjust font size for smaller screens */
+      font-size: 2em;
   }
+
   .nav-item {
-      margin: 0 10px; /* Reduce spacing for smaller screens */
+      margin: 0 10px;
   }
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   background-color: #FFFBF3;
 }
 *{
