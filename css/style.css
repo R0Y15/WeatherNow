@@ -687,3 +687,37 @@ dotlottie-player {
   flex-grow: 1;
   max-width: 300px;
 }
+/* Navbar styling */
+.navbar {
+    display: flex; 
+    justify-content: center; /* Centers the nav items horizontally */
+    background-color: #fff; /* Change this to any background color you like */
+    padding: 10px 0; /* Adjusts spacing around the navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Adds spacing between links */
+}
+
+.navbar ul li a {
+    text-decoration: none; /* Removes underline */
+    color: #333; /* Adjust link color */
+    font-weight: bold; /* Makes text bold */
+    font-size: 16px; /* Increases font size */
+    padding: 8px 15px; /* Adds padding to links */
+    border-radius: 25px; /* Rounded edges */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navbar ul li a:hover {
+    background-color: #f0f0f0; /* Changes background on hover */
+    color: #000; /* Darker text on hover */
+}
