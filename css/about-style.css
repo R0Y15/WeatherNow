@@ -54,7 +54,6 @@ body {
     padding: 20px 0;
 }
 
-
 h1 {
     font-family: 'Righteous', cursive; /* Changed font for the title */
     font-size: 28px;
@@ -69,18 +68,16 @@ h1 {
     font-weight: bold;
 }
 
-
-.aboutmain{
+.aboutmain {
     display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
 }
 
-.aboutmain p{
+.aboutmain p {
     width: 300px;
 }
-
 
 h2 {
     font-family: 'Kalam', cursive; /* Changed font for the subtitles */
@@ -116,7 +113,6 @@ ul li {
     gap: 10px;
     align-items: center;
     padding-left: 30px; /* Space for custom bullet */
-    
 }
 
 /* Footer Styles */
@@ -140,19 +136,21 @@ ul li {
     line-height: 1.5;
 }
 
-a{
+a {
     display: block;
     color: #dc0073;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .content{
+    .content {
         margin: 0px;
         border-radius: 0px;
     }
     .navbar {
         width: 90%;
+        margin-top: 15px;
+        font-size: 14px;
     }
     .navbar a {
         padding: 10px 15px;
@@ -160,14 +158,14 @@ a{
 }
 
 @media (max-width: 680px) {
-    .aboutmain{
+    .aboutmain {
         flex-direction: column;
     }
 }
 
 /* Navbar styling */
 .navbar {
-    display: flex; 
+    display: flex;
     justify-content: center; /* Centers the nav items horizontally */
     background-color: #fff; /* Change this to any background color you like */
     padding: 10px 0; /* Adjusts spacing around the navbar */

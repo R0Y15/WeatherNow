@@ -6,9 +6,9 @@
 html {
   box-sizing: border-box;
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
-/* Style the navbar */
 /* Style the navbar */
 .navbar {
   background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
@@ -23,14 +23,12 @@ html {
   margin-right: auto;
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-
-  position: sticky;         /* For modern browsers */
-  top: 0;                   /* Sticks to the top of the page */
-  z-index: 1000;            /* Ensures it's above other elements */
+  position: sticky; /* For modern browsers */
+  top: 0; /* Sticks to the top of the page */
+  z-index: 1000; /* Ensures it's above other elements */
   transition: background-color 0.3s ease; /* Smooth transition for background change */
 }
 
-/* Style the navigation list */
 .nav-list {
   list-style-type: none;
   margin: 0;
@@ -38,12 +36,10 @@ html {
   display: flex; /* Use flexbox for spacing */
 }
 
-/* Style the list items */
 .nav-item {
   margin: 0 15px; /* Spacing between items */
 }
 
-/* Style the links */
 .nav-item a {
   display: block;
   color: white; /* Change to white for contrast */
@@ -53,14 +49,12 @@ html {
   transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-/* Change the link color on hover */
 .nav-item a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
   color: #ecf0f1; /* Lighter text color */
   border-radius: 5px; /* Rounded corners on hover */
 }
 
-/* Responsive adjustments */
 @media (max-width: 1000px) {
   .navbar {
       width: 80%;
@@ -77,11 +71,11 @@ body {
   font-family: "Space Grotesk", sans-serif;
   background-color: #FFFBF3;
 }
-*{
+
+* {
   text-decoration: none;
 }
 
-/* Style the button */
 .button {
   padding: 10px 20px;
   background-color: #333;
@@ -90,8 +84,6 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
-  padding-left: 20px;
   text-align: center;
 }
 
@@ -106,13 +98,11 @@ body {
 
 .bottom-btn {
   z-index: 9;
-  
 }
 
 .back {
   display: flex;
   align-items: center;
-
   justify-content: center;
   margin: 10px;
 }
@@ -134,8 +124,7 @@ body {
   margin-bottom: 50px;
 }
 
-/*Card CSS*/
-/* Styles for the card */
+/* Card CSS */
 .admin-card {
   width: 100%;
   display: flex;
@@ -152,10 +141,8 @@ body {
   display: flex;
   padding: 20px;
   background-color: #F8F2E8;
-  /* make the text appear right to the image */
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 300px;
@@ -164,15 +151,17 @@ body {
   overflow: hidden;
   border: 1px solid #ebbb68;
 }
-.card-body:hover{
+
+.card-body:hover {
   transform: scale(1.15);
   transition: 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-.card-img img{
+
+.card-img img {
   border: 2px solid #ebbb68;
 }
+
 .card-header img {
-  /* width: 100%; */
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -199,20 +188,15 @@ body {
 }
 
 .card-text h2 {
-  position: relative;
   margin: 0;
   font-size: 1.5rem;
   color: #333;
-  overflow: hidden;
 }
 
 .card-text p {
-  position: relative;
-  top: 5px;
   margin-top: 10px;
   font-size: 1rem;
   color: #555;
-  /* font-size: ; */
 }
 
 .card-footer {
@@ -233,6 +217,7 @@ body {
 .card-footer a:hover {
   background-color: #1f639e;
 }
+
 .left {
   flex: 1;
   display: flex;
@@ -241,32 +226,25 @@ body {
 }
 
 /* Mobile-First Responsive Design */
-/* Smaller screens, like smartphones */
 @media (max-width: 768px) {
-
-  /* Adjust the header and landing text */
   header {
     font-size: 20px;
   }
 
   .landing-text {
     font-size: 4rem;
-    /* Adjust to your preference */
   }
 
   .landing-text-2 {
     font-size: 0.7rem;
-    /* Adjust to your preference */
   }
 
-  /* Modify the container width and padding */
   .container {
     margin-top: 2rem;
     max-width: 85%;
     padding: 10px;
   }
 
-  /* Adjust the input and button sizes */
   #input {
     width: 60%;
     font-size: 12px;
@@ -276,22 +254,20 @@ body {
     padding: 8px 16px;
   }
 
-  /* Make the navbar full width and smaller text */
   .navbar {
-    width: 100%;
+    width: 90%;
     font-size: 14px;
+    margin-top: 15px;
   }
 
-  /* Modify the footer text size and padding */
   footer {
-    position: relative;
     margin-top: 26vh;
     font-size: 12px;
     padding: 2px;
   }
 }
 
-/* footer */
+/* Footer styling */
 footer {
   width: 100%;
   background-color: rgb(235, 235, 235);
@@ -299,44 +275,37 @@ footer {
   text-align: center;
   padding: 5px;
   margin-top: 2px;
-  /* make it stick to the bottom of the page */
-  /* position: absolute; */
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
-/* Navbar styling */
-.navbar {
-  display: flex; 
-  justify-content: center; /* Centers the nav items horizontally */
-  background-color: #fff; /* Change this to any background color you like */
-  padding: 10px 0; /* Adjusts spacing around the navbar */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-}
-
-.navbar ul {
+/* Scroll to top button */
+.to-top {
+  z-index: 10;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  pointer-events: none;
+  width: auto;
+  height: auto;
+  color: black;
   display: flex;
-  list-style-type: none; /* Removes bullet points */
-  padding: 0;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  text-decoration: none;
+  opacity: 0;
+  transition: all 0.4s;
 }
 
-.navbar ul li {
-  margin: 0 15px; /* Adds spacing between links */
+.to-top img {
+  display: block;
 }
 
-.navbar ul li a {
-  text-decoration: none; /* Removes underline */
-  color: #333; /* Adjust link color */
-  font-weight: bold; /* Makes text bold */
-  font-size: 16px; /* Increases font size */
-  padding: 8px 15px; /* Adds padding to links */
-  border-radius: 25px; /* Rounded edges */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+.to-top .fa-arrow-up {
+  position: absolute;
 }
 
-.navbar ul li a:hover {
-  background-color: #f0f0f0; /* Changes background on hover */
-  color: #000; /* Darker text on hover */
+.to-top.active {
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 1;
 }
