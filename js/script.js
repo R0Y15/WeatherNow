@@ -103,7 +103,9 @@ if (voiceSearchBtn) {
     // annyang is available
     const commands = {
       'search for *city': function(city) {
-        input.value = city;
+        // Remove any unnecessary punctuation or dots
+        const cleanCity = city.replace(/[^\w\s]/g, '').trim();
+        input.value = cleanCity;
         getWeather();
       }
     };
@@ -140,8 +142,10 @@ if (voiceSearchBtn) {
       });
 
       recognition.onresult = function(event) {
-        const result = event.results[0][0].transcript;
-        input.value = result;
+        let result = event.results[0][0].transcript;
+        // Clean up the result to remove unnecessary dots or punctuation
+        const cleanResult = result.replace(/[^\w\s]/g, '').trim();
+        input.value = cleanResult;
         getWeather();
         voiceSearchBtn.classList.remove('listening');
       };
@@ -161,7 +165,6 @@ if (voiceSearchBtn) {
     }
   }
 }
-
 // ... rest of your existing code ...
 window.getWeather = function () {
     // Get the user input from the text box
