@@ -1,80 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>About WeatherNow</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, initial-scale=1"
+    />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/about-style.css" />
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
 
-<body>
+    <style>
+      .team-member img {
+        max-width: 200px;
+        border-radius: 50%;
+      }
+      footer {
+        background-color: #34495e;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
     <header>
-        <!-- Navbar -->
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="./contributors.html">Contributors</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./contributors.html">Contributors</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="about-section">
-        <h1>About WeatherNow</h1>
-        <div class="aboutmain">
-            <!-- Main about section styled with an image from lottie -->
+      <div style="display: flex; align-items: center; flex-direction: column">
+        <section id="about">
+          <h2 style="font-weight: 700; font-family: 'rubik'; margin-top: 4rem">
+            Revolutionizing Weather Forecasting
+          </h2>
+          <p>
+            Welcome to WeatherNow, your go-to destination for real-time weather
+            information. We are passionate about providing you with the most
+            accurate and up-to-date weather data for any city around the world.
+          </p>
+        </section>
+        <img
+          id="bannerimg"
+          src="https://res.cloudinary.com/dua8n4vqz/image/upload/v1729712615/image_xwnsbi.png"
+          alt=""
+        />
+        <section
+          id="mission"
+          style="display: flex; flex-direction: column; align-items: center"
+        >
+          <h2>Our Mission</h2>
+          <div>
+            <p>
+              Our mission is to make it easy for you to access essential weather
+              information, whether you're planning your day or traveling to a
+              new location. WeatherNow is designed to keep you informed about
+              the current weather conditions so you can make the right
+              decisions.
+            </p>
+            <img
+              style="margin-right: 1.5rem"
+              src="https://res.cloudinary.com/dua8n4vqz/image/upload/v1729708036/icons8-goal-100_xrvatm.png"
+              alt=""
+            />
+          </div>
+        </section>
+      </div>
+
+      <section id="features" style="margin-top: 4rem">
+        <h2 style="margin-bottom: 2rem; font-size: 1.7rem; color: white">
+          Key Features
+        </h2>
+        <div id="maingrid">
+          <div class="feature">
             <div>
-                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-                    type="module"></script>
-
-                <dotlottie-player src="https://lottie.host/3312bd84-ca61-4616-ba9f-88b626331bd5/b7kvvtUn90.json"
-                    background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay
-                    aria-label="Weather animation"></dotlottie-player>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="yellow"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-zap h-12 w-12 text-yellow-400"
+                data-id="33"
+                bis_size='{"x":108,"y":1072,"w":48,"h":48,"abs_x":172,"abs_y":1136}'
+              >
+                <path
+                  d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                  bis_size='{"x":113,"y":1075,"w":36,"h":40,"abs_x":177,"abs_y":1139}'
+                ></path>
+              </svg>
             </div>
-            <div class="aboutmainp">
-                <p>
-                    Welcome to WeatherNow, your go-to destination for real-time weather
-                    information. We are passionate about providing you with the most accurate
-                    and up-to-date weather data for any city around the world.
-                </p>
+            <h3>Real-Time Updates</h3>
+            <p>Lightning-fast weather data at your fingertips.</p>
+          </div>
+          <div class="feature">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="transparent"
+                stroke="orange"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-map-pin h-12 w-12 text-red-400"
+                data-id="34"
+                bis_size='{"x":528,"y":1072,"w":48,"h":48,"abs_x":592,"abs_y":1136}'
+              >
+                <path
+                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  bis_size='{"x":536,"y":1076,"w":32,"h":40,"abs_x":600,"abs_y":1140}'
+                ></path>
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                  bis_size='{"x":546,"y":1086,"w":12,"h":12,"abs_x":610,"abs_y":1150}'
+                ></circle>
+              </svg>
             </div>
+            <h3>Hyper-Local Forecasts</h3>
+            <p>Precision predictions for your exact location.</p>
+          </div>
+          <div class="feature">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="transparent"
+                stroke="lightblue"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-wind h-12 w-12 text-blue-300"
+                data-id="35"
+                bis_size='{"x":953,"y":1072,"w":48,"h":48,"abs_x":1017,"abs_y":1136}'
+              >
+                <path
+                  d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"
+                  bis_size='{"x":957,"y":1086,"w":39,"h":9,"abs_x":1021,"abs_y":1150}'
+                ></path>
+                <path
+                  d="M9.6 4.6A2 2 0 1 1 11 8H2"
+                  bis_size='{"x":957,"y":1080,"w":22,"h":8,"abs_x":1021,"abs_y":1144}'
+                ></path>
+                <path
+                  d="M12.6 19.4A2 2 0 1 0 14 16H2"
+                  bis_size='{"x":957,"y":1103,"w":28,"h":8,"abs_x":1021,"abs_y":1167}'
+                ></path>
+              </svg>
+            </div>
+            <h3>Wind Patterns</h3>
+            <p>Advanced wind modeling and forecasting.</p>
+          </div>
+          <div class="feature">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="lightblue"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-droplets h-12 w-12 text-blue-200"
+                data-id="36"
+                bis_size='{"x":117,"y":1356,"w":48,"h":48,"abs_x":181,"abs_y":1420}'
+              >
+                <path
+                  d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"
+                  bis_size='{"x":123,"y":1366,"w":16,"h":22,"abs_x":187,"abs_y":1430}'
+                ></path>
+                <path
+                  d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"
+                  bis_size='{"x":135,"y":1362,"w":23,"h":38,"abs_x":199,"abs_y":1426}'
+                ></path>
+              </svg>
+            </div>
+            <h3>Precipitation Insights</h3>
+            <p>Minute-by-minute rain and snow forecasts.</p>
+          </div>
+          <div class="feature">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="orange"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-thermometer-sun h-12 w-12 text-orange-400"
+                data-id="37"
+                bis_size='{"x":533,"y":1356,"w":48,"h":48,"abs_x":597,"abs_y":1420}'
+              >
+                <path
+                  d="M12 9a4 4 0 0 0-2 7.5"
+                  bis_size='{"x":548,"y":1373,"w":8,"h":15,"abs_x":612,"abs_y":1437}'
+                ></path>
+                <path
+                  d="M12 3v2"
+                  bis_size='{"x":557,"y":1362,"w":0,"h":4,"abs_x":621,"abs_y":1426}'
+                ></path>
+                <path
+                  d="m6.6 18.4-1.4 1.4"
+                  bis_size='{"x":543,"y":1392,"w":2,"h":2,"abs_x":607,"abs_y":1456}'
+                ></path>
+                <path
+                  d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"
+                  bis_size='{"x":561,"y":1360,"w":16,"h":40,"abs_x":625,"abs_y":1424}'
+                ></path>
+                <path
+                  d="M4 13H2"
+                  bis_size='{"x":537,"y":1382,"w":4,"h":0,"abs_x":601,"abs_y":1446}'
+                ></path>
+                <path
+                  d="M6.34 7.34 4.93 5.93"
+                  bis_size='{"x":542,"y":1367,"w":2,"h":2,"abs_x":606,"abs_y":1431}'
+                ></path>
+              </svg>
+            </div>
+            <h3>Thermal Index</h3>
+            <p>Comprehensive heat and humidity analysis.</p>
+          </div>
+          <div class="feature">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="cyan"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-smartphone h-12 w-12 text-green-300"
+                data-id="38"
+                bis_size='{"x":959,"y":1356,"w":48,"h":48,"abs_x":1023,"abs_y":1420}'
+              >
+                <rect
+                  width="14"
+                  height="20"
+                  x="5"
+                  y="2"
+                  rx="2"
+                  ry="2"
+                  bis_size='{"x":969,"y":1360,"w":28,"h":40,"abs_x":1033,"abs_y":1424}'
+                ></rect>
+                <path
+                  d="M12 18h.01"
+                  bis_size='{"x":983,"y":1392,"w":0,"h":0,"abs_x":1047,"abs_y":1456}'
+                ></path>
+              </svg>
+            </div>
+            <h3>Cross-Platform</h3>
+            <p>Seamless experience across all devices.</p>
+          </div>
         </div>
+      </section>
 
-        <h2>Our Mission</h2>
-        <p>
-            Our mission is to make it easy for you to access essential weather information,
-            whether you're planning your day or traveling to a new location. WeatherNow is
-            designed to keep you informed about the current weather conditions so you can make
-            the right decisions.
-        </p>
+      <section id="team">
+        <h2
+          style="
+            margin-bottom: 2rem;
+            font-size: 1.7rem;
+            color: white;
+            margin-top: 4rem;
+          "
+        >
+          Our Team
+        </h2>
+        <div id="mainTeamMembers">
+          <div class="team-member">
+            <img
+              style="
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                /* border: 2px solid black; */
+                padding: 0.4rem;
+                background-color: whitesmoke;
+              "
+              src="https://avatars.githubusercontent.com/u/66421958?v=4"
+              alt="Dr. Samantha Lee"
+            />
+            <h3 style="margin-bottom: 0">R0Y15</h3>
+            <p style="margin-top: 0">Open Source Contributor</p>
+            <div>
+              <p>Contributed the most to the project.</p>
+            </div>
+          </div>
+          <div class="team-member">
+            <img
+              style="
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                /* border: 2px solid black; */
+                padding: 0.4rem;
+                background-color: whitesmoke;
+              "
+              src="https://img.icons8.com/external-victoruler-linear-colour-victoruler/64/external-boy-children-avatar-victoruler-linear-colour-victoruler-1.png"
+              alt="Dr. Samantha Lee"
+            />
+            <h3 style="margin-bottom: 0">Bishal Roy</h3>
+            <p style="margin-top: 0">Owner</p>
+            <div>
+              <p>Project Lead and Repository Maintainer</p>
+            </div>
+          </div>
+          <div class="team-member">
+            <img
+              style="
+                width: 90px;
+                height: 90px;
+                object-fit: cover;
+                border-radius: 50%;
+                /* border: 2px solid black; */
+                padding: 0.4rem;
+                background-color: whitesmoke;
+              "
+              src="https://aditya.appambient.com/images/aditya/adityaAiTransparent.png"
+              alt="Dr. Samantha Lee"
+            />
+            <h3 style="margin-bottom: 0">Aditya</h3>
+            <a
+              href="https://aditya.appambient.com"
+              style="margin-top: 0; color: rgb(147 197 253)"
+              target="_blank"
+              >@adityaInnovates</a
+            >
+            <div>
+              <p>Full stack developer | AI/ML | Blockchain</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <h2>Key Features</h2>
-        <ul>
-            <li>
-                <img src="./css/check.svg" alt="Check icon">
-                Instantly check the weather in any city.
-            </li>
-            <li>
-                <img src="./css/check.svg" alt="Check icon">
-                Get detailed information such as temperature, humidity, wind speed, and more.
-            </li>
-            <li>
-                <img src="./css/check.svg" alt="Check icon">
-                View weather forecasts for the upcoming hours.
-            </li>
-            <li>
-                <img src="./css/check.svg" alt="Check icon">
-                Beautifully designed and easy to use.
-            </li>
-        </ul>
-
-        <h2>Contributors</h2>
-        <p class="container">
-            WeatherNow is made possible by a team of dedicated contributors who are passionate
-            about weather data and technology. We couldn't do it without their hard work and
-            expertise. <a href="./contributors.html">Learn more about our contributors here</a>
-        </p>
+      <h2
+        style="
+          margin-bottom: 2rem;
+          font-size: 1.7rem;
+          color: white;
+          margin-top: 4rem;
+        "
+      >
+        All Contributors
+      </h2>
+      <p class="container" id="lastContParagragh" style="margin-bottom: 1rem">
+        WeatherNow is made possible by a team of dedicated contributors who are
+        passionate about weather data and technology. We couldn't do it without
+        their hard work and expertise.
+        <a href="./contributors.html" style="color: rgb(147 197 253)"
+          >Learn more about our contributors here</a
+        >
+      </p>
     </main>
 
     <!-- <footer>
@@ -85,22 +391,23 @@
         </p>
     </footer> -->
     <footer>
-        <div class="footer">
-          <div class="footer-content">
-            <div class="footer-section about">
-              <p class="light-text">
-                <span class="light-text">WeatherNow is a weather application that displays the weather
-                  of any city.</span>
-                <br />
-                © Roy™ <span id="copyrightYear"></span>
-              </p>
-            </div>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <p class="light-text">
+              <span class="light-text"
+                >WeatherNow is a weather application that displays the weather
+                of any city.</span
+              >
+              <br />
+              © Roy™ <span id="copyrightYear"></span>
+            </p>
           </div>
         </div>
-      </footer>
+      </div>
+    </footer>
 
     <!-- <script src="./js/script.js"></script> -->
     <script src="./js/script.js" type="module"></script>
-</body>
-
+  </body>
 </html>
