@@ -1,126 +1,180 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 body {
-    background-color: #f4f4f4;
-    font-family: "Poppins", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-color: #f4f4f4;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-image: url(https://c0.wallpaperflare.com/preview/273/564/913/storm-sky-cloud-lightning.jpg); */
+  background-image: linear-gradient(90deg, #1e3a8a, #1d4ed8, #3b82f6);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .content {
-    max-width: 800px;
-    margin: 20px auto; /* Add margin to the top and bottom */
-    background-color: rgba(25, 33, 61, 0.5);
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+  max-width: 800px;
+  margin: 20px auto; /* Add margin to the top and bottom */
+  background-color: rgba(25, 33, 61, 0.5);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 /* Style the navbar */
 .navbar {
-    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  background: linear-gradient(
+    to right,
+    #3498db,
+    #2980b9
+  ); /* Gradient background */
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
 
 /* Style the links in the navbar */
 .navbar a {
-    color: white; /* Change to white for contrast */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  color: white; /* Change to white for contrast */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
 /* Change the link color on hover */
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.4); /* Light background on hover */
-    color: #ecf0f1; /* Lighter text color */
-    border-radius: 5px; /* Rounded corners on hover */
+  background-color: rgba(255, 255, 255, 0.4); /* Light background on hover */
+  color: #ecf0f1; /* Lighter text color */
+  border-radius: 5px; /* Rounded corners on hover */
 }
 
 .about-section {
-    /* padding: 20px 0; */
-    width:75%;
-    margin: auto;
-    margin-bottom: 30px;
+  /* padding: 20px 0; */
+  /* width: 75%; */
+  margin: auto;
+  margin-bottom: 30px;
 }
 
-.container{
-    width:85%;
-    margin: auto;
+.container {
+  width: 85%;
+  margin: auto;
 }
 
 h1 {
-    font-family: 'Righteous', cursive; /* Changed font for the title */
-    font-size: 28px;
-    background: linear-gradient(209deg, #ff0000, #deff0a, #ff4800); /* Adjusted gradient direction */
-    background-clip: text; /* Clip the background to the text */
-    -webkit-background-clip: text; /* For Safari */
-    color: transparent; /* Make the text transparent */
-    text-align: center;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
+  font-family: "Righteous", cursive; /* Changed font for the title */
+  font-size: 28px;
+  background: linear-gradient(
+    209deg,
+    #ff0000,
+    #deff0a,
+    #ff4800
+  ); /* Adjusted gradient direction */
+  background-clip: text; /* Clip the background to the text */
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent; /* Make the text transparent */
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .aboutmain {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .aboutmain p {
-    width: 300px;
+  /* width: 300px; */
 }
 
+.feature h3 {
+  color: rgb(191 219 254);
+}
+.team-member {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0px;
+  border-radius: 0.7rem;
+}
+#bannerimg {
+  height: 250px;
+  width: 70rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  border: 3px solid black;
+  margin-top: 1rem;
+}
+.team-member h3 {
+  color: rgb(191 219 254);
+}
+.team-member > p {
+  color: rgb(147 197 253);
+}
+.team-member > div > p {
+  font-size: 13px;
+}
+.feature {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0px;
+  border-radius: 0.7rem;
+}
 h2 {
-    font-family: 'Kalam', cursive; /* Changed font for the subtitles */
-    font-size: 24px;
-    background: linear-gradient(90deg, #ff7b00, #deff0a); /* Adjusted gradient direction */
-    background-clip: text; /* Clip the background to the text */
-    -webkit-background-clip: text; /* For Safari */
-    color: transparent; /* Make the text transparent */
-    text-align: center;
-    margin-block: 0px;
+  /* font-family: "rubik"; cursive; Changed font for the subtitles */
+  font-size: 24px;
+  background: linear-gradient(
+    90deg,
+    #bfdbfe,
+    #60a5fa
+  ); /* Adjusted gradient direction */
+  background-clip: text; /*Clip the background to the text*/
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent; /* Make the text transparent */
+  text-align: center;
+  margin-block: 0px;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    margin-inline: auto;
-    padding-inline: 15px;
-    margin-top: 5px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  margin-inline: auto;
+  padding-inline: 5px;
+  margin-top: 5px;
 }
 
 ul {
-    list-style: none;
-    padding-left: 20px;
-    color: white;
+  list-style: none;
+  padding-left: 20px;
+  color: white;
 }
 
 ul li {
-    margin-bottom: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding-left: 30px; /* Space for custom bullet */
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 30px; /* Space for custom bullet */
 }
 
 /* Footer Styles */
@@ -136,126 +190,256 @@ ul li {
     color: #fff;
     text-align: center;
     padding: 15px 0px; */
-    /* position: absolute;
+/* position: absolute;
     bottom: 0px; */
 /* } */
 
 #list {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: rgba(30, 64, 216, 0.547);
-    border-radius: 10px;
-    font-size: 16px;
-    line-height: 1.5;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(30, 64, 216, 0.547);
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 a {
-    display: block;
-    color: #dc0073;
+  display: block;
+  color: #dc0073;
 }
-
+.about-section #about > h2 {
+  font-size: 3rem;
+}
+.about-section #about > p {
+  font-weight: 500;
+  margin-top: 2rem;
+  width: 55rem;
+}
+#mission > h2 {
+  color: white;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+#mission > div {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.7rem;
+  width: 87%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: rubik;
+  font-weight: 300;
+}
+#mission > div > p {
+  text-align: left;
+  width: 80%;
+  margin-left: 0px;
+}
+#maingrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-left: 4rem;
+  margin-right: 4rem;
+  gap: 1.8rem;
+}
+#mainTeamMembers {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#lastContParagragh {
+  width: 55rem;
+}
+#mainTeamMembers p {
+  padding-inline: 0px;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .about-section {
-        /* padding: 20px 0; */
-        width:90%;
-        margin: auto;
-    }
-    .content {
-        margin: 0px;
-        border-radius: 0px;
-    }
-    .navbar {
-        width: 90%;
-        margin-top: 15px;
-        font-size: 14px;
-    }
-    .navbar a {
-        padding: 10px 15px;
-    }
-    footer {
-        position: relative;
-        margin-top: 26vh;
-        font-size: 12px;
-        padding: 2px;
-    }
+  .navbar > ul > li {
+    padding-left: 0px;
+  }
+  .navbar > ul > li > a {
+    font-size: 13px !important;
+  }
+  #lastContParagragh {
+    font-size: 13px;
+    width: 100%;
+  }
+  #mainTeamMembers {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    justify-content: center;
+  }
+  .feature {
+    padding: 1rem;
+    font-size: 10px;
+  }
+  .feature > h3 {
+    text-wrap: nowrap;
+  }
+  .feature > p {
+    font-size: 10px;
+    padding-inline: 0px;
+  }
+  .feature svg {
+    width: 30px;
+    height: 30px;
+  }
+  #maingrid {
+    display: grid;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  #mission > div > p {
+    text-align: left;
+    width: 100%;
+    margin-left: 0px;
+    font-size: 13px;
+  }
+  #mission img {
+    display: none;
+  }
+
+  #bannerimg {
+    height: 100px;
+    width: 100%;
+    object-fit: fill;
+    border-radius: 0.6rem;
+    border: 3px solid black;
+    margin-top: 1rem;
+  }
+  #mission > div {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    font-size: 16px;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .about-section #about > p {
+    font-weight: 100;
+    margin-top: 2rem;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .about-section #about > h2 {
+    font-size: 16px;
+  }
+  .about-section {
+    /* padding: 20px 0; */
+    width: 90%;
+    margin: auto;
+  }
+  .content {
+    margin: 0px;
+    border-radius: 0px;
+  }
+  .navbar {
+    width: 90%;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .navbar a {
+    padding: 10px 15px;
+  }
+  footer {
+    position: relative;
+    margin-top: 26vh;
+    font-size: 12px;
+    padding: 2px;
+  }
 }
 
 @media (max-width: 680px) {
-    .aboutmain {
-        flex-direction: column;
-    }
+  .aboutmain {
+    flex-direction: column;
+  }
 }
 
 /* Navbar styling */
 .navbar {
-    display: flex;
-    justify-content: center; /* Centers the nav items horizontally */
-    background-color: #fff; /* Change this to any background color you like */
-    padding: 10px 0; /* Adjusts spacing around the navbar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  display: flex;
+  justify-content: center; /* Centers the nav items horizontally */
+  background-color: #fff; /* Change this to any background color you like */
+  padding: 10px 0; /* Adjusts spacing around the navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
 }
 
 .navbar ul {
-    display: flex;
-    list-style-type: none; /* Removes bullet points */
-    padding: 0;
-    margin: 0;
+  display: flex;
+  list-style-type: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul li {
-    margin: 0 15px; /* Adds spacing between links */
+  margin: 0 15px; /* Adds spacing between links */
 }
 
 .navbar ul li a {
-    text-decoration: none; /* Removes underline */
-    color: #333; /* Adjust link color */
-    font-weight: bold; /* Makes text bold */
-    font-size: 16px; /* Increases font size */
-    padding: 8px 15px; /* Adds padding to links */
-    border-radius: 25px; /* Rounded edges */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  text-decoration: none; /* Removes underline */
+  color: #333; /* Adjust link color */
+  font-weight: bold; /* Makes text bold */
+  font-size: 16px; /* Increases font size */
+  padding: 8px 15px; /* Adds padding to links */
+  border-radius: 25px; /* Rounded edges */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .navbar ul li a:hover {
-    background-color: #f0f0f0; /* Changes background on hover */
-    color: #000; /* Darker text on hover */
+  background-color: #f0f0f0; /* Changes background on hover */
+  color: #000; /* Darker text on hover */
 }
 
 /* footer */
 footer {
-    background-color: rgb(0, 0, 0);
-    color: rgb(185, 182, 182);
-    text-align: center;
-    padding: 5px;
-    margin-top: 2px;
-    /* position: fixed;
+  background-color: rgb(0, 0, 0);
+  color: rgb(185, 182, 182);
+  text-align: center;
+  padding: 5px;
+  margin-top: 2px;
+  /* position: fixed;
     left: 0;
     bottom: 0; */
-    /* position: sticky; */
+  /* position: sticky; */
 }
 
 .card-footer {
-    padding: 10px 20px;
-    text-align: center;
-    background-color: #3498db;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #3498db;
 }
 
 .card-footer a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #2980b9;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #2980b9;
 }
 
 .card-footer a:hover {
-    background-color: #1f639e;
+  background-color: #1f639e;
 }
 .light-text {
-    color: #a5a5a5;
+  color: #a5a5a5;
 }
