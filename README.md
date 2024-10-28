@@ -8,26 +8,26 @@
 
 1. **Fork** this repository to your GitHub account.
 2. **Clone** the repository to your local machine:
-    ```bash
-    git clone ~your clone link~
-    ```
+   ```bash
+   git clone ~your clone link~
+   ```
 3. **Create a branch** with your name:
-    ```bash
-    git checkout -b ~your name~
-    ```
+   ```bash
+   git checkout -b ~your name~
+   ```
 4. **Make necessary changes** and commit those changes:
-    ```bash
-    git add .
-    git commit -m "your message"
-    ```
+   ```bash
+   git add .
+   git commit -m "your message"
+   ```
 5. **Push changes** to GitHub:
-    ```bash
-    git push origin ~your branch name~
-    ```
+   ```bash
+   git push origin ~your branch name~
+   ```
 6. **Submit your changes for review**:
-    - Go to your repository on GitHub.
-    - Click on the **Compare & pull request** button.
-    - Submit the pull request.
+   - Go to your repository on GitHub.
+   - Click on the **Compare & pull request** button.
+   - Submit the pull request.
 
 It's that easy! We are eagerly waiting for your pull request. 😊
 
@@ -35,4 +35,4 @@ It's that easy! We are eagerly waiting for your pull request. 😊
 
 Don't you feel happy and enlightened while contributing to this project? Give it a ⭐ then, it'll make us even happier!
 
-**Happy hacking!** 🚀
+**Happy hacking!** 🚀🚀🚀
