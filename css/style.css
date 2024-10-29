@@ -721,3 +721,45 @@ dotlottie-player {
     background-color: #f0f0f0; /* Changes background on hover */
     color: #000; /* Darker text on hover */
 }
+/* Add transition to input field */
+#input {
+    padding: 10px;
+    border: 1px solid #23777f;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 70%;
+    margin-right: 10px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease; /* Add transition */
+}
+
+#input:focus {
+    border-color: #28a745; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Add a shadow effect */
+}
+.navbar ul li a {
+    text-decoration: none; /* Removes underline */
+    color: #333; /* Adjust link color */
+    font-weight: bold; /* Makes text bold */
+    font-size: 16px; /* Increases font size */
+    padding: 8px 15px; /* Adds padding to links */
+    border-radius: 25px; /* Rounded edges */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
+}
+
+.navbar ul li a:hover {
+    background-color: #f0f0f0; /* Changes background on hover */
+    color: #000; /* Darker text on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+.card {
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Move card up slightly on hover */
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+}
