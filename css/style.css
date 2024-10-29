@@ -191,19 +191,20 @@ header {
 }
 
 /* Style the navbar */
+/* Style the navbar */
 .navbar {
-    background: linear-gradient(to right, #3498db, #2980b9);
-    width: 35%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    flex-direction: row;
-    justify-content: center;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 /* Style the navigation list */
@@ -216,35 +217,38 @@ header {
 
 /* Style the list items */
 .nav-item {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 /* Style the links */
 .nav-item a {
     display: block;
-    color: white;
+    color: #fff;
+    font-weight: bold;
     text-align: center;
-    padding: 14px 16px;
+    padding: 12px 18px;
     text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 /* Change the link color on hover */
 .nav-item a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    color: #ecf0f1;
-    border-radius: 5px;
+    color: #f1f1f1;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive adjustments */
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     .navbar {
-        width: 80%;
-        font-size: 2em;
+        width: 90%;
+        padding: 8px 0;
     }
 
     .nav-item {
-        margin: 0 10px;
+        margin: 0 12px;
     }
 }
 
