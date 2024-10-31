@@ -210,12 +210,13 @@ window.getWeather = function () {
                 var wind = data.wind.speed; // The wind speed in meters per second
                 var description = data.weather[0].description; // The weather description
                 var visibility = data.visibility / 1000; // The visibility in km
-
+                const weatherMain = data.weather[0].main; // The main weather type
                 const sunrise = data.sys.sunrise;
                 const sunset = data.sys.sunset;
                 const timezoneOffset = data.timezone;  // Get timezone offset in seconds
 
-                // Create a HTML string to display the data in a formatted way
+                // Update the background image based on the weather
+                updateBackground(weatherMain);
 
                 // Create a HTML string to display the data in a formatted way
                 let html = '<div class="card-content">';
@@ -267,6 +268,28 @@ window.getWeather = function () {
     }
     getGraph();
 }
+
+// Function to update the background image based on the weather
+function updateBackground(weatherMain) {
+  const weatherImages = {
+      Clear: "https://images.pexels.com/photos/96622/pexels-photo-96622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Clouds: "https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Rain: "https://images.pexels.com/photos/325676/pexels-photo-325676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Drizzle: "https://images.pexels.com/photos/1529360/pexels-photo-1529360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Thunderstorm: "https://images.pexels.com/photos/1118869/pexels-photo-1118869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Snow: "https://images.pexels.com/photos/1571442/pexels-photo-1571442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Mist: "https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Smoke: "https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Haze: "https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Dust: "https://images.pexels.com/photos/20045/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      Fog: "https://images.pexels.com/photos/978844/pexels-photo-978844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  };
+
+  // Set the background image according to the weather main type
+  const backgroundImage = weatherImages[weatherMain] || "https://wallpapers.com/images/hd/weather-scenarios-collage-dbk9c5n23l7e5fgb.jpg";
+  document.body.style.backgroundImage = `url('${backgroundImage}')`;
+}
+
 
 
 // To know more weather data
